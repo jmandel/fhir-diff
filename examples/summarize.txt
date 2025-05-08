@@ -1,0 +1,578 @@
+Here is an example resource definition presented in Markdown with embedded YAML blocks for structured data:
+
+---
+
+# FHIR Resource: Encounter
+
+```yaml
+resource:
+  name: Encounter
+  hl7_workgroup: Patient Administration
+  maturity_level: 4
+  standard_status: Trial Use
+  security_category: Patient
+  compartments:
+    - Encounter
+    - Group
+    - Patient
+    - Practitioner
+    - RelatedPerson
+```
+
+An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient. Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities.
+
+## Background and Scope
+
+The Encounter resource represents a wide range of interactions across different healthcare settings, including ambulatory (outpatient), inpatient, emergency, home health, and virtual encounters. It covers the lifecycle from pre-admission/planning through the actual interaction (or stay for inpatients) to discharge/completion.
+
+Key aspects include:
+
+*   **Broad Scope:** Not all elements are relevant in every setting. Admission/discharge details are grouped within an `admission` component.
+*   **Classification:** The `class` element is crucial for distinguishing the encounter setting (e.g., inpatient, outpatient), guiding validation and business rules.
+*   **Granularity:** The level of detail captured (e.g., a single encounter for a whole hospital stay vs. separate encounters for each practitioner visit) varies significantly based on organizational or jurisdictional practices. Encounters can be nested or grouped using the `partOf` element.
+*   **Planning vs. Actual:** While `Appointment` handles scheduling, `Encounter` records the *actual* interaction. An `Encounter` can exist in a `planned` status before the event occurs, reflecting expected details like start times or locations.
+*   **Status Management:**
+    *   `status`: Tracks the overall state of the encounter workflow (e.g., `planned`, `in-progress`, `completed`).
+    *   `subjectStatus`: Tracks the state of the *patient* within the encounter (e.g., `arrived`, `triaged`, `departed`). This binding is extensible for local workflow needs.
+    *   `EncounterHistory` Resource: Used for tracking the detailed history of status changes, especially for long encounters, replacing the previous `statusHistory` and `classHistory` backbone elements from R4.
+    *   "Admitted" Status: There's no single field indicating admission; it's inferred from context (e.g., `class`, `status` like `in-progress`, presence of the `admission` component).
+    *   Leave/Hold: Statuses like `on-leave` (for the subject) and `on-hold` (for the encounter) can represent periods like weekend leave.
+*   **Boundaries:**
+    *   `Encounter` is for the actual event; `Appointment` is for planning/scheduling. An appointment is typically fulfilled and linked to a newly created encounter when the event starts.
+    *   `Communication` is used for non-direct, often asynchronous interactions (like messages) without a recorded duration.
+*   **Nesting Example:** A hospital stay (`Encounter` A) might contain moves between departments (`Encounter` B, C, D, each `partOf` A), and specific consultations during one part (`Encounter` E, F, G, each `partOf` C or A). Profiling is expected to constrain this flexibility for specific use cases.
+*   **Associated Encounter Extension:** Use the standard `associatedEncounter` extension ([`http://hl7.org/fhir/StructureDefinition/encounter-associatedEncounter`](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-encounter-associatedEncounter.html)) to link resources to an Encounter when no dedicated property exists.
+
+## Resource Details
+
+The following defines the core elements and constraints of the Encounter resource.
+
+```yaml
+elements:
+  - name: Encounter
+    description: An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient. Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities.
+    short: An interaction during which services are provided to the patient
+    type: DomainResource
+    comments: The base resource definition.
+
+  - name: Encounter.identifier
+    flags: [Σ]
+    cardinality: 0..*
+    type: Identifier
+    description: Identifier(s) by which this encounter is known.
+    short: Identifier(s) by which this encounter is known
+
+  - name: Encounter.status
+    flags: [?!, Σ]
+    cardinality: 1..1
+    type: code
+    description: The current state of the encounter (not the state of the patient within the encounter - that is subjectState).
+    short: planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-status|6.0.0-cibuild
+      strength: required
+    comments: Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes).
+    isModifier: true
+    modifierReason: This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid
+
+  - name: Encounter.class
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.
+    short: Classification of patient encounter context - e.g. Inpatient, outpatient
+    binding:
+      valueSet: http://terminology.hl7.org/ValueSet/encounter-class
+      strength: preferred
+
+  - name: Encounter.priority
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Indicates the urgency of the encounter.
+    short: Indicates the urgency of the encounter
+    binding:
+      valueSet: http://terminology.hl7.org/ValueSet/v3-ActPriority
+      strength: example
+
+  - name: Encounter.type
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
+    short: Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-type
+      strength: example
+    comments: Since there are many ways to further classify encounters, this element is 0..*.
+
+  - name: Encounter.serviceType
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableReference(HealthcareService)
+    description: Broad categorization of the service that is to be provided (e.g. cardiology).
+    short: Specific type of service
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/service-type
+      strength: example
+
+  - name: Encounter.subject
+    flags: [Σ]
+    cardinality: 0..1
+    type: Reference(Patient | Group)
+    description: The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam.
+    short: The patient or group related to this encounter
+    comments: While the encounter is always about the patient, the patient might not actually be known in all contexts of use, and there may be a group of patients that could be anonymous or alternately in veterinary care a herd of sheep receiving treatment.
+
+  - name: Encounter.subjectStatus
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status.
+    short: The current status of the subject in relation to the Encounter
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-subject-status
+      strength: example
+    comments: Different use-cases are likely to have different permitted transitions between states.
+
+  - name: Encounter.episodeOfCare
+    flags: [Σ]
+    cardinality: 0..*
+    type: Reference(EpisodeOfCare)
+    description: Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem. The association is recorded on the encounter as these are typically created after the episode of care and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).
+    short: Episode(s) of care that this encounter should be recorded against
+
+  - name: Encounter.basedOn
+    cardinality: 0..*
+    type: Reference(CarePlan | DeviceRequest | MedicationRequest | ServiceRequest | RequestOrchestration | NutritionOrder | VisionPrescription | ImmunizationRecommendation)
+    description: The request this encounter satisfies (e.g. incoming referral or procedure request).
+    short: The request that initiated this encounter
+
+  - name: Encounter.careTeam
+    cardinality: 0..*
+    type: Reference(CareTeam)
+    description: The group(s) of individuals, organizations that are allocated to participate in this encounter. The participants backbone will record the actuals of when these individuals participated during the encounter.
+    short: The group(s) that are allocated to participate in this encounter
+
+  - name: Encounter.partOf
+    cardinality: 0..1
+    type: Reference(Encounter)
+    description: Another Encounter of which this encounter is a part of (administratively or in time).
+    short: Another Encounter this encounter is part of
+    comments: This is also used for associating a child's encounter back to the mother's encounter. Refer to the Notes section in the Patient resource for further details.
+
+  - name: Encounter.serviceProvider
+    cardinality: 0..1
+    type: Reference(Organization)
+    description: The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed separately) for an external consultation. Refer to the colonoscopy example on the Encounter examples tab.
+    short: The organization (facility) responsible for this encounter
+
+  - name: Encounter.participant
+    flags: [Σ, C]
+    cardinality: 0..*
+    type: BackboneElement
+    description: The list of people responsible for providing the service.
+    short: List of participants involved in the encounter
+    comments: Any Patient or Group present in the participation.actor must also be the subject, though the subject may be absent from the participation.actor for cases where the patient (or group) is not present, such as during a case review conference.
+
+  - name: Encounter.participant.type
+    flags: [Σ, C]
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Role of participant in encounter.
+    short: Role of participant in encounter
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-participant-type
+      strength: extensible
+    comments: The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.
+
+  - name: Encounter.participant.period
+    cardinality: 0..1
+    type: Period
+    description: The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period.
+    short: Period of time during the encounter that the participant participated
+
+  - name: Encounter.participant.actor
+    flags: [Σ, C]
+    cardinality: 0..1
+    type: Reference(Patient | Group | RelatedPerson | Practitioner | PractitionerRole | Device | HealthcareService)
+    description: Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times.
+    short: The individual, device, or service participating in the encounter
+    comments: For planning purposes, Appointments may include a CareTeam participant. However, CareTeam is not included in Encounter.participant, as the specific individual should be assigned. Similarly, Location can be included in Appointment.participant but is tracked on Encounter.location.
+
+  - name: Encounter.appointment
+    flags: [Σ]
+    cardinality: 0..*
+    type: Reference(Appointment)
+    description: The appointment that scheduled this encounter.
+    short: The appointment that scheduled this encounter
+
+  - name: Encounter.virtualService
+    cardinality: 0..*
+    type: VirtualServiceDetail
+    description: Connection details of a virtual service (e.g. conference call).
+    short: Connection details of a virtual service (e.g. conference call)
+    comments: Consider using Location.virtualService for persistent rooms. Extensions can be used on participant for participant-specific links.
+
+  - name: Encounter.actualPeriod
+    cardinality: 0..1
+    type: Period
+    description: The actual start and end time of the encounter.
+    short: The actual start and end time of the encounter
+    comments: If not (yet) known, the end of the Period may be omitted.
+
+  - name: Encounter.plannedStartDate
+    cardinality: 0..1
+    type: dateTime
+    description: The planned start date/time (or admission date) of the encounter.
+    short: The planned start date/time (or admission date) of the encounter
+
+  - name: Encounter.plannedEndDate
+    cardinality: 0..1
+    type: dateTime
+    description: The planned end date/time (or discharge date) of the encounter.
+    short: The planned end date/time (or discharge date) of the encounter
+
+  - name: Encounter.length
+    cardinality: 0..1
+    type: Duration
+    description: Actual quantity of time the encounter lasted. This excludes the time during leaves of absence. When missing it is the time in between the start and end values.
+    short: Actual quantity of time the encounter lasted (less time absent)
+    comments: May differ from the time in Encounter.actualPeriod due to leave of absence(s).
+
+  - name: Encounter.reason
+    flags: [Σ]
+    cardinality: 0..*
+    type: BackboneElement
+    description: The list of medical reasons that are expected to be addressed during the episode of care.
+    short: The list of medical reasons that are expected to be addressed during the episode of care
+    comments: Communicates the medical problem(s) to be addressed. Could be patient complaint, clinical indication, planned care, etc. Use 'use' code to differentiate (e.g., Chief Complaint vs. Reason for Visit).
+
+  - name: Encounter.reason.use
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableConcept
+    description: What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening).
+    short: What the reason value should be used for/as
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-reason-use
+      strength: example
+
+  - name: Encounter.reason.value
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableReference(Condition | DiagnosticReport | Observation | ImmunizationRecommendation | Procedure)
+    description: Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis.
+    short: Reason the encounter takes place (core or reference)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-reason
+      strength: preferred
+
+  - name: Encounter.diagnosis
+    flags: [Σ]
+    cardinality: 0..*
+    type: BackboneElement
+    description: The list of diagnosis relevant to this encounter.
+    short: The list of diagnosis relevant to this encounter
+    comments: For billing purposes, diagnoses are often ranked in the Account resource.
+
+  - name: Encounter.diagnosis.condition
+    flags: [Σ]
+    cardinality: 0..*
+    type: CodeableReference(Condition)
+    description: The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis.
+    short: The diagnosis relevant to the encounter
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/condition-code
+      strength: example
+
+  - name: Encounter.diagnosis.use
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
+    short: Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-diagnosis-use
+      strength: preferred
+
+  - name: Encounter.account
+    cardinality: 0..*
+    type: Reference(Account)
+    description: The set of accounts that may be used for billing for this Encounter.
+    short: The set of accounts that may be used for billing for this Encounter
+    comments: Intended for long-running accounts. For episodic accounts, see Account.covers.
+
+  - name: Encounter.dietPreference
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Diet preferences reported by the patient.
+    short: Diet preferences reported by the patient
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-diet
+      strength: example
+    comments: For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive). Use NutritionOrder for complete nutritional needs.
+
+  - name: Encounter.specialArrangement
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Any special requests that have been made for this encounter, such as the provision of specific equipment or other things.
+    short: Wheelchair, translator, stretcher, etc
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-special-arrangements
+      strength: preferred
+
+  - name: Encounter.specialCourtesy
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy).
+    short: Special courtesies (VIP, board member)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-special-courtesy
+      strength: preferred
+    comments: Intended for flagging additional benefits (private room, admin visit, etc.), not primarily for security tagging (use Resource.meta.security for that).
+
+  - name: Encounter.admission
+    cardinality: 0..1
+    type: BackboneElement
+    description: Details about the stay during which a healthcare service is provided. This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge.
+    short: Details about the admission to a healthcare service
+    comments: An Encounter may cover more than just the inpatient stay. The period of this component covers the entire scope of the admission record.
+
+  - name: Encounter.admission.preAdmissionIdentifier
+    cardinality: 0..1
+    type: Identifier
+    description: Pre-admission identifier.
+    short: Pre-admission identifier
+
+  - name: Encounter.admission.origin
+    cardinality: 0..1
+    type: Reference(Location | Organization)
+    description: The location/organization from which the patient came before admission.
+    short: The location/organization from which the patient came before admission
+
+  - name: Encounter.admission.admitSource
+    cardinality: 0..1
+    type: CodeableConcept
+    description: From where patient was admitted (physician referral, transfer).
+    short: From where patient was admitted (physician referral, transfer)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-admit-source
+      strength: preferred
+
+  - name: Encounter.admission.reAdmission
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Indicates that this encounter is directly related to a prior admission, often because the conditions addressed in the prior admission were not fully addressed.
+    short: Indicates that the patient is being re-admitted
+    binding:
+      valueSet: http://terminology.hl7.org/ValueSet/v2-0092
+      strength: example
+
+  - name: Encounter.admission.destination
+    cardinality: 0..1
+    type: Reference(Location | Organization)
+    description: Location/organization to which the patient is discharged.
+    short: Location/organization to which the patient is discharged
+
+  - name: Encounter.admission.dischargeDisposition
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Category or kind of location after discharge.
+    short: Category or kind of location after discharge
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-discharge-disposition
+      strength: example
+
+  - name: Encounter.location
+    cardinality: 0..*
+    type: BackboneElement
+    description: List of locations where the patient has been during this encounter.
+    short: List of locations where the patient has been
+    comments: Virtual encounters can specify a location kind like "client's home" and encounter.class = "virtual".
+
+  - name: Encounter.location.location
+    cardinality: 1..1
+    type: Reference(Location)
+    description: The location where the encounter takes place.
+    short: Location the encounter takes place
+
+  - name: Encounter.location.status
+    cardinality: 0..1
+    type: code
+    description: The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time.
+    short: planned | active | reserved | completed
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/encounter-location-status
+      strength: required
+    comments: When the patient is no longer active at a location, the period end date is entered, and status may change to completed.
+
+  - name: Encounter.location.form
+    cardinality: 0..1
+    type: CodeableConcept
+    description: This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query.
+    short: The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)
+    binding:
+      valueSet: http://hl7.org/fhir/ValueSet/location-form
+      strength: example
+    comments: De-normalized from Location resource for easier processing. May only include levels relevant to the specific usage scenario.
+
+  - name: Encounter.location.period
+    cardinality: 0..1
+    type: Period
+    description: Time period during which the patient was present at the location.
+    short: Time period during which the patient was present at the location
+
+constraints:
+  - key: enc-1
+    severity: Rule
+    location: Encounter.participant
+    description: A type must be provided when no explicit actor is specified
+    expression: actor.exists() or type.exists()
+  - key: enc-2
+    severity: Rule
+    location: Encounter.participant
+    description: A type cannot be provided for a patient or group participant
+    expression: actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()
+
+```
+
+## Search Parameters
+
+Search parameters defined for the Encounter resource:
+
+```yaml
+searchParameters:
+  - name: account
+    type: reference
+    description: The set of accounts that may be used for billing for this Encounter
+    expression: Encounter.account
+    targets: [Account]
+  - name: appointment
+    type: reference
+    description: The appointment that scheduled this encounter
+    expression: Encounter.appointment
+    targets: [Appointment]
+  - name: based-on
+    type: reference
+    description: The ServiceRequest that initiated this encounter
+    expression: Encounter.basedOn
+    targets: [CarePlan, MedicationRequest, RequestOrchestration, NutritionOrder, VisionPrescription, DeviceRequest, ServiceRequest, ImmunizationRecommendation]
+  - name: careteam
+    type: reference
+    description: Careteam allocated to participate in the encounter
+    expression: Encounter.careTeam
+    targets: [CareTeam]
+  - name: class
+    type: token
+    description: Classification of patient encounter
+    expression: Encounter.class
+  - name: date
+    type: date
+    description: A date within the actualPeriod the Encounter lasted
+    expression: Encounter.actualPeriod
+  - name: date-start
+    type: date
+    description: The actual start date of the Encounter
+    expression: Encounter.actualPeriod.start
+  - name: diagnosis-code
+    type: token
+    description: The diagnosis or procedure relevant to the encounter (coded)
+    expression: Encounter.diagnosis.condition.concept
+  - name: diagnosis-reference
+    type: reference
+    description: The diagnosis or procedure relevant to the encounter (resource reference)
+    expression: Encounter.diagnosis.condition.reference
+    targets: [Condition] # Extracted from type CodeableReference(Condition) on diagnosis.condition
+  - name: end-date
+    type: date
+    description: The actual end date of the Encounter
+    expression: Encounter.actualPeriod.end
+  - name: episode-of-care
+    type: reference
+    description: Episode(s) of care that this encounter should be recorded against
+    expression: Encounter.episodeOfCare
+    targets: [EpisodeOfCare]
+  - name: identifier
+    type: token
+    description: Identifier(s) by which this encounter is known
+    expression: Encounter.identifier
+  - name: length
+    type: quantity
+    description: Length of encounter in days # Note: HTML says 'days', but type is Duration - likely means general length
+    expression: Encounter.length
+  - name: location
+    type: reference
+    description: Location the encounter takes place
+    expression: Encounter.location.location
+    targets: [Location]
+  - name: location-period
+    type: date
+    description: Time period during which the patient was present at a location (generally used via composite location-period)
+    expression: Encounter.location.period
+  - name: location-value-period # Typo in source HTML, should likely match definition
+    type: composite
+    description: Time period during which the patient was present at the location
+    components:
+      - definition: location
+        expression: location
+      - definition: location-period
+        expression: period
+  - name: part-of
+    type: reference
+    description: Another Encounter this encounter is part of
+    expression: Encounter.partOf
+    targets: [Encounter]
+  - name: participant
+    type: reference
+    description: Persons involved in the encounter other than the patient
+    expression: Encounter.participant.actor
+    targets: [Practitioner, Group, Device, Patient, HealthcareService, PractitionerRole, RelatedPerson]
+  - name: participant-type
+    type: token
+    description: Role of participant in encounter
+    expression: Encounter.participant.type
+  - name: patient
+    type: reference
+    description: The patient present at the encounter
+    expression: Encounter.subject.where(resolve() is Patient)
+    targets: [Patient]
+  - name: practitioner
+    type: reference
+    description: Persons involved in the encounter other than the patient
+    expression: Encounter.participant.actor.where(resolve() is Practitioner)
+    targets: [Practitioner]
+  - name: reason-code
+    type: token
+    description: Reference to a concept (coded)
+    expression: Encounter.reason.value.concept
+  - name: reason-reference
+    type: reference
+    description: Reference to a resource (resource reference)
+    expression: Encounter.reason.value.reference
+    targets: [Condition, DiagnosticReport, Observation, ImmunizationRecommendation, Procedure] # Extracted from CodeableReference type on reason.value
+  - name: service-provider
+    type: reference
+    description: The organization (facility) responsible for this encounter
+    expression: Encounter.serviceProvider
+    targets: [Organization]
+  - name: special-arrangement
+    type: token
+    description: Wheelchair, translator, stretcher, etc.
+    expression: Encounter.specialArrangement
+  - name: status
+    type: token
+    description: planned | in-progress | on-hold | completed | cancelled | entered-in-error | unknown # Note: Discharged/Discontinued are missing here but present in element definition
+    expression: Encounter.status
+  - name: subject
+    type: reference
+    description: The patient or group present at the encounter
+    expression: Encounter.subject
+    targets: [Group, Patient]
+  - name: subject-status
+    type: token
+    description: The current status of the subject in relation to the Encounter
+    expression: Encounter.subjectStatus
+  - name: type
+    type: token
+    description: Specific type of encounter
+    expression: Encounter.type
+
+```
