@@ -75,8 +75,8 @@ export async function ensureResourceSummaries(
   projectRootDir: string,
   ai: GoogleGenAI
 ): Promise<{ r4SummaryPath: string; r6SummaryPath: string } | null> {
-  const r4OutputDir = path.join(projectRootDir, 'analyzed', 'r4');
-  const r6OutputDir = path.join(projectRootDir, 'analyzed', 'r6');
+  const r4OutputDir = path.join(projectRootDir, 'summaries', 'r4');
+  const r6OutputDir = path.join(projectRootDir, 'summaries', 'r6');
   const r4SummaryPath = path.join(r4OutputDir, `${resourceName.toLowerCase()}.md`);
   const r6SummaryPath = path.join(r6OutputDir, `${resourceName.toLowerCase()}.md`);
 

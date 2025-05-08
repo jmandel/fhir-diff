@@ -1,0 +1,473 @@
+<h2 id="root">Resource Profile:
+
+    US Core Observation Pregnancy Intent Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreObservationPregnancyIntentProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.44
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The  US Core Observation Pregnancy Intent Profile inherits from the FHIR <a href="https://hl7.org/fhir/R4/observation.html">Observation</a> resource; refer to it for scope and usage definitions. This profile meets the requirements of the U.S. Core Data for Interoperability (USCDI)  <em>Pregnancy Status</em> Data Element. This profile sets minimum expectations for the Observation resource to record, search, and fetch the patient's intention to become pregnant. It specifies which core elements, extensions,  vocabularies, and value sets <strong>SHALL</strong> be present in the resource and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for a patient's pregnancy intention</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> a past or present pregnancy intention</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each Observation Must Have:</strong></p>
+
+<ol>
+  <li>a status</li>
+  <li>a code for pregnancy intention observation</li>
+  <li>a patient</li>
+  <li>when the observation occurred</li>
+  <li>the pregnancy intention</li>
+</ol>
+
+<p><strong>Each Observation Must Support:</strong></p>
+
+<ol>
+  <li>a category code of "social-history"</li>
+</ol>
+
+
+
+<p><strong>Additional USCDI Requirements:</strong></p>
+
+<p>These <a href="must-support.html#additional-uscdi-requirements">Additional USCDI Requirements</a> elements are not Mandatory or Must Support but are required for ASTP Health IT certification testing and are included in the formal definition of the profile and the Observation examples.</p>
+
+<ol>
+  <li>a performer*</li>
+</ol>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>To represent the patient's <em>pregnancy status</em>, use the <a href="StructureDefinition-us-core-observation-pregnancystatus.html">US Core Observation Pregnancy Status Profile</a>.</li>
+</ul>
+
+
+<ul>
+  <li>
+    <p>*The profile elements <code class="language-plaintext highlighter-rouge">Observation.performer and Observation.device</code> communicate the <a href="basic-provenance.html#individual-level-provenance">individual level provenance</a> author data corresponding to the U.S. Core Data for Interoperability (USCDI) Provenance Author Data Elements.</p>
+  </li>
+  <li>
+    <p>The [US Core Pregnancy Intent Codes] value set includes SNOMED CT codes and the HL7 V3 code for the concept "unknown". These codes have historically been used to communicate a patient's intent regarding pregnancy.</p>
+  </li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Examples for this Resource Profile: <a href="Observation-pregnancy-intent.html">Observation/pregnancy-intent</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>The data elements list has changed</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation" title="Measurements and simple assertions made about a patient, device or other subject." data-no-external="true">Observation</a><a name="k-Observation"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-6, obs-7 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+<td class="hierarchy">Measurements and simple assertions<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>obs-6: </span>dataAbsentReason SHALL only be present if Observation.value[x] is not present<br><span>obs-7: </span>If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-Observation.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Observation.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.status" title="The status of the result value." data-no-external="true">status</a><a name="k-Observation.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">registered | preliminary | final | amended +<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-status.html" title="http://hl7.org/fhir/ValueSet/observation-status">ObservationStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Codes providing the status of an observation.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.category" title="A code that classifies the general type of observation being made." data-no-external="true">Slices for category</a><a name="k-Observation.category"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy"><span></span><span>0</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy"><span>Classification of  type of observation</span><br><span>Slice: </span><span>Unordered, Open by value:$this</span><br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-category.html" title="http://hl7.org/fhir/ValueSet/observation-category">ObservationCategoryCodes</a><span> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">preferred</a><span>)</span><span>: </span><span>Codes for high level observation categories.</span><br><br><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.category:SocialHistory" title="Slice SocialHistory: A code that classifies the general type of observation being made." data-no-external="true">category:SocialHistory</a><a name="k-Observation.category.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Classification of  type of observation<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-category.html" title="http://hl7.org/fhir/ValueSet/observation-category">ObservationCategoryCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">preferred</a>): Codes for high level observation categories.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://terminology.hl7.org/CodeSystem/observation-category</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>social-history</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.code" title="Describes what was observed. Sometimes this is called the observation &quot;name&quot;." data-no-external="true">code</a><a name="k-Observation.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Pregnancy Status<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-codes.html" title="http://hl7.org/fhir/ValueSet/observation-codes">LOINCCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">example</a>): Codes identifying names of simple observations.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://loinc.org</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>86645-9</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.subject" title="The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation." data-no-external="true">subject</a><a name="k-Observation.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">Who and/or what the observation is about<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.effective[x]" title="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself." data-no-external="true">Slices for effective[x]</a><a name="k-Observation.effective_x_"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy"><span></span><span>1</span><span>..</span><span>1</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td>
+<td class="hierarchy"><span>Clinically relevant time/time-period for observation</span><br><span>Slice: </span><span>Unordered, Closed by type:$this</span><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.effective[x]:effectiveDateTime" title="Slice effectiveDateTime: The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself." data-no-external="true">effective[x]:effectiveDateTime</a><a name="k-Observation.effective_x_.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td>
+<td class="hierarchy">Clinically relevant time/time-period for observation<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.performer" title="Who was responsible for asserting the observed value as &quot;true&quot;." data-no-external="true">performer</a><a name="k-Observation.performer"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a> | <a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a> | <a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a> | <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a> | <a href="StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a> | <a href="StructureDefinition-us-core-relatedperson.html">US Core RelatedPerson Profile</a>)</td>
+<td class="hierarchy">&#x1D5D4;&#x1D5D7;&#x1D5D7;&#x1D5DC;&#x1D5E7;&#x1D5DC;&#x1D5E2;&#x1D5E1;&#x1D5D4;&#x1D5DF; &#x1D5E8;&#x1D5E6;&#x1D5D6;&#x1D5D7;&#x1D5DC;: Who is responsible for the observation<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.value[x]" title="The information determined as a result of making the observation, if the information has a simple value." data-no-external="true">Slices for value[x]</a><a name="k-Observation.value_x_"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-7 )">C</a></td>
+<td class="hierarchy"><span></span><span>1</span><span>..</span><span>1</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy"><span>Actual result</span><br><span>Slice: </span><span>Unordered, Closed by type:$this</span><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-observation-pregnancyintent-definitions.html#Observation.value[x]:valueCodeableConcept" title="Slice valueCodeableConcept: The information determined as a result of making the observation, if the information has a simple value." data-no-external="true">value[x]:valueCodeableConcept</a><a name="k-Observation.value_x_.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-7 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Coded Responses from Pregnancy Intent Value Set<br><span>Binding: </span><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1166.22/expansion" title="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22">Pregnancy Intention <img src="external.png" alt="."></a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet / Code</b></td><td><b>URI</b></td></tr>
+<tr><td>Observation.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Codes providing the status of an observation."><a href="http://hl7.org/fhir/R4/valueset-observation-status.html">ObservationStatus</a><div><code>http://hl7.org/fhir/ValueSet/observation-status|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-status|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.category</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#preferred">preferred</a></td><td title="Codes for high level observation categories."><a href="http://hl7.org/fhir/R4/valueset-observation-category.html">ObservationCategoryCodes</a><div><code>http://hl7.org/fhir/ValueSet/observation-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-category"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.category:SocialHistory</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#preferred">preferred</a></td><td title="Codes for high level observation categories.">Pattern: <a title="Observation Category Codes" href="http://terminology.hl7.org/6.3.0/CodeSystem-observation-category.html#observation-category-social-history">social-history</a><div><code>http://hl7.org/fhir/ValueSet/observation-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-category"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.code</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#example">example</a></td><td title="Codes identifying names of simple observations.">Pattern: LOINC Code 86645-9<div><code>http://hl7.org/fhir/ValueSet/observation-codes</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-codes"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.value[x]:valueCodeableConcept</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1166.22/expansion">PregnancyIntention <img src="external.png" alt="."></a><div><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1166.22"></button></div><div>from <a href="https://vsac.nlm.nih.gov">https://vsac.nlm.nih.gov</a></div></td></tr>
+</table>
+
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-observation-pregnancyintent.csv">CSV</a>, <a href="StructureDefinition-us-core-observation-pregnancyintent.xlsx">Excel</a>, <a href="StructureDefinition-us-core-observation-pregnancyintent.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to social history data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li>
+    <p><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Observation.rs</code></p>
+  </li>
+  <li>
+    <p><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#finer-grained-resource-constraints-using-search-parameters">granular scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Observation.rs?category=http://terminology.hl7.org//CodeSystem-observation-category|social-history</code></p>
+  </li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> search parameters:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;amp;category=social-history</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and a category code = <code class="language-plaintext highlighter-rouge">laboratory</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;amp;code=http://loinc.org|86645-9</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and observation code(s).  SHOULD support search by multiple report codes. The Observation <code class="language-plaintext highlighter-rouge">code</code> parameter searches `Observation.code only. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]Observation?patient=555580&amp;category=social-history&amp;date=ge2018-03-14T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and date and a category code = <code class="language-plaintext highlighter-rouge">laboratory</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory&amp;status={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;category=social-history&amp;status=final</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and category = <code class="language-plaintext highlighter-rouge">laboratory</code> and status (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-lastupdated.html"><code class="language-plaintext highlighter-rouge">_lastUpdated</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">_lastUpdated</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (e.g.<code class="language-plaintext highlighter-rouge">_lastUpdated=[date]&amp;_lastUpdated=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category={system|}[code]&amp;_lastUpdated={gt|lt|ge|le}[date]{&amp;_lastUpdated={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]Observation?patient=555580&amp;social-history&amp;_lastUpdated=ge2024-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and category and _lastUpdated. See the US Core General Guidance page for <a href="general-guidance.html#searching-using-lastupdated">Searching Using lastUpdated</a>. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]Observation?patient=555580&amp;code=http://loinc.org|86645-9&amp;date=ge2019-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and date and report code(s).  SHOULD support search by multiple report codes. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

@@ -1,0 +1,490 @@
+<h2 id="root">Resource Profile:
+
+    US Core DiagnosticReport Profile for Report and Note Exchange
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreDiagnosticReportProfileNoteExchange</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.21
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core DiagnosticReport Profile for Report and Note Exchange inherits from the FHIR <a href="https://hl7.org/fhir/R4/diagnosticreport.html">DiagnosticReport</a> resource; refer to it for scope and usage definitions. This profile sets minimum expectations for searching and fetching Diagnostic Reports and Notes using the DiagnosticReport resource. It specifies which core elements, extensions,  vocabularies, and value sets <strong>SHALL</strong> be present in the resource and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption. Before reviewing this profile, implementers are encouraged to read the Clinical Notes Guidance to understand the overlap of the US Core DiagnosticReport Profile for Report and Note exchange and the US Core DocumentReference Profile.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for a specific clinical test result, such as an electrocardiogram (ECG)</li>
+  <li>Query for a specific imaging test result</li>
+  <li>Query for a specific Radiology note (e.g., 84178-3 Interventional Radiology Note)</li>
+  <li>Query for a category of reports (e.g., all Cardiology reports)</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each Diagnostic Report Must Have:</strong></p>
+
+<ol>
+  <li>a status</li>
+  <li>a category*</li>
+  <li>a code describing the type of report</li>
+  <li>a patient</li>
+  <li>the diagnostically relevant time (known as the "effective time" and typically the time of the procedure)*</li>
+</ol>
+
+<p>*This element has the following constraint: <strong>SHALL</strong> be present if status is
+'partial', 'preliminary', 'final', 'amended', 'corrected', or 'appended'.</p>
+
+<p><strong>Each Diagnostic Report Must Support:</strong></p>
+
+<ol>
+  <li>encounter associated with DiagnosticReport</li>
+  <li>instant the report was released</li>
+  <li>an author (actor) producing the report</li>
+  <li>a results interpreter*</li>
+  <li>a reference to one or more test results</li>
+  <li>a reference to one or more images</li>
+  <li>a reference to the full report (presentedForm)</li>
+</ol>
+
+<p>* see guidance below</p>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>See <a href="clinical-notes.html">Clinical Notes</a></li>
+  <li>The <code class="language-plaintext highlighter-rouge">DiagnosticReport.category</code> binding Must Support, at a minimum, the <a href="ValueSet-us-core-diagnosticreport-category.html">US Core DiagnosticReport Category Codes</a> of Cardiology, Radiology, and Pathology. Other categories may be supported.
+    <ul>
+      <li>It is up to the data source to categorize the documents they send. Therefore, Clients need to understand that data categorization is somewhat subjective, and the categorization applied by the source may not align with the Client's expectations. Any linkages between specific LOINC codes and the LP-type codes may be used as guidance. If LOINC develops a hierarchy or categorization to align these concepts, US Core will be updated.</li>
+    </ul>
+  </li>
+  <li>A Server will return how a customer has categorized their reports at a particular site. Categorization of reports is not consistent across sites. (e.g., a system may categorize an orthopedic note as cardiology.)</li>
+  <li>For Diagnostic Imaging Reports systems <strong>SHOULD</strong> support using the subset of  LOINC codes defined in CONF-DIR-19 in *HL7 Implementation Guide for CDA Release 2: Imaging Integration, Levels 1, 2, and 3, Basic Imaging Reports in CDA and DICOM Diagnostic Imaging Reports (DIR) - Universal Realm, Release 1.0.</li>
+</ul>
+
+
+<ul>
+  <li>
+    <p>*The profile elements <code class="language-plaintext highlighter-rouge">DiagnosticReport.performer and DiagnosticReport.resultsInterpreter</code> communicate the <a href="basic-provenance.html#individual-level-provenance">individual level provenance</a> author data corresponding to the U.S. Core Data for Interoperability (USCDI) Provenance Author Data Elements.</p>
+  </li>
+  <li>
+    <p>Diagnostic imaging results in visual images requiring interpretation and clinical test results/reports may also reference images as part of the report. There is no single approach for accessing imaging studies alongside clinical data using a single authorization flow to give patients and providers access to the images.</p>
+
+    <ul>
+      <li>The <code class="language-plaintext highlighter-rouge">DiagnosticReport.media.link</code> element <strong>SHOULD</strong> be used to support links to various patient-friendly content, such as jpg images of x-rays (see the DiagnosticReport Chest X-ray Report Example).</li>
+      <li>The <code class="language-plaintext highlighter-rouge">DiagnosticReport.imagingStudy</code> element <strong>SHOULD</strong> be used to support exchange with systems that can view <span class="bg-success">DICOM (Digital Imaging and Communications in Medicine) studies, series, and SOP (Service-Object Pair) instances</span> referenced in the <a href="http://hl7.org/fhir/R4/imagingstudy.html">ImagingStudy</a> resource.</li>
+      <li>Alternatively, systems can use business identifiers such as accession numbers in the <code class="language-plaintext highlighter-rouge">identifier</code> element to access the source images from external sources.</li>
+    </ul>
+  </li>
+  <li>
+    <p><span class="bg-success">The <code class="language-plaintext highlighter-rouge">DiagnosticRequest.basedOn</code> element connects the DiagnosticReport to the originating order in the EHR. Systems that initiate the lab order <strong>SHOULD</strong> use this element when reporting the results.</span></p>
+  </li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Examples for this Resource Profile: <a href="DiagnosticReport-bone-density-report.html">DiagnosticReport/bone-density-report</a>, <a href="DiagnosticReport-cardiology-report.html">DiagnosticReport/cardiology-report</a> and <a href="DiagnosticReport-chest-xray-report.html">DiagnosticReport/chest-xray-report</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>The data elements list has changed</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport" title="The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports." data-no-external="true">DiagnosticReport</a><a name="k-DiagnosticReport"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-10 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/diagnosticreport.html">DiagnosticReport</a></td>
+<td class="hierarchy">A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>us-core-10: </span>effective[x] SHALL be present if the status is 'partial', 'preliminary', 'final', 'amended', 'corrected' or 'appended'<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-DiagnosticReport.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-DiagnosticReport.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.status" title="The status of the diagnostic report." data-no-external="true">status</a><a name="k-DiagnosticReport.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-10 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">registered | partial | preliminary | final +<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-diagnostic-report-status.html" title="http://hl7.org/fhir/ValueSet/diagnostic-report-status">DiagnosticReportStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.category" title="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes." data-no-external="true">Slices for category</a><a name="k-DiagnosticReport.category"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy"><span></span><span>1</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy"><span>Service category</span><br><span>Slice: </span><span>Unordered, Open by value:$this</span><br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-diagnostic-service-sections.html" title="http://hl7.org/fhir/ValueSet/diagnostic-service-sections">DiagnosticServiceSectionCodes</a><span> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">example</a><span>)</span><span>: </span><span>Codes for diagnostic service sections.</span><br><br><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.category:us-core" title="Slice us-core: A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes." data-no-external="true">category:us-core</a><a name="k-DiagnosticReport.category.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Service category<br><span>Binding: </span><a href="ValueSet-us-core-diagnosticreport-category.html" title="http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-category">US Core Diagnostic Report Category Codes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Note that other codes are permitted, see <a href="general-requirements.html#required-bindings-when-slicing-by-valuesets">Required Bindings When Slicing by Value Sets</a><br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.code" title="The test, panel, report, or note that was ordered." data-no-external="true">code</a><a name="k-DiagnosticReport.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">US Core Report Code<br><span>Binding: </span><a href="ValueSet-us-core-diagnosticreport-report-and-note-codes.html" title="http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes">US Core Non Laboratory Codes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): LOINC codes<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.subject" title="The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources." data-no-external="true">subject</a><a name="k-DiagnosticReport.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">The subject of the report - usually, but not always, the patient<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.encounter" title="The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about." data-no-external="true">encounter</a><a name="k-DiagnosticReport.encounter"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-encounter.html">US Core Encounter Profile</a>)</td>
+<td class="hierarchy">Encounter associated with DiagnosticReport<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_choice.gif" alt="." title="Choice of Types" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.effective[x]" title="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself." data-no-external="true">effective[x]</a><a name="k-DiagnosticReport.effective_x_"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-10 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Diagnostically relevant time (typically the time of the procedure)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <span title="Base StructureDefinition for dateTime Type: A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.">effectiveDateTime</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.issued" title="The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified." data-no-external="true">issued</a><a name="k-DiagnosticReport.issued"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#instant">instant</a></td>
+<td class="hierarchy">DateTime this version was made<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.performer" title="The diagnostic service that is responsible for issuing the report." data-no-external="true">performer</a><a name="k-DiagnosticReport.performer"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a> | <a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a>)</td>
+<td class="hierarchy">Responsible Diagnostic Service<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.resultsInterpreter" title="The practitioner or organization that is responsible for the report's conclusions and interpretations." data-no-external="true">resultsInterpreter</a><a name="k-DiagnosticReport.resultsInterpreter"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a>)</td>
+<td class="hierarchy">Primary result interpreter<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.result" title="[Observations](http://hl7.org/fhir/R4/observation.html)  that are part of this diagnostic report." data-no-external="true">result</a><a name="k-DiagnosticReport.result"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-observation-clinical-result.html">US Core Observation Clinical Result Profile</a>)</td>
+<td class="hierarchy">Observations<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-diagnosticreport-note-definitions.html#DiagnosticReport.presentedForm" title="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." data-no-external="true">presentedForm</a><a name="k-DiagnosticReport.presentedForm"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Attachment">Attachment</a></td>
+<td class="hierarchy">Entire report as issued<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td><td><b>URI</b></td></tr>
+<tr><td>DiagnosticReport.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td><a href="http://hl7.org/fhir/R4/valueset-diagnostic-report-status.html">DiagnosticReportStatus</a><div><code>http://hl7.org/fhir/ValueSet/diagnostic-report-status</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/diagnostic-report-status"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>DiagnosticReport.category</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#example">example</a></td><td title="Codes for diagnostic service sections."><a href="http://hl7.org/fhir/R4/valueset-diagnostic-service-sections.html">DiagnosticServiceSectionCodes</a><div><code>http://hl7.org/fhir/ValueSet/diagnostic-service-sections</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>DiagnosticReport.category:us-core</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](general-requirements.html#required-bindings-when-slicing-by-valuesets)"><a href="ValueSet-us-core-diagnosticreport-category.html">USCoreDiagnosticReportCategory</a><div><code>http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-category"></button></div><div>from this IG</div></td></tr>
+<tr><td>DiagnosticReport.code</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="LOINC codes"><a href="ValueSet-us-core-diagnosticreport-report-and-note-codes.html">USCoreNonLaboratoryCodes</a><div><code>http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"></button></div><div>from this IG</div></td></tr>
+</table>
+
+        
+          
+          
+          
+            <a name="inv-key"> </a>
+            
+            <h4>Constraints</h4>
+<table class="list">
+<tr><td width="60"><b>Id</b></td><td><b>Grade</b></td><td><b>Path(s)</b></td><td><b>Details</b></td><td><b>Requirements</b></td></tr>
+<tr><td>us-core-10</td><td>error</td><td>DiagnosticReport</td><td>effective[x] SHALL be present if the status is 'partial', 'preliminary', 'final', 'amended', 'corrected' or 'appended'<br>: (status='partial' or status='preliminary' or status='final' or status='amended' or status='corrected' or status='appended' ) implies effective.exists()</td><td></td></tr>
+</table>
+
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-diagnosticreport-note.csv">CSV</a>, <a href="StructureDefinition-us-core-diagnosticreport-note.xlsx">Excel</a>, <a href="StructureDefinition-us-core-diagnosticreport-note.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to clniical note data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/DiagnosticReport.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching for all diagnosticreports for a patient using the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=1137192</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a>)</p>
+  </li>
+  <li>
+    <p><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> search parameters:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;category={system|}[code]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=f201&amp;category=http://loinc.org|LP29708-2</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and a category code = "LP29708-2" (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=1032702&amp;code=http://loinc.org|45033-8</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and report code(s). SHOULD support search by multiple report codes. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;category={system|}[code]&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=f201&amp;category=http://loinc.org|LP29708-2&amp;date=ge2010-01-14T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and date and a category code = "LP29708-2" (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;status={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=1137192&amp;status=completed</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and status (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-lastupdated.html"><code class="language-plaintext highlighter-rouge">_lastUpdated</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">_lastUpdated</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (e.g.<code class="language-plaintext highlighter-rouge">_lastUpdated=[date]&amp;_lastUpdated=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;category={system|}[code]&amp;_lastUpdated={gt|lt|ge|le}[date]{&amp;_lastUpdated={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=f201&amp;category=http://loinc.org|LP29708-2&amp;_lastUpdated=ge2010-01-14T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and category and _lastUpdated. See the US Core General Guidance page for <a href="general-guidance.html#searching-using-lastupdated">Searching Using lastUpdated</a>. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-diagnosticreport-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> and <strong><a href="SearchParameter-us-core-diagnosticreport-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/DiagnosticReport?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/DiagnosticReport?patient=f201&amp;code=http://loinc.org|45033-8&amp;date=ge2019-01-14T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all DiagnosticReport resources for the specified patient and date and report code(s). SHOULD support search by multiple report codes. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

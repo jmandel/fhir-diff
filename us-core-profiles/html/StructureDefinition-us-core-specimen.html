@@ -1,0 +1,368 @@
+<h2 id="root">Resource Profile:
+
+    US Core Specimen Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreSpecimenProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.63
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core Specimen Profile inherits from the FHIR <a href="https://hl7.org/fhir/R4/specimen.html">Specimen</a> resource; refer to it for scope and usage definitions. This profile sets minimum expectations for the Specimen resource to record, search, and fetch information about substances associated with a patient being sampled or tested (such as nasopharyngeal swab, whole blood,  or serum). It specifies which core elements, extensions, vocabularies, and value sets <strong>SHALL</strong> be present and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for the US Core Specimen profile:</p>
+
+<ul>
+  <li>Query for a patient's specimen</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> a specimen for a patient</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each Specimen Must Have:</strong></p>
+
+<ol>
+  <li>a specimen <span class="bg-success">type</span> code</li>
+</ol>
+
+<p><strong>Each Specimen Must Support:</strong></p>
+
+<ol>
+  <li>business identifier(s)*</li>
+  <li>an accession identifier*</li>
+  <li>a patient</li>
+</ol>
+
+
+
+<p><strong>Additional USCDI Requirements:</strong></p>
+
+<p>These <a href="must-support.html#additional-uscdi-requirements">Additional USCDI Requirements</a> elements are not Mandatory or Must Support but are required for ASTP Health IT certification testing and are included in the formal definition of the profile and the Specimen examples.</p>
+
+<ol>
+  <li>specimen collection source site</li>
+  <li>specimen condition*</li>
+</ol>
+
+<p>* see guidance below</p>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>Since the binding is <a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a> when a code is unavailable, just text is allowed.</li>
+  <li>*Although both <code class="language-plaintext highlighter-rouge">Specimen.identifier</code> and <code class="language-plaintext highlighter-rouge">Specimen.accessionIdentifier</code> are marked as Must Support, the Server system is not required to support both, but <strong>SHALL</strong> support at least one of these elements.
+    <ul>
+      <li>The Client application <strong>SHALL</strong> support both elements.</li>
+    </ul>
+  </li>
+  <li>*The specimen condition is used by the laboratory to determine the acceptability of a specimen for the ordered test. An individual specimen condition may be acceptable for one test and not for another. The specimen condition is typically provided when the specimen does not meet the laboratory's criteria for acceptability, whether the test was performed or not. Examples include but are not limited to hemolyzed, clotted, container leaking, and missing patient names. This element may include information about the contents of the container, the container, and the label.</li>
+  <li>in addition to Specimen search criteria, Clients may request Specimen resources be included with the Observation or DiagnosticReport resource query. An example query is provided in the <a href="#notes">Notes</a> section below.</li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Refer to this Resource Profile: <a href="StructureDefinition-us-core-observation-lab.html">US Core Laboratory Result Observation Profile</a></li>
+ <li>Examples for this Resource Profile: <a href="Specimen-example-serum-lipemic.html">Specimen/example-serum-lipemic</a>, <a href="Specimen-specimen-example-serum.html">Specimen/specimen-example-serum</a>, <a href="Specimen-specimen-example-urine.html">Specimen/specimen-example-urine</a> and <a href="Specimen-specimen-example-whole-blood.html">Specimen/specimen-example-whole-blood</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>The data elements list has changed</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen" title="A sample to be used for analysis." data-no-external="true">Specimen</a><a name="k-Specimen"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/specimen.html">Specimen</a></td>
+<td class="hierarchy">Sample for analysis<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-Specimen.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Specimen.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.identifier" title="Id for specimen." data-no-external="true">identifier</a><a name="k-Specimen.identifier"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">Specimen identifier<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.accessionIdentifier" title="The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures." data-no-external="true">accessionIdentifier</a><a name="k-Specimen.accessionIdentifier"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">Identifier assigned by the lab<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.status" title="The availability of the specimen." data-no-external="true">status</a><a name="k-Specimen.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">available | unavailable | unsatisfactory | entered-in-error<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-specimen-status.html" title="http://hl7.org/fhir/ValueSet/specimen-status">SpecimenStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Codes providing the status/availability of a specimen.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.type" title="The kind of material that forms the specimen." data-no-external="true">type</a><a name="k-Specimen.type"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Kind of material that forms the specimen<br><span>Binding: </span><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion" title="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54">Specimen type <img src="external.png" alt="."></a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.subject" title="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device." data-no-external="true">subject</a><a name="k-Specimen.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">The patient where the specimen came from.<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.collection" title="Details concerning the specimen collection." data-no-external="true">collection</a><a name="k-Specimen.collection"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">&#x1D5D4;&#x1D5D7;&#x1D5D7;&#x1D5DC;&#x1D5E7;&#x1D5DC;&#x1D5E2;&#x1D5E1;&#x1D5D4;&#x1D5DF; &#x1D5E8;&#x1D5E6;&#x1D5D6;&#x1D5D7;&#x1D5DC;: Collection details<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.collection.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Specimen.collection.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.collection.bodySite" title="Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens." data-no-external="true">bodySite</a><a name="k-Specimen.collection.bodySite"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">&#x1D5D4;&#x1D5D7;&#x1D5D7;&#x1D5DC;&#x1D5E7;&#x1D5DC;&#x1D5E2;&#x1D5E1;&#x1D5D4;&#x1D5DF; &#x1D5E8;&#x1D5E6;&#x1D5D6;&#x1D5D7;&#x1D5DC;: Specimen Source Site<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-body-site.html" title="http://hl7.org/fhir/ValueSet/body-site">SNOMEDCTBodyStructures</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-specimen-definitions.html#Specimen.condition" title="A mode or state of being that describes the nature of the specimen." data-no-external="true">condition</a><a name="k-Specimen.condition"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">&#x1D5D4;&#x1D5D7;&#x1D5D7;&#x1D5DC;&#x1D5E7;&#x1D5DC;&#x1D5E2;&#x1D5E1;&#x1D5D4;&#x1D5DF; &#x1D5E8;&#x1D5E6;&#x1D5D6;&#x1D5D7;&#x1D5DC;: Specimen condition<br><span>Binding: </span><a href="ValueSet-us-core-specimen-condition.html" title="http://hl7.org/fhir/us/core/ValueSet/us-core-specimen-condition">US Core Specimen Condition</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td><td><b>URI</b></td></tr>
+<tr><td>Specimen.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Codes providing the status/availability of a specimen."><a href="http://hl7.org/fhir/R4/valueset-specimen-status.html">SpecimenStatus</a><div><code>http://hl7.org/fhir/ValueSet/specimen-status|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/specimen-status|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Specimen.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1099.54/expansion">SpecimenType <img src="external.png" alt="."></a><div><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.54"></button></div><div>from <a href="https://vsac.nlm.nih.gov">https://vsac.nlm.nih.gov</a></div></td></tr>
+<tr><td>Specimen.collection.bodySite</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td><a href="http://hl7.org/fhir/R4/valueset-body-site.html">SNOMEDCTBodyStructures</a><div><code>http://hl7.org/fhir/ValueSet/body-site</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/body-site"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Specimen.condition</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td><a href="ValueSet-us-core-specimen-condition.html">USCoreSpecimenCondition</a><div><code>http://hl7.org/fhir/us/core/ValueSet/us-core-specimen-condition</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/ValueSet/us-core-specimen-condition"></button></div><div>from this IG</div></td></tr>
+</table>
+
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-specimen.csv">CSV</a>, <a href="StructureDefinition-us-core-specimen.xlsx">Excel</a>, <a href="StructureDefinition-us-core-specimen.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to specimen data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Specimen.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support both read Specimen by <code class="language-plaintext highlighter-rouge">id</code> <strong>AND</strong> Specimen search using the <strong><a href="SearchParameter-us-core-specimen-id.html"><code class="language-plaintext highlighter-rouge">_id</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Specimen/[id]</code> or <code class="language-plaintext highlighter-rouge">GET [base]/Specimen?_id=[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Specimen?_id=123</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em>  (<a href="http://hl7.org/fhir/R4/references.html#logical">how to search by the logical id</a> of the resource)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHOULD</strong> support searching for all specimens for a patient using the <strong><a href="SearchParameter-us-core-specimen-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Specimen?patient={Type/}[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Specimen?patient=1137192</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Specimen resources for the specified patient (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a>)</p>
+  </li>
+</ol>
+
+<h4 id="including-specimen-when-searching-for-an-observation-or-diagnosticreport">Including Specimen when searching for an Observation or DiagnosticReport</h4>
+
+<p>Servers <strong>MAY</strong> support the <a href="http://hl7.org/fhir/R4/search.html#include"><code class="language-plaintext highlighter-rouge">_include</code></a> parameter to request that additional resources be included in the response of a search query. For example, when searching for an Observation or DiagnosticReport that references Specimen, the Client can use the <code class="language-plaintext highlighter-rouge">_include</code> parameter to retrieve information about a specimen associated with the search results. The syntax for querying an Observation and the associated Specimen is:</p>
+
+<p><code class="language-plaintext highlighter-rouge">GET [base]/[Resource-type]?[parameter1]=[value1]{&amp;...}&amp;_include=Observation:specimen</code></p>
+
+<p>Example:</p>
+
+<p>GET [base]/Observation?_id=9163726&amp;_include=Observation:specimen</p>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

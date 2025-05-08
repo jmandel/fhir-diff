@@ -1,0 +1,573 @@
+<h2 id="root">Resource Profile:
+
+    US Core Heart Rate Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreHeartRateProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.30
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core Heart Rate Profile inherits from the US Core Vital Signs Profile. This profile sets minimum expectations for the Observation resource to record, search,  and fetch heart rate observations with a standard LOINC code and UCUM units of measure. It specifies which <em>additional</em>  core elements, extensions,  vocabularies, and value sets <strong>SHALL</strong> be present in the resource and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for heart rate observations</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> heart rate observations</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p><em>In addition</em> to the Mandatory and Must Support data elements in the US Core Vital Signs Profile, the following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.<br>
+
+Note that the "Differential Table" displays elements unique to this profile and the "Key Elements Table” displays a combined view of elements for this profile and the US Core Vital Signs Profile.</p>
+
+<p><strong>Each Observation Must Have:</strong></p>
+
+<ol>
+  <li>a patient</li>
+  <li>a fixed code for heart rate</li>
+</ol>
+
+<p><strong>Each Observation Must Support:</strong></p>
+
+<ol>
+  <li>a result value</li>
+</ol>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>
+    <ul>
+      <li>Note that this profile also conforms to the base FHIR <a href="http://hl7.org/fhir/R4/observation-vitalsigns.html">Vital Signs Profile</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+
+<ul>
+  <li>The observations <strong>MAY</strong> have additional codes that translate or map to the Observation code or category codes. For example:
+    <ul>
+      <li>providing a local system-specific code</li>
+      <li>providing more specific codes such as 8306-3 - <em>Body height - lying</em> in addition to 8302-2 - <em>Body height</em>. Several additional observation codes are provided in the FHIR core specification <a href="http://hl7.org/fhir/R4/observation-vitalsigns.html#vitals-table">vital signs table</a>.</li>
+    </ul>
+
+    <p>A code system value <strong>SHOULD</strong> be supplied for each additional code.</p>
+  </li>
+  <li>The observations <strong>MAY</strong> have <a href="http://hl7.org/fhir/R4/observation.html#gr-comp">component</a> observations. For example, to qualify the vital sign observation, 8310-5 - <em>Body temperature</em>, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.) may be used as a component observation. The FHIR core specification <a href="http://hl7.org/fhir/R4/observation-vitalsigns.html#vitals-table">vital signs table</a> provides several of these.</li>
+  <li>*An Observation without a value, <strong>SHALL</strong> include a reason why the data is absent <em>unless</em> there are 1) component observations, or 2) reporting panel observations using <code class="language-plaintext highlighter-rouge">Observation.hasMember</code>.
+    <ul>
+      <li>For further guidance, see the <a href="http://hl7.org/fhir/R4/observation.html#obsgrouping">Observation Grouping</a> section in FHIR Specification.</li>
+      <li>Systems that never provide an observation without a value are not required to support <code class="language-plaintext highlighter-rouge">Observation.dataAbsentReason</code>.</li>
+    </ul>
+  </li>
+  <li>*An <code class="language-plaintext highlighter-rouge">Observation.component</code> without a value, <strong>SHALL</strong> include a reason why the data is absent.
+    <ul>
+      <li>Systems that never provide a component observation without a component value are not required to support <code class="language-plaintext highlighter-rouge">Observation.component.dataAbsentReason</code>.</li>
+    </ul>
+  </li>
+  <li>Implementers may use this profile as a base for other vital signs in addition to those in this guide.</li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Examples for this Resource Profile: <a href="Observation-heart-rate.html">Observation/heart-rate</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>No changes</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation" title="The FHIR Vitals Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient." data-no-external="true">Observation</a><a name="k-Observation"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-6, obs-7, vs-2 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="StructureDefinition-us-core-vital-signs.html">USCoreVitalSignsProfile</a></td>
+<td class="hierarchy">US Core Heart Rate Profile<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>obs-6: </span>dataAbsentReason SHALL only be present if Observation.value[x] is not present<br><span>obs-7: </span>If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present<br><span>vs-2: </span>If there is no component or hasMember element then either a value[x] or a data absent reason must be present.<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-Observation.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Observation.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.status" title="The status of the result value." data-no-external="true">status</a><a name="k-Observation.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">registered | preliminary | final | amended +<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-status.html" title="http://hl7.org/fhir/ValueSet/observation-status">ObservationStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.category" title="A code that classifies the general type of observation being made." data-no-external="true">Slices for category</a><a name="k-Observation.category"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy"><span></span><span>1</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy"><span>Classification of  type of observation</span><br><span>Slice: </span><span>Unordered, Open by value:coding.code, value:coding.system</span><br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-category.html" title="http://hl7.org/fhir/ValueSet/observation-category">ObservationCategoryCodes</a><span> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">preferred</a><span>)</span><span>: </span><span>Codes for high level observation categories.</span><br><br><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.category:VSCat" title="Slice VSCat: A code that classifies the general type of observation being made." data-no-external="true">category:VSCat</a><a name="k-Observation.category.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Classification of  type of observation<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-observation-category.html" title="http://hl7.org/fhir/ValueSet/observation-category">ObservationCategoryCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">preferred</a>): Codes for high level observation categories.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.category:VSCat.coding" title="A reference to a code defined by a terminology system." data-no-external="true">coding</a><a name="k-Observation.category.coding"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.category:VSCat.coding.system" title="The identification of the code system that defines the meaning of the symbol in the code." data-no-external="true">system</a><a name="k-Observation.category.coding.system"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Fixed Value: </span><span>http://terminology.hl7.org/CodeSystem/observation-category</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.category:VSCat.coding.code" title="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." data-no-external="true">code</a><a name="k-Observation.category.coding.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Fixed Value: </span><span>vital-signs</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.code" title="Coded Responses from C-CDA Vital Sign Results." data-no-external="true">code</a><a name="k-Observation.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Heart Rate<br><span>Binding: </span><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.88.12.80.62/expansion" title="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62">Vital Sign Result Type <img src="external.png" alt="."></a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Vital sign result types<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://loinc.org</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>8867-4</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.subject" title="The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation." data-no-external="true">subject</a><a name="k-Observation.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">Who and/or what the observation is about<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_choice.gif" alt="." title="Choice of Types" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.effective[x]" title="Often just a dateTime for Vital Signs." data-no-external="true">effective[x]</a><a name="k-Observation.effective_x_"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( vs-1 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Often just a dateTime for Vital Signs<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>vs-1: </span>if Observation.effective[x] is dateTime and has a value then that value shall be precise to the day</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <span title="Base StructureDefinition for dateTime Type: A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.">effectiveDateTime</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.performer" title="Who was responsible for asserting the observed value as &quot;true&quot;." data-no-external="true">performer</a><a name="k-Observation.performer"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a> | <a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a> | <a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a> | <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a> | <a href="StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a> | <a href="StructureDefinition-us-core-relatedperson.html">US Core RelatedPerson Profile</a>)</td>
+<td class="hierarchy">Who is responsible for the observation<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]" title="Vital Signs value are typically recorded using the Quantity data type." data-no-external="true">Slices for value[x]</a><a name="k-Observation.value_x_"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-7, vs-2 )">C</a></td>
+<td class="hierarchy"><span></span><span>0</span><span>..</span><span>1</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><span>Vital Signs Value</span><br><span>Slice: </span><span>Unordered, Open by type:$this</span><br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html" title="http://hl7.org/fhir/ValueSet/ucum-vitals-common">VitalSignsUnits</a><span> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a><span>)</span><span>: </span><span>Common UCUM units for recording Vital Signs.</span><br><br><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <span title="Base StructureDefinition for Quantity Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.">valueQuantity</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Quantity">Quantity</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity" title="Slice valueQuantity: Vital Signs value are typically recorded using the Quantity data type." data-no-external="true">value[x]:valueQuantity</a><a name="k-Observation.value_x_.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-7, vs-2 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Quantity">Quantity</a></td>
+<td class="hierarchy">Vital Signs Value<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html" title="http://hl7.org/fhir/ValueSet/ucum-vitals-common">VitalSignsUnits</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Common UCUM units for recording Vital Signs.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity.value" title="The value of the measured amount. The value includes an implicit precision in the presentation of the value." data-no-external="true">value</a><a name="k-Observation.value_x_.value"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#decimal">decimal</a></td>
+<td class="hierarchy">Numerical value (with implicit precision)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity.comparator" title="How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is &quot;&lt;&quot; , then the real value is &lt; stated value." data-no-external="true">comparator</a><a name="k-Observation.value_x_.comparator"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">&lt; | &lt;= | &gt;= | &gt; - how to understand the value<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-quantity-comparator.html" title="http://hl7.org/fhir/ValueSet/quantity-comparator">QuantityComparator</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): How the Quantity should be understood and represented.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity.unit" title="A human-readable form of the unit." data-no-external="true">unit</a><a name="k-Observation.value_x_.unit"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Unit representation<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity.system" title="The identification of the system that provides the coded form of the unit." data-no-external="true">system</a><a name="k-Observation.value_x_.system"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( qty-3 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">System that defines coded unit form<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Fixed Value: </span><span>http://unitsofmeasure.org</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.value[x]:valueQuantity.code" title="A computer processable form of the unit in some unit representation system." data-no-external="true">code</a><a name="k-Observation.value_x_.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Coded responses from the common UCUM units for vital signs value set.<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Fixed Value: </span><span>/min</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.dataAbsentReason" title="Provides a reason why the expected value in the element Observation.value[x] is missing." data-no-external="true">dataAbsentReason</a><a name="k-Observation.dataAbsentReason"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-6, vs-2 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Why the result is missing<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-data-absent-reason.html" title="http://hl7.org/fhir/ValueSet/data-absent-reason">DataAbsentReason</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Codes specifying why the result (<span>Observation.value[x]</span>) is missing.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.component" title="Used when reporting component observation such as systolic and diastolic blood pressure." data-no-external="true">component</a><a name="k-Observation.component"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( vs-3 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">Component observations<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>vs-3: </span>If there is no a value a data absent reason must be present<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.component.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Observation.component.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.component.code" title="Describes what was observed. Sometimes this is called the observation &quot;code&quot;." data-no-external="true">code</a><a name="k-Observation.component.code"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Coded vital sign result type<br><span>Binding: </span><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.88.12.80.62/expansion" title="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62">Vital Sign Result Type <img src="external.png" alt="."></a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Vital sign result types<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_choice.gif" alt="." title="Choice of Types" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.component.value[x]" title="Vital Signs value are typically recorded using the Quantity data type. For supporting observations such as cuff size could use other datatypes such as CodeableConcept." data-no-external="true">value[x]</a><a name="k-Observation.component.value_x_"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( vs-3 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Vital Sign Component Value<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html" title="http://hl7.org/fhir/ValueSet/ucum-vitals-common">VitalSignsUnits</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Common UCUM units for recording Vital Signs.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <span title="Base StructureDefinition for Quantity Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.">valueQuantity</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Quantity">Quantity</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-heart-rate-definitions.html#Observation.component.dataAbsentReason" title="Provides a reason why the expected value in the element Observation.component.value[x] is missing." data-no-external="true">dataAbsentReason</a><a name="k-Observation.component.dataAbsentReason"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( obs-6, vs-3 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Why the component result is missing<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-data-absent-reason.html" title="http://hl7.org/fhir/ValueSet/data-absent-reason">DataAbsentReason</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Codes specifying why the result (<span>Observation.value[x]</span>) is missing.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet / Code</b></td><td><b>URI</b></td></tr>
+<tr><td>Observation.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td><a href="http://hl7.org/fhir/R4/valueset-observation-status.html">ObservationStatus</a><div><code>http://hl7.org/fhir/ValueSet/observation-status|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-status|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.category</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#preferred">preferred</a></td><td title="Codes for high level observation categories."><a href="http://hl7.org/fhir/R4/valueset-observation-category.html">ObservationCategoryCodes</a><div><code>http://hl7.org/fhir/ValueSet/observation-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-category"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.category:VSCat</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#preferred">preferred</a></td><td title="Codes for high level observation categories."><a href="http://hl7.org/fhir/R4/valueset-observation-category.html">ObservationCategoryCodes</a><div><code>http://hl7.org/fhir/ValueSet/observation-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/observation-category"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.code</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Vital sign result types">Pattern: LOINC Code 8867-4<div><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62"></button></div><div>from <a href="https://vsac.nlm.nih.gov">https://vsac.nlm.nih.gov</a></div></td></tr>
+<tr><td>Observation.value[x]</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Common UCUM units for recording Vital Signs."><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html">VitalSignsUnits</a><div><code>http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.value[x]:valueQuantity</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Common UCUM units for recording Vital Signs."><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html">VitalSignsUnits</a><div><code>http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.value[x]:valueQuantity.comparator</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="How the Quantity should be understood and represented."><a href="http://hl7.org/fhir/R4/valueset-quantity-comparator.html">QuantityComparator</a><div><code>http://hl7.org/fhir/ValueSet/quantity-comparator|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/quantity-comparator|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.dataAbsentReason</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Codes specifying why the result (`Observation.value[x]`) is missing."><a href="http://hl7.org/fhir/R4/valueset-data-absent-reason.html">DataAbsentReason</a><div><code>http://hl7.org/fhir/ValueSet/data-absent-reason</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/data-absent-reason"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.component.code</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Vital sign result types"><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.88.12.80.62/expansion">VitalSignResultType <img src="external.png" alt="."></a><div><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.62"></button></div><div>from <a href="https://vsac.nlm.nih.gov">https://vsac.nlm.nih.gov</a></div></td></tr>
+<tr><td>Observation.component.value[x]</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Common UCUM units for recording Vital Signs."><a href="http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html">VitalSignsUnits</a><div><code>http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Observation.component.dataAbsentReason</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Codes specifying why the result (`Observation.value[x]`) is missing."><a href="http://hl7.org/fhir/R4/valueset-data-absent-reason.html">DataAbsentReason</a><div><code>http://hl7.org/fhir/ValueSet/data-absent-reason</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/data-absent-reason"></button></div><div>from the FHIR Standard</div></td></tr>
+</table>
+
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-heart-rate.csv">CSV</a>, <a href="StructureDefinition-us-core-heart-rate.xlsx">Excel</a>, <a href="StructureDefinition-us-core-heart-rate.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+<p>
+ 
+ </p>
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to vital signs data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li>
+    <p><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Observation.rs</code></p>
+  </li>
+  <li>
+    <p><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#finer-grained-resource-constraints-using-search-parameters">granular scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Observation.rs?category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs</code></p>
+  </li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> search parameters:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and a category code = <code class="language-plaintext highlighter-rouge">vital-signs</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1186747&amp;code=http://loinc.org|8867-4,http://loinc.org|9279-1,http://loinc.org|85354-9</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and observation code(s). <strong>SHOULD</strong> support search by multiple codes. The Observation <code class="language-plaintext highlighter-rouge">code</code> parameter searches `Observation.code only. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&amp;date=ge2020-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and date and a category code = <code class="language-plaintext highlighter-rouge">vital-signs</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&amp;status={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&amp;status=final</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and category and status (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-lastupdated.html"><code class="language-plaintext highlighter-rouge">_lastUpdated</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">_lastUpdated</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (e.g.<code class="language-plaintext highlighter-rouge">_lastUpdated=[date]&amp;_lastUpdated=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;category={system|}[code]&amp;_lastUpdated={gt|lt|ge|le}[date]{&amp;_lastUpdated={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1134281&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&amp;_lastUpdated=ge2024-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and category and _lastUpdated. See the US Core General Guidance page for <a href="general-guidance.html#searching-using-lastupdated">Searching Using lastUpdated</a>. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-observation-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-code.html"><code class="language-plaintext highlighter-rouge">code</code></a></strong> and <strong><a href="SearchParameter-us-core-observation-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including optional support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">code</code> (e.g.<code class="language-plaintext highlighter-rouge">code={system|}[code],{system|}[code],...</code>)</li>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Observation?patient={Type/}[id]&amp;code={system|}[code]{,{system|}[code],...}&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Observation?patient=1186747&amp;code=http://loinc.org|8867-4,http://loinc.org|9279-1,http://loinc.org|85354-9&amp;date=ge2020-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Observation resources for the specified patient and date and report code(s). <strong>SHOULD</strong> support search by multiple codes. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

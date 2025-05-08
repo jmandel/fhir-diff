@@ -1,0 +1,532 @@
+<h2 id="root">Resource Profile:
+
+    US Core Coverage Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreCoverageProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.19
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core Coverage Profile inherits from the FHIR <a href="https://hl7.org/fhir/R4/coverage.html">Coverage</a> resource; refer to it for scope and usage definitions. This profile meets the requirements of the US Core Data for Interoperability (USCDI) <em>Health Insurance Information</em> Data Class. It sets minimum expectations for the Coverage resource to record, search, and fetch data related to an individual's insurance coverage for health care. It specifies which core elements, extensions,  vocabularies, and value sets <strong>SHALL</strong> be present in the resource and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for a patient's insurance coverage</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> a past or present insurance coverage</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile-specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each Coverage Must Have:</strong></p>
+
+<ol>
+  <li>health insurance member identifier or subscriber id</li>
+  <li>a status</li>
+  <li>the health insurance beneficiary (patient)</li>
+  <li>beneficiary's relationship to the subscriber</li>
+  <li>the health insurance issuer (payer)</li>
+</ol>
+
+<p><strong>Each Coverage Must Support:</strong></p>
+
+<ol>
+  <li>health insurance coverage type (e.g., Medicare)</li>
+  <li>coverage start or end date</li>
+  <li>health insurance group</li>
+  <li><span class="bg-success">health insurance plan</span></li>
+</ol>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>There is no single way to indicate that the patient has no coverage using the Coverage resource:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Coverage.status</code> alone may not indicate whether an individual is covered. The <code class="language-plaintext highlighter-rouge">Coverage.period</code> needs to be considered as well. For example, the coverage may be expired with a status of "active", or conversely, it may be "canceled" but still have covered claims.</li>
+      <li>The absence of a Coverage resource instance may mean the patient has no coverage or the healthcare provider may not know it.</li>
+      <li>A <code class="language-plaintext highlighter-rouge">coverage.type</code> of "81" (Self-pay) <strong>MAY</strong> be used to imply that the patient has no coverage or that an individual or organization other than an insurer is taking responsibility for payment for a portion of the health care costs.</li>
+    </ul>
+  </li>
+  <li>
+    <p>The hierarchical nature of the <code class="language-plaintext highlighter-rouge">Coverage.type</code> code system "Payer" (also known as the US Public Health Data Consortium Source of Payment Codes) may be unclear in the expansion, and some codes may be inappropriate for the use case. Implementers should refer to the <a href="https://www.nahdo.org/sites/default/files/2020-12/SourceofPaymentTypologyUsersGuideVersion9.2December2020.pdf">PHDSC Payer Type Committee User's Guide</a> for the Source of Payment Typology when selecting codes.</p>
+
+    <ul>
+      <li>
+        <p>To differentiate Medicare Parts A, B, C, and D systems can use the following codes:</p>
+
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>Medicare Plan</th>
+              <th>SOP Code (Description)</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Part A and B</td>
+              <td>121 (Medicare Fee For Service)</td>
+              <td>Part A and B.  Part A alone cannot be represented (see "Note to Balloters" below). Part B alone does not need to be represented because Part B enrollment requires enrollment in Part A</td>
+            </tr>
+            <tr>
+              <td>Part C (Medicare Advantage Plan)</td>
+              <td>111 (Medicare HMO)<br>112 (Medicare PPO)<br>113 (Medicare POS)</td>
+              <td>These are the most common types of Medicare Advantage Plans</td>
+            </tr>
+            <tr>
+              <td>Part D</td>
+              <td>122 (Medicare Drug Benefit)</td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note-to-balloters">The US Core team requested a stand-alone code for Medicare Part A from <a href="https://www.nahdo.org/sopt">NAHDO</a>. If this request is not approved,  systems <strong>SHOULD</strong> use the X12 concept for Medicare Part A <em>as a code translation</em> to the SOP code "121" (see <a href="general-requirements.html#translations">Using multiple codes with CodeableConcept Datatype</a>).</p>
+      </li>
+    </ul>
+  </li>
+  <li>If Insurers issue unique member IDs for dependents, then the <em>memberId</em> <code class="language-plaintext highlighter-rouge">Coverage.identifier</code> should be used instead of <code class="language-plaintext highlighter-rouge">Coverage.dependent</code> to uniquely refer to the dependent with respect to their insurance.</li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Examples for this Resource Profile: <a href="Coverage-coverage-example.html">Coverage/coverage-example</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>The data elements list has changed</li>
+<li>One or more text definitions, invariants or bindings have changed</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage" title="Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment." data-no-external="true">Coverage</a><a name="k-Coverage"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-15 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/coverage.html">Coverage</a></td>
+<td class="hierarchy">Insurance or medical plan or a payment agreement<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>us-core-15: </span>Member Id in Coverage.identifier or Coverage.subscriberId SHALL be present<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-Coverage.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Coverage.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.identifier" title="A unique identifier assigned to this coverage." data-no-external="true">Slices for identifier</a><a name="k-Coverage.identifier"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy"><span></span><span>0</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy"><span>Member ID and other identifiers</span><br><span>Slice: </span><span>Unordered, Open by value:type</span><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.identifier:memberid" title="Slice memberid: A unique identifier assigned to this coverage." data-no-external="true">identifier:memberid</a><a name="k-Coverage.identifier.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-15 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">Member ID<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.identifier:memberid.use" title="The purpose of this identifier." data-no-external="true">use</a><a name="k-Coverage.identifier.use"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">usual | official | temp | secondary | old (If known)<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html" title="http://hl7.org/fhir/ValueSet/identifier-use">IdentifierUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Identifies the purpose for this identifier, if known .<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.identifier:memberid.type" title="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." data-no-external="true">type</a><a name="k-Coverage.identifier.type"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Member Number identifier type<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-type.html" title="http://hl7.org/fhir/ValueSet/identifier-type">Identifier Type Codes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://terminology.hl7.org/CodeSystem/v2-0203</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>MB</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.status" title="The status of the resource instance." data-no-external="true">status</a><a name="k-Coverage.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">active | cancelled | draft | entered-in-error<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-fm-status.html" title="http://hl7.org/fhir/ValueSet/fm-status">FinancialResourceStatusCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): A code specifying the state of the resource instance.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.type" title="The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization." data-no-external="true">type</a><a name="k-Coverage.type"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Coverage category such as medical or accident<br><span>Binding: </span><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.114222.4.11.3591/expansion" title="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591">Payer Type <img src="external.png" alt="."></a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): US Public Health Data Consortium Source of Payment Codes<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.subscriberId" title="The insurer assigned ID for the Subscriber." data-no-external="true">subscriberId</a><a name="k-Coverage.subscriberId"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-15 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">ID assigned to the subscriber<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.beneficiary" title="The party who benefits from the insurance coverage; the patient when products and/or services are provided." data-no-external="true">beneficiary</a><a name="k-Coverage.beneficiary"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">Plan beneficiary<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.relationship" title="The relationship of beneficiary (patient) to the subscriber." data-no-external="true">relationship</a><a name="k-Coverage.relationship"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Beneficiary relationship to the subscriber<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-subscriber-relationship.html" title="http://hl7.org/fhir/ValueSet/subscriber-relationship">SubscriberRelationshipCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.period" title="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force." data-no-external="true">period</a><a name="k-Coverage.period"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Period">Period</a></td>
+<td class="hierarchy">Coverage start and end dates<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.payor" title="The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements." data-no-external="true">payor</a><a name="k-Coverage.payor"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a>)</td>
+<td class="hierarchy">Issuer of the policy<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class" title="A suite of underwriter specific classifiers." data-no-external="true">Slices for class</a><a name="k-Coverage.class"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy"><span></span><span>0</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy"><span>Additional coverage classifications</span><br><span>Slice: </span><span>Unordered, Open by value:type</span><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_element.gif" alt="." title="Element" class="hierarchy"> class:All Slices<a name="k-Coverage.class.2"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Coverage.class.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class.type" title="The type of classification for which an insurer-specific class label or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan." data-no-external="true">type</a><a name="k-Coverage.class.type"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Type of class such as 'group' or 'plan'<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-coverage-class.html" title="http://hl7.org/fhir/ValueSet/coverage-class">CoverageClassCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): The policy classifications, eg. Group, Plan, Class, etc.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class.value" title="The alphanumeric string value associated with the insurer issued label." data-no-external="true">value</a><a name="k-Coverage.class.value"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Value associated with the type<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:group" title="Slice group: A suite of underwriter specific classifiers." data-no-external="true">class:group</a><a name="k-Coverage.class.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">Group<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:group.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Coverage.class.modifierExtension.2"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:group.type" title="The type of classification for which an insurer-specific class label or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan." data-no-external="true">type</a><a name="k-Coverage.class.type.2"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Type of class such as 'group' or 'plan'<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-coverage-class.html" title="http://hl7.org/fhir/ValueSet/coverage-class">CoverageClassCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): The policy classifications, eg. Group, Plan, Class, etc.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://terminology.hl7.org/CodeSystem/coverage-class</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>group</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:group.value" title="The alphanumeric string value associated with the insurer issued label." data-no-external="true">value</a><a name="k-Coverage.class.value.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Group Identifier<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:plan" title="Slice plan: A suite of underwriter specific classifiers." data-no-external="true">class:plan</a><a name="k-Coverage.class.4"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">Plan<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:plan.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Coverage.class.modifierExtension.3"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:plan.type" title="The type of classification for which an insurer-specific class label or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan." data-no-external="true">type</a><a name="k-Coverage.class.type.3"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Type of class such as 'group' or 'plan'<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-coverage-class.html" title="http://hl7.org/fhir/ValueSet/coverage-class">CoverageClassCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): The policy classifications, eg. Group, Plan, Class, etc.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://terminology.hl7.org/CodeSystem/coverage-class</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline_slice.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>plan</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:plan.value" title="The alphanumeric string value associated with the insurer issued label." data-no-external="true">value</a><a name="k-Coverage.class.value.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Plan Number<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-coverage-definitions.html#Coverage.class:plan.name" title="A short description for the class." data-no-external="true">name</a><a name="k-Coverage.class.name"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Plan Name<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet / Code</b></td><td><b>URI</b></td></tr>
+<tr><td>Coverage.identifier:memberid.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Identifies the purpose for this identifier, if known ."><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html">IdentifierUse</a><div><code>http://hl7.org/fhir/ValueSet/identifier-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.identifier:memberid.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.">Pattern: <a title="identifierType" href="http://terminology.hl7.org/6.3.0/CodeSystem-v2-0203.html#v2-0203-MB">MB</a><div><code>http://hl7.org/fhir/ValueSet/identifier-type</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-type"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="A code specifying the state of the resource instance."><a href="http://hl7.org/fhir/R4/valueset-fm-status.html">FinancialResourceStatusCodes</a><div><code>http://hl7.org/fhir/ValueSet/fm-status|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/fm-status|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="US Public Health Data Consortium Source of Payment Codes"><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.114222.4.11.3591/expansion">PayerType <img src="external.png" alt="."></a> (a valid code from Source of Payment Typology (<code>https://nahdo.org/sopt</code>)<div><code>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"></button></div><div>from <a href="https://vsac.nlm.nih.gov">https://vsac.nlm.nih.gov</a></div></td></tr>
+<tr><td>Coverage.relationship</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td><a href="http://hl7.org/fhir/R4/valueset-subscriber-relationship.html">SubscriberRelationshipCodes</a><div><code>http://hl7.org/fhir/ValueSet/subscriber-relationship</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/subscriber-relationship"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.class.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="The policy classifications, eg. Group, Plan, Class, etc."><a href="http://hl7.org/fhir/R4/valueset-coverage-class.html">CoverageClassCodes</a><div><code>http://hl7.org/fhir/ValueSet/coverage-class</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/coverage-class"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.class:group.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="The policy classifications, eg. Group, Plan, Class, etc.">Pattern: <a title="Coverage Class Codes" href="http://terminology.hl7.org/6.3.0/CodeSystem-coverage-class.html#coverage-class-group">group</a><div><code>http://hl7.org/fhir/ValueSet/coverage-class</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/coverage-class"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Coverage.class:plan.type</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="The policy classifications, eg. Group, Plan, Class, etc.">Pattern: <a title="Coverage Class Codes" href="http://terminology.hl7.org/6.3.0/CodeSystem-coverage-class.html#coverage-class-plan">plan</a><div><code>http://hl7.org/fhir/ValueSet/coverage-class</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/coverage-class"></button></div><div>from the FHIR Standard</div></td></tr>
+</table>
+
+        
+          
+          
+          
+            <a name="inv-key"> </a>
+            
+            <h4>Constraints</h4>
+<table class="list">
+<tr><td width="60"><b>Id</b></td><td><b>Grade</b></td><td><b>Path(s)</b></td><td><b>Details</b></td><td><b>Requirements</b></td></tr>
+<tr><td>us-core-15</td><td>error</td><td>Coverage</td><td>Member Id in Coverage.identifier or Coverage.subscriberId SHALL be present<br>: identifier.type.coding.where(system='http://terminology.hl7.org/CodeSystem/v2-0203' and code='MB').exists() or subscriberId.exists()</td><td></td></tr>
+</table>
+
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-coverage.csv">CSV</a>, <a href="StructureDefinition-us-core-coverage.xlsx">Excel</a>, <a href="StructureDefinition-us-core-coverage.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to coverage data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Coverage.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching for all coverages for a patient using the <strong><a href="SearchParameter-us-core-coverage-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Coverage?patient={Type/}[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Coverage?patient=1137192</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Coverage resources for the specified patient (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

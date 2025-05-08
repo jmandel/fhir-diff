@@ -1,0 +1,493 @@
+<h2 id="root">Resource Profile:
+
+    US Core Organization Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreOrganizationProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.48
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core Organization Profile inherits from the FHIR <a href="https://hl7.org/fhir/R4/organization.html">Organization</a> resource; refer to it for scope and usage definitions. This profile sets minimum expectations for the Organization resource to record, search, and fetch patient or provider organziation information. It specifies which core elements, extensions, vocabularies, and value sets <strong>SHALL</strong> be present and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query by organization name or NPI</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each Organization Must Have:</strong></p>
+
+<ol>
+  <li>A status of the organization (i.e., whether it is still active )</li>
+  <li>A name</li>
+</ol>
+
+<p><strong>Each Organization Must Support:</strong></p>
+
+<ol>
+  <li>An identifier*</li>
+  <li>A list of contact information</li>
+  <li>An address*</li>
+</ol>
+
+<p>*see guidance below</p>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>*Systems <strong>SHALL</strong> support National Provider Identifier (NPI) for organizations
+and <strong>SHOULD</strong> support Clinical Laboratory Improvement Amendments (CLIA) for laboratories and the National Association of Insurance Commissioners NAIC Company code (sometimes called "NAIC Number" or "cocode") for payers.</li>
+  <li>*
+Systems <strong>SHOULD</strong> follow the <a href="https://asapnet.org/wp-content/uploads/2022/03/Project_US_FINAL_Technical_Specification_Version_1.0.pdf">Project US@ Technical Specification for Patient Addresses Final Version 1.0</a> as the standard style guide for <code class="language-plaintext highlighter-rouge">Organization.address.line</code> and  <code class="language-plaintext highlighter-rouge">Organization.address.city</code>.</li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Refer to this Resource Profile: <a href="StructureDefinition-us-core-adi-documentreference.html">US Core ADI DocumentReference Profile</a>, <a href="StructureDefinition-us-core-average-blood-pressure.html">US Core Average Blood Pressure Profile</a>, <a href="StructureDefinition-us-core-care-experience-preference.html">US Core Care Experience Preference Profile</a>, <a href="StructureDefinition-us-core-careplan.html">US Core CarePlan Profile</a><span id="rr_tref" onClick="document.getElementById('rr_tref').innerHTML = document.getElementById('rr2_tref').innerHTML">... <span>Show 25 more</span></span><span id="rr2_tref">, <a href="StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a>, <a href="StructureDefinition-us-core-coverage.html">US Core Coverage Profile</a>, <a href="StructureDefinition-us-core-diagnosticreport-lab.html">US Core DiagnosticReport Profile for Laboratory Results Reporting</a>, <a href="StructureDefinition-us-core-diagnosticreport-note.html">US Core DiagnosticReport Profile for Report and Note Exchange</a>, <a href="StructureDefinition-us-core-documentreference.html">US Core DocumentReference Profile</a>, <a href="StructureDefinition-us-core-encounter.html">US Core Encounter Profile</a>, <a href="StructureDefinition-us-core-immunization.html">US Core Immunization Profile</a>, <a href="StructureDefinition-us-core-location.html">US Core Location Profile</a>, <a href="StructureDefinition-us-core-medicationdispense.html">US Core MedicationDispense Profile</a>, <a href="StructureDefinition-us-core-medicationrequest.html">US Core MedicationRequest Profile</a>, <a href="StructureDefinition-us-core-observation-adi-documentation.html">US Core Observation ADI Documentation Profile</a>, <a href="StructureDefinition-us-core-observation-clinical-result.html">US Core Observation Clinical Result Profile</a>, <a href="StructureDefinition-us-core-observation-occupation.html">US Core Observation Occupation Profile</a>, <a href="StructureDefinition-us-core-observation-pregnancyintent.html">US Core Observation Pregnancy Intent Profile</a>, <a href="StructureDefinition-us-core-observation-pregnancystatus.html">US Core Observation Pregnancy Status Profile</a>, <a href="StructureDefinition-us-core-observation-screening-assessment.html">US Core Observation Screening Assessment Profile</a>, <a href="StructureDefinition-us-core-practitionerrole.html">US Core PractitionerRole Profile</a>, <a href="StructureDefinition-us-core-procedure.html">US Core Procedure Profile</a>, <a href="StructureDefinition-us-core-provenance.html">US Core Provenance Profile</a>, <a href="StructureDefinition-us-core-questionnaireresponse.html">US Core QuestionnaireResponse Profile</a>, <a href="StructureDefinition-us-core-servicerequest.html">US Core ServiceRequest Profile</a>, <a href="StructureDefinition-us-core-simple-observation.html">US Core Simple Observation Profile</a>, <a href="StructureDefinition-us-core-smokingstatus.html">US Core Smoking Status Observation Profile</a>, <a href="StructureDefinition-us-core-treatment-intervention-preference.html">US Core Treatment Intervention Preference Profile</a> and <a href="StructureDefinition-us-core-vital-signs.html">US Core Vital Signs Profile</a></span></li>
+ <li>Examples for this Resource Profile: <a href="Organization-acme-lab.html">Acme Labs</a>, <a href="Organization-acme-payer.html">Acme Health Plan</a>, <a href="Organization-example-organization-2.html">Acme Clinic</a>, <a href="Organization-holy-healthcare.html">Holy Healthcare</a> and <a href="Organization-saint-luke-w-endpoint.html">Saint Luke's Hospital of Kansas City</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>No changes</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." data-no-external="true">Organization</a><a name="k-Organization"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( org-1 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/organization.html">Organization</a></td>
+<td class="hierarchy">A grouping of people or organizations with a common purpose<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>org-1: </span>The organization SHALL at least have a name or an identifier, and possibly more than one<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-Organization.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-Organization.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." data-no-external="true">Slices for identifier</a><a name="k-Organization.identifier"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( org-1 )">C</a></td>
+<td class="hierarchy"><span></span><span>0</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy"><span>Identifies this organization  across multiple systems</span><br><span>Slice: </span><span>Unordered, Open by value:$this</span><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_element.gif" alt="." title="Element" class="hierarchy"> identifier:All Slices<a name="k-Organization.identifier.2"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier.use" title="The purpose of this identifier." data-no-external="true">use</a><a name="k-Organization.identifier.use"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">usual | official | temp | secondary | old (If known)<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html" title="http://hl7.org/fhir/ValueSet/identifier-use">IdentifierUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Identifies the purpose for this identifier, if known .<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier.system" title="Establishes the namespace for the value - that is, a URL that describes a set values that are unique." data-no-external="true">system</a><a name="k-Organization.identifier.system"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>http://www.acme.com/identifiers/patient</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier.value" title="The portion of the identifier typically relevant to the user and which is unique within the context of the system." data-no-external="true">value</a><a name="k-Organization.identifier.value"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">The value that is unique<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>123456</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI" title="Slice NPI: Identifier for the organization that is used to identify the organization across multiple disparate systems." data-no-external="true">identifier:NPI</a><a name="k-Organization.identifier.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-16, us-core-17, org-1 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">National Provider Identifier (NPI)<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>us-core-16: </span>NPI must be 10 digits<br><span>us-core-17: </span>NPI check digit must be valid (Luhn algorithm check)<br><br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>Fixed Value: </span><span>http://hl7.org/fhir/sid/us-npi</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI.use" title="The purpose of this identifier." data-no-external="true">use</a><a name="k-Organization.identifier.use.2"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">usual | official | temp | secondary | old (If known)<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html" title="http://hl7.org/fhir/ValueSet/identifier-use">IdentifierUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Identifies the purpose for this identifier, if known .<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI.system" title="Establishes the namespace for the value - that is, a URL that describes a set values that are unique." data-no-external="true">system</a><a name="k-Organization.identifier.system.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>http://www.acme.com/identifiers/patient</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NPI.value" title="The portion of the identifier typically relevant to the user and which is unique within the context of the system." data-no-external="true">value</a><a name="k-Organization.identifier.value.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">The value that is unique<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>123456</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:CLIA" title="Slice CLIA: Identifier for the organization that is used to identify the organization across multiple disparate systems." data-no-external="true">identifier:CLIA</a><a name="k-Organization.identifier.4"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-18, org-1 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">Clinical Laboratory Improvement Amendments (CLIA) Number for laboratories<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>us-core-18: </span>CLIA number must be 10 digits with a letter "D" in third position<br><br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>Fixed Value: </span><span>urn:oid:2.16.840.1.113883.4.7</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:CLIA.use" title="The purpose of this identifier." data-no-external="true">use</a><a name="k-Organization.identifier.use.3"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">usual | official | temp | secondary | old (If known)<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html" title="http://hl7.org/fhir/ValueSet/identifier-use">IdentifierUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Identifies the purpose for this identifier, if known .<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:CLIA.system" title="Establishes the namespace for the value - that is, a URL that describes a set values that are unique." data-no-external="true">system</a><a name="k-Organization.identifier.system.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>http://www.acme.com/identifiers/patient</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline_slicer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:CLIA.value" title="The portion of the identifier typically relevant to the user and which is unique within the context of the system." data-no-external="true">value</a><a name="k-Organization.identifier.value.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">The value that is unique<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>123456</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NAIC" title="Slice NAIC: Identifier for the organization that is used to identify the organization across multiple disparate systems." data-no-external="true">identifier:NAIC</a><a name="k-Organization.identifier.5"> </a></td>
+<td class="hierarchy"><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( us-core-19, org-1 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">NAIC Code<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>us-core-19: </span>NAIC must be 5 digits<br><br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>Fixed Value: </span><span>urn:oid:2.16.840.1.113883.6.300</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NAIC.use" title="The purpose of this identifier." data-no-external="true">use</a><a name="k-Organization.identifier.use.4"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">usual | official | temp | secondary | old (If known)<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html" title="http://hl7.org/fhir/ValueSet/identifier-use">IdentifierUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Identifies the purpose for this identifier, if known .<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NAIC.system" title="Establishes the namespace for the value - that is, a URL that describes a set values that are unique." data-no-external="true">system</a><a name="k-Organization.identifier.system.4"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The namespace for the identifier value<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>http://www.acme.com/identifiers/patient</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.identifier:NAIC.value" title="The portion of the identifier typically relevant to the user and which is unique within the context of the system." data-no-external="true">value</a><a name="k-Organization.identifier.value.4"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">The value that is unique<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>123456</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use." data-no-external="true">active</a><a name="k-Organization.active"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td>
+<td class="hierarchy">Whether the organization's record is still in active use<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.name" title="A name associated with the organization." data-no-external="true">name</a><a name="k-Organization.name"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( org-1 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Name used for the organization<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.telecom" title="A contact detail for the organization." data-no-external="true">telecom</a><a name="k-Organization.telecom"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( org-3 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint">ContactPoint</a></td>
+<td class="hierarchy">A contact detail for the organization<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>org-3: </span>The telecom of an organization can never be of use 'home'<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.telecom.system" title="Telecommunications form for contact point - what communications system is required to make use of the contact." data-no-external="true">system</a><a name="k-Organization.telecom.system"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( cpt-2 )">C</a></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">phone | fax | email | pager | url | sms | other<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-contact-point-system.html" title="http://hl7.org/fhir/ValueSet/contact-point-system">ContactPointSystem</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Telecommunications form for contact point.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.telecom.value" title="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." data-no-external="true">value</a><a name="k-Organization.telecom.value"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">The actual contact point details<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.telecom.use" title="Identifies the purpose for the contact point." data-no-external="true">use</a><a name="k-Organization.telecom.use"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">home | work | temp | old | mobile - purpose of this contact point<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-contact-point-use.html" title="http://hl7.org/fhir/ValueSet/contact-point-use">ContactPointUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Use of contact point.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address" title="An address for the organization." data-no-external="true">address</a><a name="k-Organization.address"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( org-2 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Address">Address</a></td>
+<td class="hierarchy">An address for the organization<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>org-2: </span>An address of an organization can never be of use 'home'<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.use" title="The purpose of this address." data-no-external="true">use</a><a name="k-Organization.address.use"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">home | work | temp | old | billing - purpose of this address<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-address-use.html" title="http://hl7.org/fhir/ValueSet/address-use">AddressUse</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): The use of an address.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>home</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.line" title="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." data-no-external="true">line</a><a name="k-Organization.address.line"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..4</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Street name, number, direction &amp; P.O. Box etc.<br><span>ele-1: </span>All FHIR elements must have a @value or children<br>This repeating element order: The order in which lines should appear in an address label<br><span>Example General: </span><span>137 Nowhere Street</span><br><span>Example US Core: </span><span>49 MEADOW ST</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.city" title="The name of the city, town, suburb, village or other community or delivery center." data-no-external="true">city</a><a name="k-Organization.address.city"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Name of city, town etc.<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>Erewhon</span><br><span>Example US Core: </span><span>EVERYTOWN</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.state" title="Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes)." data-no-external="true">state</a><a name="k-Organization.address.state"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Sub-unit of country (abbreviations ok)<br><span>Binding: </span><a href="ValueSet-us-core-usps-state.html" title="http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state">USPS Two Letter Alphabetic Codes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">extensible</a>): Two letter USPS alphabetic codes.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example US Core: </span><span>OK</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.postalCode" title="A postal code designating a region defined by the postal service." data-no-external="true">postalCode</a><a name="k-Organization.address.postalCode"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">US Zip Codes<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>Example General: </span><span>9132</span><br><span>Example US Core: </span><span>74047</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-organization-definitions.html#Organization.address.country" title="Country - a nation as commonly understood or generally accepted." data-no-external="true">country</a><a name="k-Organization.address.country"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Country (e.g. can be ISO 3166 2 or 3 letter code)<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td><td><b>URI</b></td></tr>
+<tr><td>Organization.identifier.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Identifies the purpose for this identifier, if known ."><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html">IdentifierUse</a><div><code>http://hl7.org/fhir/ValueSet/identifier-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.identifier:NPI.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Identifies the purpose for this identifier, if known ."><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html">IdentifierUse</a><div><code>http://hl7.org/fhir/ValueSet/identifier-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.identifier:CLIA.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Identifies the purpose for this identifier, if known ."><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html">IdentifierUse</a><div><code>http://hl7.org/fhir/ValueSet/identifier-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.identifier:NAIC.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Identifies the purpose for this identifier, if known ."><a href="http://hl7.org/fhir/R4/valueset-identifier-use.html">IdentifierUse</a><div><code>http://hl7.org/fhir/ValueSet/identifier-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/identifier-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.telecom.system</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Telecommunications form for contact point."><a href="http://hl7.org/fhir/R4/valueset-contact-point-system.html">ContactPointSystem</a><div><code>http://hl7.org/fhir/ValueSet/contact-point-system|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/contact-point-system|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.telecom.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Use of contact point."><a href="http://hl7.org/fhir/R4/valueset-contact-point-use.html">ContactPointUse</a><div><code>http://hl7.org/fhir/ValueSet/contact-point-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/contact-point-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.address.use</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="The use of an address."><a href="http://hl7.org/fhir/R4/valueset-address-use.html">AddressUse</a><div><code>http://hl7.org/fhir/ValueSet/address-use|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/address-use|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>Organization.address.state</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a></td><td title="Two letter USPS alphabetic codes."><a href="ValueSet-us-core-usps-state.html">UspsTwoLetterAlphabeticCodes</a><div><code>http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/ValueSet/us-core-usps-state"></button></div><div>from this IG</div></td></tr>
+</table>
+
+        
+          
+          
+          
+            <a name="inv-key"> </a>
+            
+            <h4>Constraints</h4>
+<table class="list">
+<tr><td width="60"><b>Id</b></td><td><b>Grade</b></td><td><b>Path(s)</b></td><td><b>Details</b></td><td><b>Requirements</b></td></tr>
+<tr><td>us-core-16</td><td>error</td><td>Organization.identifier:NPI</td><td>NPI must be 10 digits<br>: value.matches('^[0-9]{10}$')</td><td></td></tr>
+<tr><td>us-core-17</td><td>error</td><td>Organization.identifier:NPI</td><td>NPI check digit must be valid (Luhn algorithm check)<br>: (((select(value.substring(0,1).toInteger()).select(iif($this&lt;5, $this*2, (($this*2)-9))))+(value.substring(1,1).toInteger())+(select(value.substring(2,1).toInteger()).select(iif($this&lt;5, $this*2, (($this*2)-9))))+(value.substring(3,1).toInteger())+(select(value.substring(4,1).toInteger()).select(iif($this&lt;5, $this*2, (($this*2)-9))))+(value.substring(5,1).toInteger())+(select(value.substring(6,1).toInteger()).select(iif($this&lt;5, $this*2, (($this*2)-9))))+(value.substring(7,1).toInteger())+(select(value.substring(8,1).toInteger()).select(iif($this&lt;5, $this*2, (($this*2)-9))))+(value.substring(9,1).toInteger()) + 24)mod 10=0)</td><td></td></tr>
+<tr><td>us-core-18</td><td>error</td><td>Organization.identifier:CLIA</td><td>CLIA number must be 10 digits with a letter &quot;D&quot; in third position<br>: value.matches('^[0-9]{2}D[0-9]{7}$')</td><td></td></tr>
+<tr><td>us-core-19</td><td>error</td><td>Organization.identifier:NAIC</td><td>NAIC must be 5 digits<br>: value.matches('^[0-9]{5}$')</td><td></td></tr>
+</table>
+
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-organization.csv">CSV</a>, <a href="StructureDefinition-us-core-organization.xlsx">Excel</a>, <a href="StructureDefinition-us-core-organization.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to organization data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/Organization.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching by organization name using the <strong><a href="SearchParameter-us-core-organization-name.html"><code class="language-plaintext highlighter-rouge">name</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Organization?name=[string]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Organization?name=Health</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Organization resources that match the name (<a href="http://hl7.org/fhir/R4/search.html#string">how to search by string</a>)</p>
+  </li>
+  <li>
+    <p><strong>SHALL</strong> support searching organization based on text address using the <strong><a href="SearchParameter-us-core-organization-address.html"><code class="language-plaintext highlighter-rouge">address</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/Organization?address=[string]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/Organization?address=Arbor</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all Organization resources that match the address string (<a href="http://hl7.org/fhir/R4/search.html#string">how to search by string</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

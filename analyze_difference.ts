@@ -9,7 +9,7 @@ export async function ensureDifferenceAnalysis(
   projectRootDir: string,
   ai: GoogleGenAI
 ): Promise<string | null> {
-  const outputDir = path.join(projectRootDir, 'analyzed', 'diff');
+  const outputDir = path.join(projectRootDir, 'analysis', 'diff');
   const outputFilePath = path.join(outputDir, `${resourceName.toLowerCase()}.md`);
 
   try {
@@ -39,31 +39,69 @@ export async function ensureDifferenceAnalysis(
     console.log(`[${resourceName}] Reading example analysis for diff: ${exampleDiffPath}`);
     const exampleDiffAnalysisContent = await Bun.file(exampleDiffPath).text();
 
-    const prompt = `You are an expert in FHIR (Fast Healthcare Interoperability Resources).
+    const prompt = `You are an expert in FHIR (Fast Healthcare Interoperability Resources) and a skilled technical writer.
 Your task is to analyze two markdown documents describing the R4 and R6 versions of a specific FHIR resource.
-Produce a **human-readable diff report** that highlights the **meaningful changes** an implementer would need to understand when migrating from R4 to R6, or when supporting both versions.
+Produce a **human-readable migration guide** that highlights the **meaningful changes** an implementer would need to understand when migrating from R4 to R6, or when supporting both versions.
 Refer to the example analysis provided below (between <EXAMPLE_ANALYSIS_START> and <EXAMPLE_ANALYSIS_END>) for the style, level of detail, and focus expected.
 
-**Focus your analysis on:**
-1.  **Core Definition Changes:** Modifications to resource elements, including:
+**Key Objectives for the Migration Guide:**
+
+1.  **Clarity & Readability:**
+    *   Use clear, unambiguous language, assuming an audience of FHIR implementers.
+    *   Employ a well-structured narrative with logical flow (e.g., executive summary first, then detailed sections).
+    *   Utilize headings, subheadings, lists, and formatting (like **bolding** for emphasis or \`code\` for element names) effectively to enhance readability.
+    *   Avoid excessive jargon; if FHIR-specific terminology is used, it should be standard and contextually clear.
+
+2.  **Actionability & Implementer Focus:**
+    *   Clearly state *what* changed for each significant item.
+    *   Explain the *impact* of the change on implementers (e.g., "systems must now support...", "data migration required for...", "queries need updating...").
+    *   Provide specific *actions* or *considerations* for implementers.
+    *   Explicitly identify "Breaking Changes" or changes requiring significant effort with clear markers or phrasing.
+
+3.  **Density & Conciseness (Narrative Style Preferred):**
+    *   Convey information efficiently without unnecessary verbosity.
+    *   While side-by-side comparisons can be useful internally, **present the findings in a primarily narrative or descriptive list format rather than relying heavily on tables for element-by-element comparisons.** Tables can be used sparingly for very specific, compact data (e.g., a small list of value set additions) but should not be the primary method for detailing element changes.
+    *   Summarize common patterns of change effectively.
+
+4.  **Precision & Accuracy:**
+    *   Correctly identify all significant changes in elements, types, cardinality, bindings, constraints, and search parameters.
+    *   Use exact FHIR element names, data types, and value set URIs where relevant.
+    *   Accurately describe the "before" (R4) and "after" (R6) states.
+    *   Include the rationale for changes (inferred design rationale) if it aids understanding and is evident or commonly known.
+
+5.  **Comprehensiveness (within scope):**
+    *   Cover all major aspects of the resource definition relevant to implementers:
+        *   Overall scope/purpose evolution.
+        *   Element additions, removals, and modifications (name, type, cardinality, description shifts, binding changes).
+        *   Constraint changes (additions, removals, modifications).
+        *   Search parameter changes.
+    *   Address potential data migration implications.
+
+**Specific Areas of Analysis (Focus on these points):**
+
+1.  **Executive Summary:** Start with a high-level overview of the most impactful changes and key actions for implementers.
+2.  **Core Definition Changes:** Detail modifications to resource elements:
     *   Addition or removal of elements.
-    *   Changes in data types.
-    *   Adjustments to cardinality (e.g., 0..1 to 1..1, or 0..* to 1..*).
-    *   Renaming of elements if it signifies a conceptual shift.
-2.  **Scope and Usage Evolution:** How has the intended scope or common usage patterns of this resource changed between R4 and R6? Are there new use cases supported or old ones deprecated/altered?
-3.  **Data Modeling Impacts:** What are the key differences in the underlying data model? How do these changes affect how data is structured, represented, or constrained?
-4.  **Significant Constraint Changes:** Modifications to invariants, profiles, or other constraints that materially affect validation or interpretation.
-5.  **Search Parameter Differences:** Notable additions, removals, or modifications to search parameters that impact querying capabilities.
+    *   Changes in data types (e.g., \`string\` to \`markdown\`, \`CodeableConcept\` to \`CodeableReference\`).
+    *   Adjustments to cardinality that change requirements (e.g., \`0..1\` to \`1..1\`).
+    *   Renaming of elements if it signifies a conceptual shift (e.g., \`imagingStudy\` to \`study\`).
+    *   Significant changes to element descriptions that alter meaning or scope.
+    *   Changes to value set bindings (new values, different strength, different value set).
+3.  **Scope and Usage Evolution:** Explain how the intended scope or common usage patterns of this resource have changed between R4 and R6. Are there new use cases supported or old ones deprecated/altered?
+4.  **Data Modeling Impacts:** Discuss key differences in the underlying data model. How do these changes affect data structuring, representation, or constraints? (e.g., increased polymorphism, new relationships).
+5.  **Significant Constraint Changes:** Highlight modifications to invariants or other constraints that materially affect validation or interpretation. Clearly state if constraints were added or removed.
+6.  **Search Parameter Differences:** Detail notable additions, removals, or modifications to search parameters, including changes to their names, types, expressions, or target resource types. Explain the impact on querying capabilities.
+7.  **Key Migration Actions & Considerations:** Conclude with a consolidated list of actionable steps for implementers.
 
 **What to AVOID:**
+
 *   **Minor Narrative Tweaks:** Do not focus on small, line-level edits to descriptive text in the markdown unless these reflect a substantive change in meaning, scope, or technical definition.
-*   **Large YAML/JSON Dumps:** Your output should be a well-organized narrative. While you can use brief excerpts or citations from the provided markdown to illustrate a point, avoid embedding large, undigested chunks of YAML or JSON from the input documents. Emulate the style of the provided example.
+*   **Overuse of Tables for Element Comparison:** Prefer narrative descriptions or bulleted lists for detailing element changes. Use tables only when they offer superior clarity for highly specific, compact data sets without disrupting readability.
+*   **Large YAML/JSON Dumps:** Your output should be a well-organized narrative. Brief excerpts or citations are acceptable, but avoid embedding large, undigested chunks of YAML or JSON.
 
 **Output Format:**
-*   Present your findings as a clear, well-structured markdown document, similar to the provided example.
+*   Present your findings as a clear, well-structured markdown document, emulating the style, tone, and narrative preference of the provided example analysis.
 *   Use headings, bullet points, and concise language.
-*   Start with a high-level summary of the most impactful changes for an implementer.
-*   For each significant change, explain what changed, why it likely changed (inferred design rationale if possible), and what the implications are for implementers.
 
 Here is an example of the desired output format and content:
 <EXAMPLE_ANALYSIS_START>
@@ -82,7 +120,7 @@ Here is the R6 documentation:
 ${r6MdContent}
 </R6_MARKDOWN>
 
-Please provide your detailed, human-readable diff report for ${resourceName} below, following the style and focus of the example provided:`;
+`;
 
     const contents = [
       {

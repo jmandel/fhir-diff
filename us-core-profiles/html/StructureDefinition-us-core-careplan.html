@@ -1,0 +1,421 @@
+<h2 id="root">Resource Profile:
+
+    US Core CarePlan Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreCarePlanProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.15
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core CarePlan Profile inherits from the FHIR <a href="https://hl7.org/fhir/R4/careplan.html">CarePlan</a> resource; refer to it for scope and usage definitions. This profile sets minimum expectations for the CarePlan resource to record,  search, and fetch assessment and plan of treatment data associated with a patient. It specifies which core elements, extensions, vocabularies, and value sets <strong>SHALL</strong> be present and constrains how the elements are used. Providing the floor for standards development for specific use cases promotes interoperability and adoption.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for a care plan belonging to a Patient</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> an existing care plan</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p>The following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements.</p>
+
+<p><strong>Each CarePlan Must Have:</strong></p>
+
+<ol>
+  <li>a status</li>
+  <li>a category</li>
+  <li>an intent</li>
+  <li>a patient</li>
+</ol>
+
+<p><strong>Each CarePlan Must Support:</strong></p>
+
+<ol>
+  <li>a narrative summary of the patient assessment and plan of treatment*</li>
+  <li><span class="bg-success">a category code of "assess-plan"</span></li>
+</ol>
+
+<div class="bg-success">
+
+  
+
+  <p><strong>Additional USCDI Requirements:</strong></p>
+
+  <p>These <a href="must-support.html#additional-uscdi-requirements">Additional USCDI Requirements</a> elements are not Mandatory or Must Support but are required for ASTP Health IT certification testing and are included in the formal definition of the profile and the CarePlan examples.</p>
+
+  <ol>
+    <li>a contributor*</li>
+  </ol>
+</div>
+
+
+<p>*see guidance below</p>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+<ul>
+  <li>*The original Assessment and Plan design in the CarePlan was to support the "Assessment and Plan" from a narrative Progress Note. Systems have advanced significantly since the introduction of this requirement in 2015. Relaxing this to 0..1 allows more sophisticated systems to discretely encode a CarePlan instead of providing the narrative portion.</li>
+  <li>Additional considerations for systems aligning with <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=492">HL7 Consolidated (C-CDA)</a> Care Plan requirements:
+    <ul>
+      <li>US Core Goal <strong>SHOULD</strong> be present in <code class="language-plaintext highlighter-rouge">CarePlan.goal</code></li>
+      <li>US Core Condition <strong>SHOULD</strong> be present in <code class="language-plaintext highlighter-rouge">CarePlan.addresses</code></li>
+      <li>Assessment and Plan <strong>MAY</strong> be included as narrative in <code class="language-plaintext highlighter-rouge">CarePlan.text</code></li>
+    </ul>
+  </li>
+  <li>As an alternative to the US Core CarePlan, Assessment and Plan of Treatment may be included in various types of <a href="clinical-notes.html">Clinical Notes</a>, such as Progress Notes, History &amp; Physical (H&amp;P), Discharge Summaries, etc.</li>
+</ul>
+
+
+<ul>
+  <li><span class="bg-success">*The profile element <code class="language-plaintext highlighter-rouge">CarePlan.contributor</code> communicates the <a href="basic-provenance.html#individual-level-provenance">individual level provenance</a> author data corresponding to the U.S. Core Data for Interoperability (USCDI) Provenance Author Data Elements.</span></li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Refer to this Resource Profile: <a href="StructureDefinition-us-core-procedure.html">US Core Procedure Profile</a></li>
+ <li>Examples for this Resource Profile: <a href="CarePlan-colonoscopy.html">CarePlan/colonoscopy</a></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>The data elements list has changed</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan" title="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions." data-no-external="true">CarePlan</a><a name="k-CarePlan"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/careplan.html">CarePlan</a></td>
+<td class="hierarchy">Healthcare plan for patient or group<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-CarePlan.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.text" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety." data-no-external="true">text</a><a name="k-CarePlan.text"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Narrative">Narrative</a></td>
+<td class="hierarchy">Text summary of the resource, for human interpretation<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.text.status" title="The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data." data-no-external="true">status</a><a name="k-CarePlan.text.status"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">generated | additional<br><span>Binding: </span><a href="ValueSet-us-core-narrative-status.html" title="http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status">US Core Narrative Status</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Constrained value set of narrative statuses.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.text.div" title="The actual narrative content, a stripped down version of XHTML." data-no-external="true">div</a><a name="k-CarePlan.text.div"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( txt-1, txt-2 )">C</a></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/narrative.html#xhtml">xhtml</a></td>
+<td class="hierarchy">Limited xhtml content<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>txt-1: </span>The narrative SHALL contain only the basic html formatting elements and attributes described in chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href), images and internally contained style attributes<br><span>txt-2: </span>The narrative SHALL have some non-whitespace content</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-CarePlan.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.status" title="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record." data-no-external="true">status</a><a name="k-CarePlan.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">draft | active | on-hold | revoked | completed | entered-in-error | unknown<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-request-status.html" title="http://hl7.org/fhir/ValueSet/request-status">RequestStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.intent" title="Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain." data-no-external="true">intent</a><a name="k-CarePlan.intent"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">proposal | plan | order | option<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-care-plan-intent.html" title="http://hl7.org/fhir/ValueSet/care-plan-intent">CarePlanIntent</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Codes indicating the degree of authority/intentionality associated with a care plan<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.category" title="Type of plan." data-no-external="true">Slices for category</a><a name="k-CarePlan.category"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy"><span></span><span>1</span><span>..</span><span>*</span></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy"><span>Type of plan</span><br><span>Slice: </span><span>Unordered, Open by value:$this</span><br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-care-plan-category.html" title="http://hl7.org/fhir/ValueSet/care-plan-category">CarePlanCategory</a><span> (</span><a href="http://hl7.org/fhir/R4/terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">example</a><span>)</span><span>: </span><span>Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", etc.</span><br><br><br><span>ele-1: </span><span>All FHIR elements must have a @value or children</span><br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.category:AssessPlan" title="Slice AssessPlan: Type of plan." data-no-external="true">category:AssessPlan</a><a name="k-CarePlan.category.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">Type of plan<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-care-plan-category.html" title="http://hl7.org/fhir/ValueSet/care-plan-category">CarePlanCategory</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">example</a>): Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", etc.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><br><span>Required Pattern: </span><span>At least the following</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slice.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept.coding" data-no-external="true">coding</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy">Code defined by a terminology system<br><span>Fixed Value: </span><span>(complex)</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.system" data-no-external="true">system</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">Identity of the terminology system<br><span>Fixed Value: </span><span>http://hl7.org/fhir/us/core/CodeSystem/careplan-category</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_fixed.gif" alt="." title="Fixed Value" class="hierarchy"> <a no-external="true" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Coding.code" data-no-external="true">code</a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">Symbol in syntax defined by the system<br><span>Fixed Value: </span><span>assess-plan</span></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.subject" title="Who care plan is for." data-no-external="true">subject</a><a name="k-CarePlan.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">Who the care plan is for<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-careplan-definitions.html#CarePlan.contributor" title="Identifies the individual(s) or organization who provided the contents of the care plan." data-no-external="true">contributor</a><a name="k-CarePlan.contributor"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a> | <a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a> | <a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a> | <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a> | <a href="StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a> | <a href="StructureDefinition-us-core-relatedperson.html">US Core RelatedPerson Profile</a> | <a href="http://hl7.org/fhir/R4/device.html">Device</a>)</td>
+<td class="hierarchy">&#x1D5D4;&#x1D5D7;&#x1D5D7;&#x1D5DC;&#x1D5E7;&#x1D5DC;&#x1D5E2;&#x1D5E1;&#x1D5D4;&#x1D5DF; &#x1D5E8;&#x1D5E6;&#x1D5D6;&#x1D5D7;&#x1D5DC;: Who provided the content of the care plan<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet / Code</b></td><td><b>URI</b></td></tr>
+<tr><td>CarePlan.text.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Constrained value set of narrative statuses."><a href="ValueSet-us-core-narrative-status.html">NarrativeStatus</a><div><code>http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status"></button></div><div>from this IG</div></td></tr>
+<tr><td>CarePlan.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record."><a href="http://hl7.org/fhir/R4/valueset-request-status.html">RequestStatus</a><div><code>http://hl7.org/fhir/ValueSet/request-status</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/request-status"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>CarePlan.intent</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Codes indicating the degree of authority/intentionality associated with a care plan"><a href="http://hl7.org/fhir/R4/valueset-care-plan-intent.html">CarePlanIntent</a><div><code>http://hl7.org/fhir/ValueSet/care-plan-intent</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/care-plan-intent"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>CarePlan.category</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#example">example</a></td><td title="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc."><a href="http://hl7.org/fhir/R4/valueset-care-plan-category.html">CarePlanCategory</a><div><code>http://hl7.org/fhir/ValueSet/care-plan-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/care-plan-category"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>CarePlan.category:AssessPlan</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#example">example</a></td><td title="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc.">Pattern: <a title="US Core CarePlan Category Extension Codes" href="CodeSystem-careplan-category.html#careplan-category-assess-plan">assess-plan</a><div><code>http://hl7.org/fhir/ValueSet/care-plan-category</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/care-plan-category"></button></div><div>from the FHIR Standard</div></td></tr>
+</table>
+
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-careplan.csv">CSV</a>, <a href="StructureDefinition-us-core-careplan.xlsx">Excel</a>, <a href="StructureDefinition-us-core-careplan.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to care plan data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/CarePlan.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-careplan-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> search parameters:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/CarePlan?patient={Type/}[id]&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all CarePlan resources for the specified patient and category=<code class="language-plaintext highlighter-rouge">assess-plan</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-careplan-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/CarePlan?patient={Type/}[id]&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;date=ge2019-01-01T00:00:00Z</li>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;date=ge2018-01-01T00:00:00Z&amp;date=le2019-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all CarePlan resources for the specified patient and category=<code class="language-plaintext highlighter-rouge">assess-plan</code> and date (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-careplan-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/CarePlan?patient={Type/}[id]&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;status={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;status=active</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all CarePlan resources for the specified patient and category=<code class="language-plaintext highlighter-rouge">assess-plan</code> and status=<code class="language-plaintext highlighter-rouge">active</code> (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-careplan-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-category.html"><code class="language-plaintext highlighter-rouge">category</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> and <strong><a href="SearchParameter-us-core-careplan-date.html"><code class="language-plaintext highlighter-rouge">date</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">date</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">date</code> (e.g.<code class="language-plaintext highlighter-rouge">date=[date]&amp;date=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/CarePlan?patient={Type/}[id]&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;status={system|}[code]{,{system|}[code],...}&amp;date={gt|lt|ge|le}[date]{&amp;date={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;status=active&amp;date=ge2019-01-01T00:00:00Z</li>
+      <li>GET [base]/CarePlan?patient=1137192&amp;category=http://hl7.org/fhir/us/core/CodeSystem/careplan-category|assess-plan&amp;status=active&amp;date=ge2018-01-01T00:00:00Z&amp;date=le2019-01-01T00:00:00Z</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all CarePlan resources for the specified patient and category=<code class="language-plaintext highlighter-rouge">assess-plan</code> and status=<code class="language-plaintext highlighter-rouge">active</code> and date (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+</ol>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

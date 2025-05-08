@@ -1,0 +1,537 @@
+<h2 id="root">Resource Profile:
+
+    US Core QuestionnaireResponse Profile
+
+
+
+
+
+  </h2>
+
+  <table class="colstu">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse"></button></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">8.0.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse|8.0.0"></button></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="3">
+        
+          <i>
+            
+            Standards status:
+          </i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Trial-use</a>
+          
+        
+      </td>
+
+      <td>
+        <a href="http://hl7.org/fhir/versions.html#maturity">Maturity Level</a>: 3
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span>USCoreQuestionnaireResponseProfile</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.4.642.40.2.42.55
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Used by permission of HL7 International, all rights reserved Creative Commons License</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+</p><p>The US Core QuestionaireResponse Profile inherits from the <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaireresponse.html">Structured  Data Capture (SDC) Questionnaire Response Profile</a>.   This profile sets minimum expectations for the QuestionnaireResponse resource to record, search, and fetch retrieve captures the responses to form/survey and assessment tools such as the <em>Protocol for Responding to and Assessing Patients\u2019 Assets, Risks, and Experiences (PRAPARE) Survey</em>.  It specifies which core <em>additional</em> elements, extensions, vocabularies, and value sets <strong>SHALL</strong> be present and constrains how the elements are used.  Before reviewing this profile, implementers are encouraged to read the Screening and Assessments guidance page, which documents the process of recording responses and capturing assertions/determinations resulting from surveys and questionnaires.</p>
+
+
+
+
+
+
+
+
+
+
+<div markdown="1">
+
+<p><strong>Example Usage Scenarios:</strong></p>
+
+<p>The following are example usage scenarios for this profile:</p>
+
+<ul>
+  <li>Query for survey screening results for a patient.</li>
+  <li><a href="us-core-roadmap.html#future-candidate-requirements-under-consideration">Record or update</a> screening results results belonging to a Patient</li>
+</ul>
+
+<h3 id="mandatory-and-must-support-data-elements">Mandatory and Must Support Data Elements</h3>
+
+<p><em>In addition to</em> the Mandatory and Must Support data elements in the SDC QuestionnaireResponse Profile, the following data elements must always be present (<a href="must-support.html">Mandatory</a> definition) or must be supported if the data is present in the sending system (<a href="must-support.html">Must Support</a> definition). They are presented below in a simple human-readable explanation. Profile specific guidance and examples are provided as well. The <a href="#profile">Formal Views</a> below provides the formal summary, definitions, and terminology requirements. Note that the <em>Key Elements Table</em> view aggregates all the Must Support elements between this profile and its parent profiles.</p>
+
+<p><strong>Each QuestionnaireResponse Must Have:</strong></p>
+
+<ol>
+  <li>a reference back to the assessment upon which it is based</li>
+  <li>a status</li>
+  <li>a patient</li>
+  <li>the date the answers were gathered</li>
+</ol>
+
+<p><strong>Each QuestionnaireResponse Must Support:</strong></p>
+
+
+<ol>
+  <li>a practitioner who recorded the answers*</li>
+  <li>the questions and decimal, string, and coded answers
+    <ul>
+      <li>each question must have an identifier pointing to the question</li>
+    </ul>
+  </li>
+</ol>
+
+<p>*see guidance below</p>
+
+<p><strong>Profile Specific Implementation Guidance:</strong></p>
+
+<ul>
+  <li>The SDC profile (from which this profile is derived) focuses on the constraints appropriate to capturing the "answer(s)" to a FHIR <a href="http://hl7.org/fhir/R4/questionnaire.html">Questionnaire</a> and demands that the Questionnaire's canonical URL be specified. If the QuestionnaireResponse is based on a non-FHIR form:
+    <ol>
+      <li>Construct a FHIR Questionnaire representing <em>at least</em> the relevant metadata (in other words, the questions may be omitted).</li>
+      <li>Communicates the identifier of the non-FHIR form instead of the canonical URI using the <a href="StructureDefinition-us-core-extension-questionnaire-uri.html">US Core Extension Questionnaire URI</a> extension.</li>
+    </ol>
+  </li>
+  <li>See the <a href="screening-and-assessments.html">Screening and Assessments</a> guidance page for how this profile or Observations can represent SDOH assessments.</li>
+  <li>QuestionnaireResponse can be searched using the standard FHIR RESTful API search parameters. Example searches are shown in the <a href="#notes">Quick Start</a> section below. Although search <a href="http://hl7.org/fhir/R4/search.html#chaining">chains</a> through the associated Questionnaire can be used to query QuestionnaireResponse by item, individual responses are not directly searchable in QuestionnaireResponse. To search directly for individual responses, they must be "parsed" into a searchable form - i.e., to a local FHIR or non-FHIR data store such as a database or FHIR Observations.</li>
+  <li>The basic workflow for creating, discovering, retrieving, and data-extracting FHIR Questionnaire and QuestionnaireResponse is thoroughly documented in the <a href="http://hl7.org/fhir/uv/sdc">Structured Data Capture (SDC)</a> implementation guide.</li>
+</ul>
+
+
+<ul>
+  <li><span class="bg-success">*The profile elements <code class="language-plaintext highlighter-rouge">QuestionnaireResponse.author and QuestionnaireResponse.source</code> communicate the <a href="basic-provenance.html#individual-level-provenance">individual level provenance</a> author data corresponding to the U.S. Core Data for Interoperability (USCDI) Provenance Author Data Elements.</span></li>
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<p><b>Usage:</b></p>
+<ul>
+ <li>Refer to this Resource Profile: <a href="StructureDefinition-us-core-observation-screening-assessment.html">US Core Observation Screening Assessment Profile</a> and <a href="StructureDefinition-us-core-simple-observation.html">US Core Simple Observation Profile</a></li>
+ <li>Examples for this Resource Profile: <a href="QuestionnaireResponse-AUDIT-C.html">QuestionnaireResponse/AUDIT-C</a>, <a href="QuestionnaireResponse-TAPS.html">QuestionnaireResponse/TAPS</a>, <a href="QuestionnaireResponse-exercise-vital-sign.html">QuestionnaireResponse/exercise-vital-sign</a>, <a href="QuestionnaireResponse-glascow-coma-score.html">QuestionnaireResponse/glascow-coma-score</a><span id="rr_ex" onClick="document.getElementById('rr_ex').innerHTML = document.getElementById('rr2_ex').innerHTML">... <span>Show 3 more</span></span><span id="rr2_ex">, <a href="QuestionnaireResponse-hunger-vital-sign-example.html">QuestionnaireResponse/hunger-vital-sign-example</a>, <a href="QuestionnaireResponse-phq-9-example.html">QuestionnaireResponse/phq-9-example</a> and <a href="QuestionnaireResponse-prapare-example.html">QuestionnaireResponse/prapare-example</a></span></li>
+ <li>CapabilityStatements using this Resource Profile: <a href="CapabilityStatement-us-core-client.html">US Core Client CapabilityStatement</a> and <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a></li>
+</ul>
+<div>
+<p><b>Changes since version 7.0.0:</b></p>
+<li>No changes</li>
+</div>
+
+
+  
+  <a name="profile"> </a>
+  <h3 id="profile">Formal Views of Profile Content</h3>
+  <p>
+    <a href="http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
+  </p>
+  <div id="tabs-key">
+      <div id="tbl-key">
+        <div id="tbl-key-inner">
+          <table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element" data-no-external="true">Name</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element" data-no-external="true">Flags</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance" data-no-external="true">Card.</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element" data-no-external="true">Type</a></th><th class="hierarchy"><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element" data-no-external="true">Description &amp; Constraints</a><span><a no-external="true" href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format" data-no-external="true"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"></a></span></th></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="icon_resource.png" alt="." title="Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse" title="Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems." data-no-external="true">QuestionnaireResponse</a><a name="k-QuestionnaireResponse"> </a></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( sdcqr-1, sdcqr-2 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaireresponse.html">SDCQuestionnaireResponse</a></td>
+<td class="hierarchy">US Core Profile based on SDC QuestionnaireResponse<br><span>dom-2: </span>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br><span>dom-3: </span>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource<br><span>dom-4: </span>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br><span>dom-5: </span>If a resource is contained in another resource, it SHALL NOT have a security label<br><span>dom-6: </span>A resource should have narrative for robust management<br><span>sdcqr-1: </span>Subject SHOULD be present (searching is difficult without subject).  Almost all QuestionnaireResponses should be with respect to some sort of subject.<br><span>sdcqr-2: </span>When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers.<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.implicitRules" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." data-no-external="true">implicitRules</a><a name="k-QuestionnaireResponse.implicitRules"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">A set of rules under which this content was created<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> Slices for extension<a name="k-QuestionnaireResponse.extension"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.extension:signature" title="Extension URL = http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature" data-no-external="true">extension:signature</a><a name="k-QuestionnaireResponse.extension.2"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Signature">Signature</a></td>
+<td class="hierarchy">A signature attesting to the content<br><span>URL: </span><a href="http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-questionnaireresponse-signature.html">http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.extension:completionMode" title="Extension URL = http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode" data-no-external="true">extension:completionMode</a><a name="k-QuestionnaireResponse.extension.3"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+<td class="hierarchy">E.g. Verbal, written, electronic<br><span>URL: </span><a href="http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-questionnaireresponse-completionMode.html">http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode</a><br><span>Binding: </span><a href="http://hl7.org/fhir/extensions/5.2.0/ValueSet-questionnaireresponse-mode.html" title="http://hl7.org/fhir/ValueSet/questionnaireresponse-mode">QuestionnaireResponseMode</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Codes indicating how the questionnaire was completed.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-QuestionnaireResponse.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.identifier" title="A business identifier assigned to a particular completed (or partially completed) questionnaire." data-no-external="true">identifier</a><a name="k-QuestionnaireResponse.identifier"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td>
+<td class="hierarchy">Unique id for this set of answers<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire" title="The Questionnaire that defines and organizes the questions for which answers are being provided." data-no-external="true">questionnaire</a><a name="k-QuestionnaireResponse.questionnaire"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">canonical</a>(<a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire.html">SDCBaseQuestionnaire</a>)</td>
+<td class="hierarchy">Form being answered<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> Slices for extension<a name="k-QuestionnaireResponse.questionnaire.extension"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire.extension:questionnaireDisplay" title="Extension URL = http://hl7.org/fhir/StructureDefinition/display" data-no-external="true">extension:questionnaireDisplay</a><a name="k-QuestionnaireResponse.questionnaire.extension.2"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Display name for canonical reference<br><span>URL: </span><a href="http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-display.html">http://hl7.org/fhir/StructureDefinition/display</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire.extension:url" title="Extension URL = http://hl7.org/fhir/us/core/StructureDefinition/us-core-extension-questionnaire-uri" data-no-external="true">extension:url</a><a name="k-QuestionnaireResponse.questionnaire.extension.3"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td>
+<td class="hierarchy">The location where a non-FHIR questionnaire/survey form can be found.<br><span>URL: </span><a href="StructureDefinition-us-core-extension-questionnaire-uri.html">http://hl7.org/fhir/us/core/StructureDefinition/us-core-extension-questionnaire-uri</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.status" title="The position of the questionnaire response within its overall lifecycle." data-no-external="true">status</a><a name="k-QuestionnaireResponse.status"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#code">code</a></td>
+<td class="hierarchy">in-progress | completed | amended | entered-in-error | stopped<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers-status.html" title="http://hl7.org/fhir/ValueSet/questionnaire-answers-status">QuestionnaireResponseStatus</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">required</a>): Lifecycle status of the questionnaire response.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.subject" title="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information." data-no-external="true">subject</a><a name="k-QuestionnaireResponse.subject"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a>)</td>
+<td class="hierarchy">The subject of the questions<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.authored" title="Identifies when this version of the answer set was created.  Changes whenever the answers are updated." data-no-external="true">authored</a><a name="k-QuestionnaireResponse.authored"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td>
+<td class="hierarchy">Date the answers were gathered<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_reference.png" alt="." title="Reference to another Resource" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.author" title="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system." data-no-external="true">author</a><a name="k-QuestionnaireResponse.author"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-us-core-practitioner.html">US Core Practitioner Profile</a>)</td>
+<td class="hierarchy">Person who received and recorded the answers<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item" title="A group or question item from the original questionnaire for which answers are provided." data-no-external="true">item</a><a name="k-QuestionnaireResponse.item"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span><a href="http://hl7.org/fhir/R4/conformance-rules.html#constraints" title="This element has or is affected by constraints ( qrs-1 )">C</a></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">Groups and questions<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>qrs-1: </span>Nested item can't be beneath both item and answer<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> Slices for extension<a name="k-QuestionnaireResponse.item.extension"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.extension:itemMedia" title="Extension URL = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemMedia" data-no-external="true">extension:itemMedia</a><a name="k-QuestionnaireResponse.item.extension.2"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Attachment">Attachment</a></td>
+<td class="hierarchy">Media to display<br><span>URL: </span><a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-itemMedia.html">http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemMedia</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.extension:ItemSignature" title="Extension URL = http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature" data-no-external="true">extension:ItemSignature</a><a name="k-QuestionnaireResponse.item.extension.3"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Signature">Signature</a></td>
+<td class="hierarchy">A signature attesting to the content<br><span>URL: </span><a href="http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-questionnaireresponse-signature.html">http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-QuestionnaireResponse.item.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId" title="The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource." data-no-external="true">linkId</a><a name="k-QuestionnaireResponse.item.linkId"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">1..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Pointer to specific item from Questionnaire<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.text" title="Text that is displayed above the contents of the group or as the text of the question being answered." data-no-external="true">text</a><a name="k-QuestionnaireResponse.item.text"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy">Name for group or question text<br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer" title="The respondent's answer(s) to the question." data-no-external="true">answer</a><a name="k-QuestionnaireResponse.item.answer"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#BackboneElement">BackboneElement</a></td>
+<td class="hierarchy">The response(s) to the question<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_slice.png" alt="." title="Slice Definition" class="hierarchy"> Slices for extension<a name="k-QuestionnaireResponse.item.answer.extension"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Content/Rules for all slices</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.extension:itemAnswerMedia" title="Extension URL = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemAnswerMedia" data-no-external="true">extension:itemAnswerMedia</a><a name="k-QuestionnaireResponse.item.answer.extension.2"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Attachment">Attachment</a></td>
+<td class="hierarchy">Answer Media to display<br><span>URL: </span><a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-itemAnswerMedia.html">http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemAnswerMedia</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end_slicer.png" alt="." class="hierarchy"><img src="icon_slice_item.png" alt="." title="Slice Item" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.extension:ordinalValue" title="Extension URL = http://hl7.org/fhir/StructureDefinition/ordinalValue" data-no-external="true">extension:ordinalValue</a><a name="k-QuestionnaireResponse.item.answer.extension.3"> </a></td>
+<td class="hierarchy"></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#decimal">decimal</a></td>
+<td class="hierarchy">Assigned Ordinal Value<br><span>URL: </span><a href="http://hl7.org/fhir/extensions/5.2.0/StructureDefinition-ordinalValue.html">http://hl7.org/fhir/StructureDefinition/ordinalValue</a><br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_modifier_extension_simple.png" alt="." title="Simple Extension" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.modifierExtension" title="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." data-no-external="true">modifierExtension</a><a name="k-QuestionnaireResponse.item.answer.modifierExtension"> </a></td>
+<td class="hierarchy"><span title="This element is a modifier element">?!</span><span title="This element is included in summaries">Σ</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/extensibility.html#Extension">Extension</a></td>
+<td class="hierarchy">Extensions that cannot be ignored even if unrecognized<br><span>ele-1: </span>All FHIR elements must have a @value or children<br><span>ext-1: </span>Must have either extensions or value[x], not both<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_choice.gif" alt="." title="Choice of Types" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value[x]" title="The answer (or one of the answers) provided by the respondent to the question." data-no-external="true">value[x]</a><a name="k-QuestionnaireResponse.item.answer.value_x_"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..1</td>
+<td class="hierarchy"></td>
+<td class="hierarchy">Single-valued answer to the question<br><span>Binding: </span><a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers.html" title="http://hl7.org/fhir/ValueSet/questionnaire-answers">QuestionnaireAnswerCodes</a> (<a href="http://hl7.org/fhir/R4/terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">example</a>): Code indicating the response provided for a question.<br><br><br><span>ele-1: </span>All FHIR elements must have a @value or children</td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <span title="Base StructureDefinition for decimal Type: A rational number with implicit precision">valueDecimal</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#decimal">decimal</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin.png" alt="." class="hierarchy"><img src="icon_primitive.png" alt="." title="Primitive Data Type" class="hierarchy"> <span title="Base StructureDefinition for string Type: A sequence of Unicode characters">valueString</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_datatype.gif" alt="." title="Data Type" class="hierarchy"> <span title="Base StructureDefinition for Coding Type: A reference to a code defined by a terminology system.">valueCoding</span></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"></td>
+<td class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Coding">Coding</a></td>
+<td class="hierarchy"></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vline.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_element.gif" alt="." title="Element" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.item" title="Nested groups and/or questions found within this particular answer." data-no-external="true">item</a><a name="k-QuestionnaireResponse.item.answer.item"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy">See <a href="http://hl7.org/fhir/R4/questionnaireresponse.html#QuestionnaireResponse.item" title="QuestionnaireResponse.item">item (QuestionnaireResponse)</a></td>
+<td class="hierarchy">Nested groups and questions<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td class="hierarchy"><img src="tbl_spacer.png" alt="." class="hierarchy"><img src="tbl_blank.png" alt="." class="hierarchy"><img src="tbl_vjoin_end.png" alt="." class="hierarchy"><img src="icon_element.gif" alt="." title="Element" class="hierarchy"> <a no-external="true" href="StructureDefinition-us-core-questionnaireresponse-definitions.html#QuestionnaireResponse.item.item" title="Questions or sub-groups nested beneath a question or group." data-no-external="true">item</a><a name="k-QuestionnaireResponse.item.item"> </a></td>
+<td class="hierarchy"><span title="This element must be supported">S</span></td>
+<td class="hierarchy">0..*</td>
+<td class="hierarchy">See <a href="http://hl7.org/fhir/R4/questionnaireresponse.html#QuestionnaireResponse.item" title="QuestionnaireResponse.item">item (QuestionnaireResponse)</a></td>
+<td class="hierarchy">Nested questionnaire response items<br><span>ele-1: </span>All FHIR elements must have a @value or children<br></td></tr>
+
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R4/help16.png" alt="doco"> Documentation for this format</a></td></tr></table>
+          
+          <h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td><td><b>URI</b></td></tr>
+<tr><td>QuestionnaireResponse.status</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#required">required</a></td><td title="Lifecycle status of the questionnaire response."><a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers-status.html">QuestionnaireResponseStatus</a><div><code>http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.1</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.1"></button></div><div>from the FHIR Standard</div></td></tr>
+<tr><td>QuestionnaireResponse.item.answer.value[x]</td><td><a href="http://hl7.org/fhir/R4/terminologies.html#example">example</a></td><td title="Code indicating the response provided for a question."><a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers.html">QuestionnaireAnswerCodes</a> (a valid code from <a href="https://browser.ihtsdotools.org/">SNOMED CT</a>)<div><code>http://hl7.org/fhir/ValueSet/questionnaire-answers</code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://hl7.org/fhir/ValueSet/questionnaire-answers"></button></div><div>from the FHIR Standard</div></td></tr>
+</table>
+
+        
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="StructureDefinition-us-core-questionnaireresponse.csv">CSV</a>, <a href="StructureDefinition-us-core-questionnaireresponse.xlsx">Excel</a>, <a href="StructureDefinition-us-core-questionnaireresponse.sch">Schematron</a>
+ 
+  </p>
+
+  
+
+
+
+
+<h3>Notes:</h3>
+
+
+<div markdown="1">
+
+
+
+
+<hr>
+
+<p><strong id="search">Quick Start</strong>
+<a name="quick-start"> </a></p>
+
+<hr>
+
+<p>Below is an overview of the required Server RESTful FHIR interactions for this profile - for example, search and read operations - when supporting the US Core interactions to access this profile's information (Profile Support + Interaction Support). Note that systems that support only US Core Profiles (Profile Only Support) are not required to support these interactions.  See the <a href="CapabilityStatement-us-core-server.html">US Core Server CapabilityStatement</a> for a complete list of supported RESTful interactions for this IG.</p>
+
+<ul>
+  <li>See the <a href="scopes.html#scopes-format">Scopes Format</a> section for a description of the SMART scopes syntax.</li>
+  <li>See the <a href="general-guidance.html#search-syntax">Search Syntax</a> section for a description of the US Core search syntax.</li>
+  <li>See the <a href="general-requirements.html">General Requirements</a> section for additional rules and expectations when a Server requires status parameters.</li>
+  <li>See the <a href="general-guidance.html">General Guidance</a> section for additional guidance on searching for multiple patients.</li>
+</ul>
+
+<h4 id="us-core-scopes">US Core Scopes</h4>
+
+<p>Servers providing access to completed questionnnaire, survey and assessement data <strong>SHALL</strong> support these <a href="scopes.html#smart-scopes">US Core SMART Scopes</a>:</p>
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/STU2/scopes-and-launch-context.html#scopes-for-requesting-clinical-data">resource level scopes</a>: <code class="language-plaintext highlighter-rouge">&lt;patient|user|system&gt;/QuestionnaireResponse.rs</code></li>
+</ul>
+
+<h4 id="mandatory-search-parameters">Mandatory Search Parameters:</h4>
+
+<p>The following search parameters and search parameter combinations SHALL be supported:</p>
+
+<ol>
+  <li>
+    <p><strong>SHALL</strong> support both read QuestionnaireResponse by <code class="language-plaintext highlighter-rouge">id</code> <strong>AND</strong> QuestionnaireResponse search using the <strong><a href="SearchParameter-us-core-questionnaireresponse-id.html"><code class="language-plaintext highlighter-rouge">_id</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse/[id]</code> or <code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?_id=[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/!QuestionnaireResponse/AHC-HRSN-screening-example</li>
+      <li>GET [base]/!QuestionnaireResponse/?_id=AHC-HRSN-screening-example</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em>  (<a href="http://hl7.org/fhir/R4/references.html#logical">how to search by the logical id</a> of the resource)</p>
+  </li>
+  <li>
+    <p><strong>SHALL</strong> support searching for all questionnaireresponses for a patient using the <strong><a href="SearchParameter-us-core-questionnaireresponse-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> search parameter:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?patient={Type/}[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/QuestionnaireResponse?patient=1032702</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all QuestionnaireResponse resources for the specified patient (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a>)</p>
+  </li>
+</ol>
+
+<h4 id="optional-search-parameters">Optional Search Parameters:</h4>
+
+<p>The following search parameter combinations <strong>SHOULD</strong> be supported:</p>
+
+<ol>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-questionnaireresponse-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-questionnaireresponse-status.html"><code class="language-plaintext highlighter-rouge">status</code></a></strong> search parameters:
+    <ul>
+      <li>including support for <em>OR</em> search on <code class="language-plaintext highlighter-rouge">status</code> (e.g.<code class="language-plaintext highlighter-rouge">status={system|}[code],{system|}[code],...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?patient={Type/}[id]&amp;status={system|}[code]{,{system|}[code],...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/QuestionnaireResponse?patient=1137192&amp;status=completed</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all QuestionnaireResponse resources for the specified patient and status (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#token">how to search by token</a>)</p>
+  </li>
+  <li><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-questionnaireresponse-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-questionnaireresponse-authored.html"><code class="language-plaintext highlighter-rouge">authored</code></a></strong> search parameters:
+    <ul>
+      <li>including support for these <code class="language-plaintext highlighter-rouge">authored</code> comparators: <code class="language-plaintext highlighter-rouge">gt,lt,ge,le</code></li>
+      <li>including optional support for <em>AND</em> search on <code class="language-plaintext highlighter-rouge">authored</code> (e.g.<code class="language-plaintext highlighter-rouge">authored=[date]&amp;authored=[date]]&amp;...</code>)</li>
+    </ul>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?patient={Type/}[id]&amp;authored={gt|lt|ge|le}[date]{&amp;authored={gt|lt|ge|le}[date]&amp;...}</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/QuestionnaireResponse?patient=113192&amp;date=ge2021</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all QuestionnaireResponse resources for the specified patient and date (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a> and <a href="http://hl7.org/fhir/R4/search.html#date">how to search by date</a>)</p>
+  </li>
+  <li>
+    <p><strong>SHOULD</strong> support searching using the combination of the <strong><a href="SearchParameter-us-core-questionnaireresponse-patient.html"><code class="language-plaintext highlighter-rouge">patient</code></a></strong> and <strong><a href="SearchParameter-us-core-questionnaireresponse-questionnaire.html"><code class="language-plaintext highlighter-rouge">questionnaire</code></a></strong> search parameters:</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?patient={Type/}[id]&amp;questionnaire={Type/}[id]</code></p>
+
+    <p>Example:</p>
+
+    <ol>
+      <li>GET [base]/QuestionnaireResponse?patient=113192&amp;questionnaire=http://hl7.org/fhir/us/sdoh-clinicalcare/Questionnaire/SDOHCC-QuestionnaireHungerVitalSign</li>
+    </ol>
+
+    <p><em>Implementation Notes:</em> Fetches a bundle of all QuestionnaireResponse resources for the specified patient that have been completed against a specified form. (<a href="http://hl7.org/fhir/R4/search.html#reference">how to search by reference</a>)</p>
+  </li>
+</ol>
+
+<h4 id="searching-questionnaireresponse-by-context">Searching QuestionnaireResponse by Context</h4>
+
+<p>Searching a patient's QuestionnaireResponses by specific context such as those defined in <a href="CodeSystem-us-core-category.html">US Core Category</a> can be achieved by querying the metadata on the associated Questionnaire. Specifically, <a href="http://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.useContext"><code class="language-plaintext highlighter-rouge">Questionnaire.useContext</code></a> with a code="focus" and value of "sdoh"/"functionalStatus"/etc. could be accomplished using a chained search:</p>
+
+<p><code class="language-plaintext highlighter-rouge">GET [base]/QuestionnaireResponse?subject=Patient/123&amp;questionnaire.context-type-value=focus$sdoh</code></p>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <script type="text/javascript" src="assets/js/jquery.js"></script>

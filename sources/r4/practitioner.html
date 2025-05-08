@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR R4: Practitioner</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        .content-block { border: 1px solid #eee; margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; }
+        .content-block h2 { margin-top: 0; font-size: 1.2em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 5px;}
+    </style>
+</head>
+<body>
+    <h1>FHIR R4: Practitioner</h1>
+    <div class="content-block"><h2>Content from https://hl7.org/fhir/R4/practitioner.html</h2>
+  
+	<div class="container">  
+            <div class="row">
+            	<div class="inner-wrapper">
+  
+
+
+<div class="col-12">  <p id="publish-box-past">This page is part of the FHIR Specification (v4.0.1: R4 - Mixed <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Normative Standard">Normative</a> and <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Standard for Trial-Use">STU</a>) in it's permanent home (it will always be available at this URL). The current version which supercedes this version is <a href="http://hl7.org/fhir/index.html">5.0.0</a>. For a full list of available versions, see the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" style="text-align: baseline"></a>. Page versions: <a href="http://hl7.org/fhir/R5/practitioner.html">R5</a> <a href="http://hl7.org/fhir/R4B/practitioner.html">R4B</a> <b>R4</b> <a href="http://hl7.org/fhir/STU3/practitioner.html">R3</a> <a href="http://hl7.org/fhir/DSTU2/practitioner.html">R2</a></p>  
+
+<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="practitioner-examples.html">Examples</a></li><li><a href="practitioner-definitions.html">Detailed Descriptions</a></li><li><a href="practitioner-mappings.html">Mappings</a></li><li><a href="practitioner-profiles.html">Profiles &amp; Extensions</a></li><li><a href="practitioner-version-maps.html">R3 Conversions</a></li></ul>
+
+<h1 class="self-link-parent"><span class="sectioncount">8.4<a name="8.4"> </a></span> Resource Practitioner - Content <a href="practitioner.html#8.4" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/pafm/index.cfm">Patient Administration <img src="external.png" style="text-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 3</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Individual</td>  <td><a href="compartmentdefinition.html">Compartments</a>: <a href="compartmentdefinition-practitioner.html">Practitioner</a></td></tr></table>
+
+
+<p>
+</p><p>A person who is directly or indirectly involved in the provisioning of healthcare.</p>
+
+
+
+<div>
+<a name="scope"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.1</span> Scope and Usage <a href="practitioner.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal 
+responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
+
+Practitioners include (but are not limited to):
+</p>
+<ul>
+<li>physicians,&nbsp;dentists,&nbsp;pharmacists</li>
+<li>physician assistants,&nbsp;nurses, scribes</li>
+<li>midwives,&nbsp;dietitians,&nbsp;therapists,&nbsp;optometrists, paramedics</li>
+<li>medical technicians,&nbsp;laboratory scientists, prosthetic technicians, radiographers</li>
+<li>social workers, professional homecare providers, official volunteers</li>
+<li>receptionists handling patient registration</li>
+<li>IT personnel merging or unmerging patient records</li>
+<li>Service animal (e.g., ward assigned dog capable of detecting cancer in patients)</li>
+</ul>
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.2</span> Boundaries and Relationships <a href="practitioner.html#bnr" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+The Resource SHALL NOT be used for persons involved without a formal responsibility like individuals taking care for friends, 
+relatives or neighbors. These can be registered as a Patient's Contact.  If performing some action or being referenced by another
+resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
+</p>
+<p>
+	The primary distinction between a Practitioner and a RelatedPerson is based on whether:
+</p>
+<ul>
+<li>
+	The person/animal operates on behalf of the care delivery organization over multiple patients (Practitioner) or,
+</li>
+<li>
+	Where the person/animal is not associated with the organization, and instead is
+	allocated tasks specifically for the RelatedPerson's Patient (RelatedPerson).
+</li>
+</ul>
+<p>
+	A standard extension <a href="extension-practitioner-animalspecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
+</p>
+<p>
+  The <a href="practitionerrole.html">PractitionerRole</a> resource provides the details of roles that the practitioner 
+  is approved to perform for which organizations (and at which locations, and optionally what services too).
+</p>
+<p>
+  Practitioners are also often grouped into <a href="careteam.html">CareTeams</a> independently of roles, where the CareTeam
+  defines what specific role that they are fulfilling within the team, and might or might not have actual practitioner role resources
+  created for the practitioner (and in the care team context, the organization the practitioner is representing)
+</p>
+</div>
+
+<div>
+<a name="bnc"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.3</span> Background and Context <a href="practitioner.html#bnc" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 
+it may be necessary to maintain a specific Practitioner Resource for each such role or have a single Practitioner with multiple roles.
+The role can be limited to a specific period, after which authorization for this role ends. Note that the represented organization
+need not necessarily be the (direct) employer of a Practitioner.
+</p>
+</div>
+
+<p>This resource is referenced by <a href="datatypes.html#Annotation">Annotation</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="account.html#Account">Account</a>, <a href="adverseevent.html#AdverseEvent">AdverseEvent</a>, <a href="allergyintolerance.html#AllergyIntolerance">AllergyIntolerance</a>, <a href="appointment.html#Appointment">Appointment</a>, <a href="appointmentresponse.html#AppointmentResponse">AppointmentResponse</a>, <a href="auditevent.html#AuditEvent">AuditEvent</a>, <a href="basic.html#Basic">Basic</a>, <a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>, <a href="careplan.html#CarePlan">CarePlan</a>, <a href="careteam.html#CareTeam">CareTeam</a>, <a href="catalogentry.html#CatalogEntry">CatalogEntry</a>, <a href="chargeitem.html#ChargeItem">ChargeItem</a>, <a href="claim.html#Claim">Claim</a>, <a href="claimresponse.html#ClaimResponse">ClaimResponse</a>, <a href="clinicalimpression.html#ClinicalImpression">ClinicalImpression</a>, <a href="communication.html#Communication">Communication</a>, <a href="communicationrequest.html#CommunicationRequest">CommunicationRequest</a>, <a href="composition.html#Composition">Composition</a>, <a href="condition.html#Condition">Condition</a>, <a href="consent.html#Consent">Consent</a>, <a href="contract.html#Contract">Contract</a>, <a href="coverageeligibilityrequest.html#CoverageEligibilityRequest">CoverageEligibilityRequest</a>, <a href="coverageeligibilityresponse.html#CoverageEligibilityResponse">CoverageEligibilityResponse</a>, <a href="detectedissue.html#DetectedIssue">DetectedIssue</a>, <a href="devicerequest.html#DeviceRequest">DeviceRequest</a>, <a href="deviceusestatement.html#DeviceUseStatement">DeviceUseStatement</a>, <a href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>, <a href="documentmanifest.html#DocumentManifest">DocumentManifest</a>, <a href="documentreference.html#DocumentReference">DocumentReference</a>, <a href="encounter.html#Encounter">Encounter</a>, <a href="enrollmentrequest.html#EnrollmentRequest">EnrollmentRequest</a>, <a href="enrollmentresponse.html#EnrollmentResponse">EnrollmentResponse</a>, <a href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a>, <a href="explanationofbenefit.html#ExplanationOfBenefit">ExplanationOfBenefit</a>, <a href="flag.html#Flag">Flag</a>, <a href="goal.html#Goal">Goal</a>, <a href="group.html#Group">Group</a>, <a href="imagingstudy.html#ImagingStudy">ImagingStudy</a>, <a href="immunization.html#Immunization">Immunization</a>, <a href="invoice.html#Invoice">Invoice</a>, <a href="linkage.html#Linkage">Linkage</a>, <a href="list.html#List">List</a>, <a href="measurereport.html#MeasureReport">MeasureReport</a>, <a href="media.html#Media">Media</a>, <a href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a>, <a href="medicationdispense.html#MedicationDispense">MedicationDispense</a>, <a href="medicationrequest.html#MedicationRequest">MedicationRequest</a>, <a href="medicationstatement.html#MedicationStatement">MedicationStatement</a>, <a href="messageheader.html#MessageHeader">MessageHeader</a>, <a href="nutritionorder.html#NutritionOrder">NutritionOrder</a>, <a href="observation.html#Observation">Observation</a>, <a href="patient.html#Patient">Patient</a>, <a href="paymentnotice.html#PaymentNotice">PaymentNotice</a>, <a href="paymentreconciliation.html#PaymentReconciliation">PaymentReconciliation</a>, <a href="person.html#Person">Person</a>, <a href="practitionerrole.html#PractitionerRole">PractitionerRole</a>, <a href="procedure.html#Procedure">Procedure</a>, <a href="provenance.html#Provenance">Provenance</a>, <a href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>, <a href="requestgroup.html#RequestGroup">RequestGroup</a>, <a href="researchstudy.html#ResearchStudy">ResearchStudy</a>, <a href="riskassessment.html#RiskAssessment">RiskAssessment</a>, <a href="schedule.html#Schedule">Schedule</a>, <a href="servicerequest.html#ServiceRequest">ServiceRequest</a>, <a href="specimen.html#Specimen">Specimen</a>, <a href="supplydelivery.html#SupplyDelivery">SupplyDelivery</a>, <a href="supplyrequest.html#SupplyRequest">SupplyRequest</a>, <a href="task.html#Task">Task</a>, <a href="verificationresult.html#VerificationResult">VerificationResult</a> and <a href="visionprescription.html#VisionPrescription">VisionPrescription</a></p>
+
+
+<a name="resource"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.4</span> 
+Resource Content
+ <a href="practitioner.html#resource" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<a name="def"></a>
+<a name="practitioner"></a>
+<a name="Practitioner"></a>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-uml">UML</a></li>
+    <li><a href="#tabs-xml">XML</a></li>
+    <li><a href="#tabs-json">JSON</a></li>
+    <li><a href="#tabs-ttl">Turtle</a></li>
+    <li><a href="#tabs-diff">R3 Diff</a></li>
+    <li><a href="#tabs-all">All</a></li>
+  </ul>
+  <div id="tabs-struc">
+
+<div id="tbl">
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner" title="Practitioner : A person who is directly or indirectly involved in the provisioning of healthcare.">Practitioner</a><a name="Practitioner"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A person with a  formal responsibility in the provisioning of healthcare or related services<br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.identifier" title="Practitioner.identifier : An identifier that applies to this person in this role.">identifier</a><a name="Practitioner.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An identifier for the person as this agent<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.active" title="Practitioner.active : Whether this practitioner's record is in active use.">active</a><a name="Practitioner.active"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Whether this practitioner's record is in active use</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.name" title="Practitioner.name : The name(s) associated with the practitioner.">name</a><a name="Practitioner.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#HumanName">HumanName</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The name(s) associated with the practitioner<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.telecom" title="Practitioner.telecom : A contact detail for the practitioner, e.g. a telephone number or an email address.">telecom</a><a name="Practitioner.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A contact detail for the practitioner (that apply to all roles)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.address" title="Practitioner.address : Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent.">address</a><a name="Practitioner.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Address(es) of the practitioner that are not role specific (typically home address)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.gender" title="Practitioner.gender : Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.">gender</a><a name="Practitioner.gender"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">male | female | other | unknown<br><a href="valueset-administrative-gender.html" title="The gender of a person used for administrative purposes.">AdministrativeGender</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.birthDate" title="Practitioner.birthDate : The date of birth for the practitioner.">birthDate</a><a name="Practitioner.birthDate"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#date">date</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The date  on which the practitioner was born</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.photo" title="Practitioner.photo : Image of the person.">photo</a><a name="Practitioner.photo"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Attachment">Attachment</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Image of the person<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification" title="Practitioner.qualification : The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.">qualification</a><a name="Practitioner.qualification"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Certification, licenses, or training pertaining to the provision of care<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="Practitioner.qualification.identifier : An identifier that applies to this person's qualification in this role.">identifier</a><a name="Practitioner.qualification.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An identifier for this qualification for the practitioner<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.code" title="Practitioner.qualification.code : Coded representation of the qualification.">code</a><a name="Practitioner.qualification.code"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Coded representation of the qualification<br><a href="v2/0360/2.7/index.html" title="Specific qualification the practitioner has to provide a service.">v2 table 0360, Version 2.7</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.period" title="Practitioner.qualification.period : Period during which the qualification is valid.">period</a><a name="Practitioner.qualification.period"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Period">Period</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Period during which the qualification is valid</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Practitioner.qualification.issuer : Organization that regulates and issues the qualification.">issuer</a><a name="Practitioner.qualification.issuer"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Organization that regulates and issues the qualification</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.communication" title="Practitioner.communication : A language the practitioner can use in patient communication.">communication</a><a name="Practitioner.communication"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A language the practitioner can use in patient communication<br><a href="valueset-languages.html" title="A human language.">Common Languages</a> (<a href="terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">Preferred</a> but limited to <a href="valueset-all-languages.html">AllLanguages</a>)<br></td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-uml">
+
+<div id="uml">
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="748.0" id="n46" version="1.1" height="312.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowA" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowA)" rx="4" ry="4" x="0.0" width="255.20000000000002" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Practitioner" height="162.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="255.20000000000002" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="127.60000000000001" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Practitioner<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="practitioner-definitions.html#Practitioner.identifier"><title>An identifier that applies to this person in this role</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="practitioner-definitions.html#Practitioner.active"><title>Whether this practitioner's record is in active use</title>active</a> : <a id="n59" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="70.0" id="n63" fill="black" class="diagram-class-detail"><a id="n64" xlink:href="practitioner-definitions.html#Practitioner.name"><title>The name(s) associated with the practitioner</title>name</a> : <a id="n65" xlink:href="datatypes.html#HumanName">HumanName</a> [0..*]</text><text x="6.0" y="84.0" id="n69" fill="black" class="diagram-class-detail"><a id="n70" xlink:href="practitioner-definitions.html#Practitioner.telecom"><title>A contact detail for the practitioner, e.g. a telephone number or an email address</title>telecom</a> : <a id="n71" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="6.0" y="98.0" id="n75" fill="black" class="diagram-class-detail"><a id="n76" xlink:href="practitioner-definitions.html#Practitioner.address"><title>Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent</title>address</a> : <a id="n77" xlink:href="datatypes.html#Address">Address</a> [0..*]</text><text x="6.0" y="112.0" id="n81" fill="black" class="diagram-class-detail"><a id="n82" xlink:href="practitioner-definitions.html#Practitioner.gender"><title>Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes</title>gender</a> : <a id="n83" xlink:href="datatypes.html#code">code</a> [0..1] « <a id="n84" xlink:href="valueset-administrative-gender.html"><title id="n85">The gender of a person used for administrative purposes. (Strength=Required)</title>AdministrativeGender</a>! »</text><text x="6.0" y="126.0" id="n91" fill="black" class="diagram-class-detail"><a id="n92" xlink:href="practitioner-definitions.html#Practitioner.birthDate"><title>The date of birth for the practitioner</title>birthDate</a> : <a id="n93" xlink:href="datatypes.html#date">date</a> [0..1]</text><text x="6.0" y="140.0" id="n97" fill="black" class="diagram-class-detail"><a id="n98" xlink:href="practitioner-definitions.html#Practitioner.photo"><title>Image of the person</title>photo</a> : <a id="n99" xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text><text x="6.0" y="154.0" id="n103" fill="black" class="diagram-class-detail"><a id="n104" xlink:href="practitioner-definitions.html#Practitioner.communication"><title>A language the practitioner can use in patient communication</title>communication</a> : <a id="n105" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a id="n106" xlink:href="valueset-languages.html"><title>A human language. (Strength=Preferred)</title>CommonLanguages</a>? »</text></g><g id="n111"><rect filter="url(#shadowA)" rx="4" ry="4" x="350.0" width="198.00000000000003" y="200.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Practitioner.qualification" height="92.0"></rect><line y1="228.0" x1="350.0" y2="228.0" x2="548.0" style="stroke:dimgrey;stroke-width:1" id="n112"></line><text x="449.0" y="220.0" id="n113" fill="black" class="diagram-class-title">Qualification</text><text x="356.0" y="242.0" id="n114" fill="black" class="diagram-class-detail"><a id="n115" xlink:href="practitioner-definitions.html#Practitioner.qualification.identifier"><title>An identifier that applies to this person's qualification in this role</title>identifier</a> : <a id="n116" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="356.0" y="256.0" id="n120" fill="black" class="diagram-class-detail"><a id="n121" xlink:href="practitioner-definitions.html#Practitioner.qualification.code"><title>Coded representation of the qualification</title>code</a> : <a id="n122" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a id="n123" xlink:href="v2/0360/2.7/index.html"><title id="n124">Specific qualification the practitioner has to provide a service. (Strength=Example)</title>v2.0360.2.7</a>?? »</text><text x="356.0" y="270.0" id="n130" fill="black" class="diagram-class-detail"><a id="n131" xlink:href="practitioner-definitions.html#Practitioner.qualification.period"><title>Period during which the qualification is valid</title>period</a> : <a id="n132" xlink:href="datatypes.html#Period">Period</a> [0..1]</text><text x="356.0" y="284.0" id="n136" fill="black" class="diagram-class-detail"><a id="n137" xlink:href="practitioner-definitions.html#Practitioner.qualification.issuer"><title>Organization that regulates and issues the qualification</title>issuer</a> : <a id="n138" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n139" xlink:href="organization.html#Organization">Organization</a> »</text></g><line y1="146.5071561916615" x1="255.20000000000002" y2="200.0" x2="359.39757575757574" style="stroke:navy;stroke-width:1" id="n144"></line><polygon transform="rotate(27.175010435513528 255.20000000000002 146.5071561916615)" style="fill:navy;stroke:navy;stroke-width:1" id="n145" points="255.20000000000002,146.5071561916615 261.20000000000005,150.5071561916615 267.20000000000005,146.5071561916615 261.20000000000005,142.5071561916615 255.20000000000002,146.5071561916615"></polygon><rect x="278.5" width="57.0" y="166.0" style="fill:white;stroke:black;stroke-width:0" id="n146" height="18.0"></rect><text x="307.0" y="176.0" id="n147" fill="black" class="diagram-class-linkage"><a id="n148" xlink:href="practitioner-definitions.html#Practitioner.qualification"><title>The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality</title>qualification</a></text><text x="359.39757575757574" y="196.0" id="n149" fill="black" class="diagram-class-linkage">[0..*]</text></svg>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-xml">
+
+<div id="xml">
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An identifier for the person as this agent</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict"><b>active</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Whether this practitioner's record is in active use</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict"><b>name</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The name(s) associated with the practitioner</a></span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A contact detail for the practitioner (that apply to all roles)</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Address(es) of the practitioner that are not role specific (typically home address)</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict"><b>gender</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-administrative-gender.html">male | female | other | unknown</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict"><b>birthDate</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#date">date</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The date  on which the practitioner was born</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict"><b>photo</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Attachment">Attachment</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Image of the person</a></span><span style="color: Gray"> --&gt;</span>&lt;/photo&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict"><b>qualification</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Certification, licenses, or training pertaining to the provision of care --&gt;</span>
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An identifier for this qualification for the practitioner</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict"><b>code</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="v2/0360/2.7/index.html">Coded representation of the qualification</a></span><span style="color: Gray"> --&gt;</span>&lt;/code&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict"><b>period</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Period">Period</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Period during which the qualification is valid</a></span><span style="color: Gray"> --&gt;</span>&lt;/period&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict"><b>issuer</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Organization that regulates and issues the qualification</a></span><span style="color: Gray"> --&gt;</span>&lt;/issuer&gt;
+ &lt;/qualification&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict"><b>communication</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-languages.html">A language the practitioner can use in patient communication</a></span><span style="color: Gray"> --&gt;</span>&lt;/communication&gt;
+&lt;/Practitioner&gt;
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-json">
+
+<div id="json">
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An identifier for the person as this agent</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict">active</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Whether this practitioner's record is in active use</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict">name</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The name(s) associated with the practitioner</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A contact detail for the practitioner (that apply to all roles)</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict">address</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Address(es) of the practitioner that are not role specific (typically home address)</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict">gender</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-administrative-gender.html">male | female | other | unknown</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict">birthDate</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#date">date</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The date  on which the practitioner was born</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict">photo</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Attachment">Attachment</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Image of the person</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict">qualification</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Certification, licenses, or training pertaining to the provision of care</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An identifier for this qualification for the practitioner</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict">code</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="v2/0360/2.7/index.html">Coded representation of the qualification</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict">period</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Period">Period</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Period during which the qualification is valid</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict">issuer</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Organization that regulates and issues the qualification</a></span>
+  }],
+  "<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict">communication</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }] <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-languages.html">A language the practitioner can use in patient communication</a></span>
+}
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-ttl">
+
+<div id="ttl">
+<p><b>Turtle Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict">Practitioner.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">An identifier for the person as this agent</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict">Practitioner.active</a><a name="ttl-active"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Whether this practitioner's record is in active use</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict">Practitioner.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#HumanName">HumanName</a> ], ... ; # 0..* <span style="color: navy">The name(s) associated with the practitioner</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict">Practitioner.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">A contact detail for the practitioner (that apply to all roles)</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict">Practitioner.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ], ... ; # 0..* <span style="color: navy">Address(es) of the practitioner that are not role specific (typically home address)</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict">Practitioner.gender</a><a name="ttl-gender"> </a>[ <a href="datatypes.html#code">code</a> ]; # 0..1 <span style="color: navy">male | female | other | unknown</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict">Practitioner.birthDate</a><a name="ttl-birthDate"> </a>[ <a href="datatypes.html#date">date</a> ]; # 0..1 <span style="color: navy">The date  on which the practitioner was born</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict">Practitioner.photo</a><a name="ttl-photo"> </a>[ <a href="datatypes.html#Attachment">Attachment</a> ], ... ; # 0..* <span style="color: navy">Image of the person</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict">Practitioner.qualification</a><a name="ttl-qualification"> </a>[ # 0..* <span style="color: navy">Certification, licenses, or training pertaining to the provision of care</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict">Practitioner.qualification.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">An identifier for this qualification for the practitioner</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict">Practitioner.qualification.code</a><a name="ttl-code"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 1..1 <span style="color: navy">Coded representation of the qualification</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict">Practitioner.qualification.period</a><a name="ttl-period"> </a>[ <a href="datatypes.html#Period">Period</a> ]; # 0..1 <span style="color: navy">Period during which the qualification is valid</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict">Practitioner.qualification.issuer</a><a name="ttl-issuer"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">Organization that regulates and issues the qualification</span>
+  ], ...;
+  fhir:<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict">Practitioner.communication</a><a name="ttl-communication"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ], ... ; # 0..* <span style="color: navy">A language the practitioner can use in patient communication</span>
+]
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-diff">
+
+<div id="vdiff">
+<p><b>Changes since R3</b></p>
+ <div id="diff-inner">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="practitioner.html#Practitioner">Practitioner</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.active</td>
+    <td class="diff-right">
+      <ul>
+        <li>Default Value "true" removed</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.gender</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change value set from http://hl7.org/fhir/ValueSet/administrative-gender to http://hl7.org/fhir/ValueSet/administrative-gender|4.0.1</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.communication</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change binding strength from extensible to preferred</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="practitioner.diff.xml">XML</a> or <a href="practitioner.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="practitioner-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 14 tests that all execute ok. All tests pass round-trip testing  and all r3 resources are valid.)</p>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-all">
+
+<div id="tbl">
+<a name="tbl"></a>
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner" title="Practitioner : A person who is directly or indirectly involved in the provisioning of healthcare.">Practitioner</a><a name="Practitioner"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A person with a  formal responsibility in the provisioning of healthcare or related services<br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.identifier" title="Practitioner.identifier : An identifier that applies to this person in this role.">identifier</a><a name="Practitioner.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An identifier for the person as this agent<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.active" title="Practitioner.active : Whether this practitioner's record is in active use.">active</a><a name="Practitioner.active"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Whether this practitioner's record is in active use</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.name" title="Practitioner.name : The name(s) associated with the practitioner.">name</a><a name="Practitioner.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#HumanName">HumanName</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The name(s) associated with the practitioner<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.telecom" title="Practitioner.telecom : A contact detail for the practitioner, e.g. a telephone number or an email address.">telecom</a><a name="Practitioner.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A contact detail for the practitioner (that apply to all roles)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.address" title="Practitioner.address : Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent.">address</a><a name="Practitioner.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Address(es) of the practitioner that are not role specific (typically home address)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.gender" title="Practitioner.gender : Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.">gender</a><a name="Practitioner.gender"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">male | female | other | unknown<br><a href="valueset-administrative-gender.html" title="The gender of a person used for administrative purposes.">AdministrativeGender</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.birthDate" title="Practitioner.birthDate : The date of birth for the practitioner.">birthDate</a><a name="Practitioner.birthDate"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#date">date</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The date  on which the practitioner was born</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.photo" title="Practitioner.photo : Image of the person.">photo</a><a name="Practitioner.photo"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Attachment">Attachment</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Image of the person<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification" title="Practitioner.qualification : The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.">qualification</a><a name="Practitioner.qualification"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Certification, licenses, or training pertaining to the provision of care<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="Practitioner.qualification.identifier : An identifier that applies to this person's qualification in this role.">identifier</a><a name="Practitioner.qualification.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An identifier for this qualification for the practitioner<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.code" title="Practitioner.qualification.code : Coded representation of the qualification.">code</a><a name="Practitioner.qualification.code"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Coded representation of the qualification<br><a href="v2/0360/2.7/index.html" title="Specific qualification the practitioner has to provide a service.">v2 table 0360, Version 2.7</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.period" title="Practitioner.qualification.period : Period during which the qualification is valid.">period</a><a name="Practitioner.qualification.period"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Period">Period</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Period during which the qualification is valid</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Practitioner.qualification.issuer : Organization that regulates and issues the qualification.">issuer</a><a name="Practitioner.qualification.issuer"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Organization that regulates and issues the qualification</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="practitioner-definitions.html#Practitioner.communication" title="Practitioner.communication : A language the practitioner can use in patient communication.">communication</a><a name="Practitioner.communication"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A language the practitioner can use in patient communication<br><a href="valueset-languages.html" title="A human language.">Common Languages</a> (<a href="terminologies.html#preferred" title="Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.">Preferred</a> but limited to <a href="valueset-all-languages.html">AllLanguages</a>)<br></td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+
+<div id="uml">
+<a name="uml"></a>
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="748.0" id="n46" version="1.1" height="312.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowB" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowB)" rx="4" ry="4" x="0.0" width="255.20000000000002" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Practitioner" height="162.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="255.20000000000002" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="127.60000000000001" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Practitioner<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="practitioner-definitions.html#Practitioner.identifier"><title>An identifier that applies to this person in this role</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="practitioner-definitions.html#Practitioner.active"><title>Whether this practitioner's record is in active use</title>active</a> : <a id="n59" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="70.0" id="n63" fill="black" class="diagram-class-detail"><a id="n64" xlink:href="practitioner-definitions.html#Practitioner.name"><title>The name(s) associated with the practitioner</title>name</a> : <a id="n65" xlink:href="datatypes.html#HumanName">HumanName</a> [0..*]</text><text x="6.0" y="84.0" id="n69" fill="black" class="diagram-class-detail"><a id="n70" xlink:href="practitioner-definitions.html#Practitioner.telecom"><title>A contact detail for the practitioner, e.g. a telephone number or an email address</title>telecom</a> : <a id="n71" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="6.0" y="98.0" id="n75" fill="black" class="diagram-class-detail"><a id="n76" xlink:href="practitioner-definitions.html#Practitioner.address"><title>Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent</title>address</a> : <a id="n77" xlink:href="datatypes.html#Address">Address</a> [0..*]</text><text x="6.0" y="112.0" id="n81" fill="black" class="diagram-class-detail"><a id="n82" xlink:href="practitioner-definitions.html#Practitioner.gender"><title>Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes</title>gender</a> : <a id="n83" xlink:href="datatypes.html#code">code</a> [0..1] « <a id="n84" xlink:href="valueset-administrative-gender.html"><title id="n85">The gender of a person used for administrative purposes. (Strength=Required)</title>AdministrativeGender</a>! »</text><text x="6.0" y="126.0" id="n91" fill="black" class="diagram-class-detail"><a id="n92" xlink:href="practitioner-definitions.html#Practitioner.birthDate"><title>The date of birth for the practitioner</title>birthDate</a> : <a id="n93" xlink:href="datatypes.html#date">date</a> [0..1]</text><text x="6.0" y="140.0" id="n97" fill="black" class="diagram-class-detail"><a id="n98" xlink:href="practitioner-definitions.html#Practitioner.photo"><title>Image of the person</title>photo</a> : <a id="n99" xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text><text x="6.0" y="154.0" id="n103" fill="black" class="diagram-class-detail"><a id="n104" xlink:href="practitioner-definitions.html#Practitioner.communication"><title>A language the practitioner can use in patient communication</title>communication</a> : <a id="n105" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a id="n106" xlink:href="valueset-languages.html"><title>A human language. (Strength=Preferred)</title>CommonLanguages</a>? »</text></g><g id="n111"><rect filter="url(#shadowB)" rx="4" ry="4" x="350.0" width="198.00000000000003" y="200.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Practitioner.qualification" height="92.0"></rect><line y1="228.0" x1="350.0" y2="228.0" x2="548.0" style="stroke:dimgrey;stroke-width:1" id="n112"></line><text x="449.0" y="220.0" id="n113" fill="black" class="diagram-class-title">Qualification</text><text x="356.0" y="242.0" id="n114" fill="black" class="diagram-class-detail"><a id="n115" xlink:href="practitioner-definitions.html#Practitioner.qualification.identifier"><title>An identifier that applies to this person's qualification in this role</title>identifier</a> : <a id="n116" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="356.0" y="256.0" id="n120" fill="black" class="diagram-class-detail"><a id="n121" xlink:href="practitioner-definitions.html#Practitioner.qualification.code"><title>Coded representation of the qualification</title>code</a> : <a id="n122" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a id="n123" xlink:href="v2/0360/2.7/index.html"><title id="n124">Specific qualification the practitioner has to provide a service. (Strength=Example)</title>v2.0360.2.7</a>?? »</text><text x="356.0" y="270.0" id="n130" fill="black" class="diagram-class-detail"><a id="n131" xlink:href="practitioner-definitions.html#Practitioner.qualification.period"><title>Period during which the qualification is valid</title>period</a> : <a id="n132" xlink:href="datatypes.html#Period">Period</a> [0..1]</text><text x="356.0" y="284.0" id="n136" fill="black" class="diagram-class-detail"><a id="n137" xlink:href="practitioner-definitions.html#Practitioner.qualification.issuer"><title>Organization that regulates and issues the qualification</title>issuer</a> : <a id="n138" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n139" xlink:href="organization.html#Organization">Organization</a> »</text></g><line y1="146.5071561916615" x1="255.20000000000002" y2="200.0" x2="359.39757575757574" style="stroke:navy;stroke-width:1" id="n144"></line><polygon transform="rotate(27.175010435513528 255.20000000000002 146.5071561916615)" style="fill:navy;stroke:navy;stroke-width:1" id="n145" points="255.20000000000002,146.5071561916615 261.20000000000005,150.5071561916615 267.20000000000005,146.5071561916615 261.20000000000005,142.5071561916615 255.20000000000002,146.5071561916615"></polygon><rect x="278.5" width="57.0" y="166.0" style="fill:white;stroke:black;stroke-width:0" id="n146" height="18.0"></rect><text x="307.0" y="176.0" id="n147" fill="black" class="diagram-class-linkage"><a id="n148" xlink:href="practitioner-definitions.html#Practitioner.qualification"><title>The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality</title>qualification</a></text><text x="359.39757575757574" y="196.0" id="n149" fill="black" class="diagram-class-linkage">[0..*]</text></svg>
+ </div>
+</div>
+
+<div id="xml">
+<a name="xml"></a>
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An identifier for the person as this agent</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict"><b>active</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Whether this practitioner's record is in active use</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict"><b>name</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The name(s) associated with the practitioner</a></span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A contact detail for the practitioner (that apply to all roles)</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Address(es) of the practitioner that are not role specific (typically home address)</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict"><b>gender</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-administrative-gender.html">male | female | other | unknown</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict"><b>birthDate</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#date">date</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The date  on which the practitioner was born</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict"><b>photo</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Attachment">Attachment</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Image of the person</a></span><span style="color: Gray"> --&gt;</span>&lt;/photo&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict"><b>qualification</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Certification, licenses, or training pertaining to the provision of care --&gt;</span>
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An identifier for this qualification for the practitioner</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict"><b>code</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="v2/0360/2.7/index.html">Coded representation of the qualification</a></span><span style="color: Gray"> --&gt;</span>&lt;/code&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict"><b>period</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Period">Period</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Period during which the qualification is valid</a></span><span style="color: Gray"> --&gt;</span>&lt;/period&gt;
+  &lt;<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict"><b>issuer</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Organization that regulates and issues the qualification</a></span><span style="color: Gray"> --&gt;</span>&lt;/issuer&gt;
+ &lt;/qualification&gt;
+ &lt;<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict"><b>communication</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-languages.html">A language the practitioner can use in patient communication</a></span><span style="color: Gray"> --&gt;</span>&lt;/communication&gt;
+&lt;/Practitioner&gt;
+</pre>
+
+ </div>
+</div>
+
+<div id="json2">
+<a name="json"></a>
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An identifier for the person as this agent</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict">active</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Whether this practitioner's record is in active use</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict">name</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The name(s) associated with the practitioner</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A contact detail for the practitioner (that apply to all roles)</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict">address</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Address(es) of the practitioner that are not role specific (typically home address)</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict">gender</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-administrative-gender.html">male | female | other | unknown</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict">birthDate</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#date">date</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The date  on which the practitioner was born</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict">photo</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Attachment">Attachment</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Image of the person</a></span>
+  "<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict">qualification</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Certification, licenses, or training pertaining to the provision of care</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An identifier for this qualification for the practitioner</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict">code</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: brown" title="This element is required"><b>R!</b></span>  <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="v2/0360/2.7/index.html">Coded representation of the qualification</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict">period</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Period">Period</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Period during which the qualification is valid</a></span>
+    "<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict">issuer</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Organization that regulates and issues the qualification</a></span>
+  }],
+  "<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict">communication</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }] <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-languages.html">A language the practitioner can use in patient communication</a></span>
+}
+</pre>
+
+ </div>
+</div>
+
+<div id="ttl2">
+<a name="ttl"></a>
+<p><b>Turtle Template</b></p>
+ <div id="ttl-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="practitioner-definitions.html#Practitioner" title="A person who is directly or indirectly involved in the provisioning of healthcare." class="dict"><b>Practitioner</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="practitioner-definitions.html#Practitioner.identifier" title="An identifier that applies to this person in this role." class="dict">Practitioner.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">An identifier for the person as this agent</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.active" title="Whether this practitioner's record is in active use." class="dict">Practitioner.active</a><a name="ttl-active"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Whether this practitioner's record is in active use</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.name" title="The name(s) associated with the practitioner." class="dict">Practitioner.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#HumanName">HumanName</a> ], ... ; # 0..* <span style="color: navy">The name(s) associated with the practitioner</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.telecom" title="A contact detail for the practitioner, e.g. a telephone number or an email address." class="dict">Practitioner.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">A contact detail for the practitioner (that apply to all roles)</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.address" title="Address(es) of the practitioner that are not role specific (typically home address). 
+Work addresses are not typically entered in this property as they are usually role dependent." class="dict">Practitioner.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ], ... ; # 0..* <span style="color: navy">Address(es) of the practitioner that are not role specific (typically home address)</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.gender" title="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." class="dict">Practitioner.gender</a><a name="ttl-gender"> </a>[ <a href="datatypes.html#code">code</a> ]; # 0..1 <span style="color: navy">male | female | other | unknown</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.birthDate" title="The date of birth for the practitioner." class="dict">Practitioner.birthDate</a><a name="ttl-birthDate"> </a>[ <a href="datatypes.html#date">date</a> ]; # 0..1 <span style="color: navy">The date  on which the practitioner was born</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.photo" title="Image of the person." class="dict">Practitioner.photo</a><a name="ttl-photo"> </a>[ <a href="datatypes.html#Attachment">Attachment</a> ], ... ; # 0..* <span style="color: navy">Image of the person</span>
+  fhir:<a href="practitioner-definitions.html#Practitioner.qualification" title="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality." class="dict">Practitioner.qualification</a><a name="ttl-qualification"> </a>[ # 0..* <span style="color: navy">Certification, licenses, or training pertaining to the provision of care</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.identifier" title="An identifier that applies to this person's qualification in this role." class="dict">Practitioner.qualification.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">An identifier for this qualification for the practitioner</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.code" title="Coded representation of the qualification." class="dict">Practitioner.qualification.code</a><a name="ttl-code"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 1..1 <span style="color: navy">Coded representation of the qualification</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.period" title="Period during which the qualification is valid." class="dict">Practitioner.qualification.period</a><a name="ttl-period"> </a>[ <a href="datatypes.html#Period">Period</a> ]; # 0..1 <span style="color: navy">Period during which the qualification is valid</span>
+    fhir:<a href="practitioner-definitions.html#Practitioner.qualification.issuer" title="Organization that regulates and issues the qualification." class="dict">Practitioner.qualification.issuer</a><a name="ttl-issuer"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">Organization that regulates and issues the qualification</span>
+  ], ...;
+  fhir:<a href="practitioner-definitions.html#Practitioner.communication" title="A language the practitioner can use in patient communication." class="dict">Practitioner.communication</a><a name="ttl-communication"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ], ... ; # 0..* <span style="color: navy">A language the practitioner can use in patient communication</span>
+]
+</pre>
+
+ </div>
+</div>
+
+<div id="vdiff2">
+<p><b>Changes since Release 3</b></p>
+ <div id="diff-inner2">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="practitioner.html#Practitioner">Practitioner</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.active</td>
+    <td class="diff-right">
+      <ul>
+        <li>Default Value "true" removed</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.gender</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change value set from http://hl7.org/fhir/ValueSet/administrative-gender to http://hl7.org/fhir/ValueSet/administrative-gender|4.0.1</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Practitioner.communication</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change binding strength from extensible to preferred</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="practitioner.diff.xml">XML</a> or <a href="practitioner.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="practitioner-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 14 tests that all execute ok. All tests pass round-trip testing  and all r3 resources are valid.)</p>
+
+ </div>
+</div>
+
+  </div>
+</div>
+
+<p>&nbsp;</p>
+<p>See the <a href="practitioner-profiles.html">Profiles &amp; Extensions</a> and the alternate definitions:
+Master Definition <a href="practitioner.profile.xml.html">XML</a> + <a href="practitioner.profile.json.html">JSON</a>,
+<a href="xml.html">XML</a> <a href="practitioner.xsd">Schema</a>/<a href="practitioner.sch">Schematron</a> + <a href="json.html">JSON</a> 
+<a href="practitioner.schema.json.html">Schema</a>, <a href="practitioner.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>)  + <a href="practitioner-profiles.html">see the extensions</a> &amp; the <a href="practitioner-dependencies.html">dependency analysis</a></p>
+
+<a name="tx"></a>
+<h3 class="self-link-parent"><span class="sectioncount">8.4.4.1</span> 
+Terminology Bindings
+ <a href="practitioner.html#tx" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<table class="grid">
+ <tr><th>Path</th><th>Definition</th><th>Type</th><th>Reference</th></tr>
+ <tr><td valign="top" title="AdministrativeGender">Practitioner.gender </td><td valign="top">The gender of a person used for administrative purposes.</td><td><a href="terminologies.html#required">Required</a></td><td valign="top"><a href="valueset-administrative-gender.html">AdministrativeGender</a>  </td> </tr>
+ <tr><td valign="top" title="v2 table 0360, Version 2.7">Practitioner.qualification.code </td><td valign="top">Specific qualification the practitioner has to provide a service.</td><td><a href="terminologies.html#example">Example</a></td><td valign="top"><a href="v2/0360/2.7/index.html">v2.0360.2.7</a>  </td> </tr>
+ <tr><td valign="top" title="Common Languages">Practitioner.communication </td><td valign="top">A human language.</td><td><a href="terminologies.html#preferred">Preferred</a>, but limited to <a href="valueset-all-languages.html">AllLanguages</a></td><td valign="top"><a href="valueset-languages.html">CommonLanguages</a>  </td> </tr>
+</table>
+<p> </p>
+
+
+
+
+<a name="notes"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.5</span> 
+Notes:
+ <a href="practitioner.html#notes" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+  <ul>
+  <li>The practitioner's Qualifications are acquired by the practitioner independent of any organization or role, 
+  and do not imply that they are allowed/authorized to perform roles relevant to the qualification at any specific Organization/Location.</li>
+  </ul>
+
+<a name="search"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.4.6</span> Search Parameters <a href="practitioner.html#search" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>Search parameters for this resource. The <a href="search.html#all">common parameters</a> also apply. See <a href="search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
+<table class="list">
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Expression</b></td><td><b>In Common</b></td></tr>
+<tr><td><a name="sp-active"> </a>active</td><td><a href="search.html#token">token</a></td><td>Whether the practitioner record is active</td><td>Practitioner.active</td><td></td></tr>
+<tr><td><a name="sp-address"> </a>address</td><td><a href="search.html#string">string</a></td><td>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</td><td>Practitioner.address</td><td><a href="searchparameter-registry.html#individual-address">3 Resources</a></td></tr>
+<tr><td><a name="sp-address-city"> </a>address-city</td><td><a href="search.html#string">string</a></td><td>A city specified in an address</td><td>Practitioner.address.city</td><td><a href="searchparameter-registry.html#individual-address-city">3 Resources</a></td></tr>
+<tr><td><a name="sp-address-country"> </a>address-country</td><td><a href="search.html#string">string</a></td><td>A country specified in an address</td><td>Practitioner.address.country</td><td><a href="searchparameter-registry.html#individual-address-country">3 Resources</a></td></tr>
+<tr><td><a name="sp-address-postalcode"> </a>address-postalcode</td><td><a href="search.html#string">string</a></td><td>A postalCode specified in an address</td><td>Practitioner.address.postalCode</td><td><a href="searchparameter-registry.html#individual-address-postalcode">3 Resources</a></td></tr>
+<tr><td><a name="sp-address-state"> </a>address-state</td><td><a href="search.html#string">string</a></td><td>A state specified in an address</td><td>Practitioner.address.state</td><td><a href="searchparameter-registry.html#individual-address-state">3 Resources</a></td></tr>
+<tr><td><a name="sp-address-use"> </a>address-use</td><td><a href="search.html#token">token</a></td><td>A use code specified in an address</td><td>Practitioner.address.use</td><td><a href="searchparameter-registry.html#individual-address-use">3 Resources</a></td></tr>
+<tr><td><a name="sp-communication"> </a>communication</td><td><a href="search.html#token">token</a></td><td>One of the languages that the practitioner can communicate with</td><td>Practitioner.communication</td><td></td></tr>
+<tr><td><a name="sp-email"> </a>email</td><td><a href="search.html#token">token</a></td><td>A value in an email contact</td><td>Practitioner.telecom.where(system='email')</td><td><a href="searchparameter-registry.html#individual-email">4 Resources</a></td></tr>
+<tr><td><a name="sp-family"> </a>family</td><td><a href="search.html#string">string</a></td><td>A portion of the family name</td><td>Practitioner.name.family</td><td><a href="searchparameter-registry.html#individual-family">1 Resources</a></td></tr>
+<tr><td><a name="sp-gender"> </a>gender</td><td><a href="search.html#token">token</a></td><td>Gender of the practitioner</td><td>Practitioner.gender</td><td><a href="searchparameter-registry.html#individual-gender">3 Resources</a></td></tr>
+<tr><td><a name="sp-given"> </a>given</td><td><a href="search.html#string">string</a></td><td>A portion of the given name</td><td>Practitioner.name.given</td><td><a href="searchparameter-registry.html#individual-given">1 Resources</a></td></tr>
+<tr><td><a name="sp-identifier"> </a>identifier</td><td><a href="search.html#token">token</a></td><td>A practitioner's Identifier</td><td>Practitioner.identifier</td><td></td></tr>
+<tr><td><a name="sp-name"> </a>name</td><td><a href="search.html#string">string</a></td><td>A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text</td><td>Practitioner.name</td><td></td></tr>
+<tr><td><a name="sp-phone"> </a>phone</td><td><a href="search.html#token">token</a></td><td>A value in a phone contact</td><td>Practitioner.telecom.where(system='phone')</td><td><a href="searchparameter-registry.html#individual-phone">4 Resources</a></td></tr>
+<tr><td><a name="sp-phonetic"> </a>phonetic</td><td><a href="search.html#string">string</a></td><td>A portion of either family or given name using some kind of phonetic matching algorithm</td><td>Practitioner.name</td><td><a href="searchparameter-registry.html#individual-phonetic">3 Resources</a></td></tr>
+<tr><td><a name="sp-telecom"> </a>telecom</td><td><a href="search.html#token">token</a></td><td>The value in any kind of contact</td><td>Practitioner.telecom</td><td><a href="searchparameter-registry.html#individual-telecom">4 Resources</a></td></tr>
+</table>
+
+
+
+</div>
+
+
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+<div class="content-block"><h2>Content from https://build.fhir.org/practitioner-definitions.html</h2>
+  
+	
+
+<div class="container">  
+            
+
+<div class="row">
+            	
+
+<div class="inner-wrapper">
+  
+
+
+
+<div class="col-12">
+
+<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" alt="icon" style="vertical-align: baseline"></a></p>
+
+
+
+
+
+<ul class="nav nav-tabs"><li><a href="practitioner.html">Content</a></li>
+
+<li><a href="practitioner-examples.html">Examples</a></li>
+
+<li class="active"><a href="#">Detailed Descriptions</a></li>
+
+<li><a href="practitioner-mappings.html">Mappings</a></li>
+
+<li><a href="practitioner-operations.html">Operations</a></li>
+
+<li><a href="practitioner-search.html">Search Params</a></li>
+
+<li><a href="practitioner-profiles.html">Profiles</a></li>
+
+<li><a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Practitioner.html">Extensions</a></li></ul>
+
+<h2 class="self-link-parent"><span class="sectioncount">8.4.9<a name="8.4.9"> </a></span> Resource Practitioner - Detailed Descriptions <a href="practitioner-definitions.html#8.4.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/pafm/index.cfm">Patient Administration <img src="external.png" alt="icon" style="vertical-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 5</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Individual</td>  <td><a href="compartmentdefinition.html">Compartments</a>: <a href="compartmentdefinition-practitioner.html">Practitioner</a></td></tr></table>
+
+
+
+<p>Detailed Descriptions for the elements in the Practitioner resource.</p>
+
+
+
+<table class="dict">
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner"> </a><b>Practitioner</b><a href="#Practitioner" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A person who is directly or indirectly involved in the provisioning of healthcare or related services.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>A person with a  formal responsibility in the provisioning of healthcare or related services</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="domainresource.html">DomainResource</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.identifier"> </a><b>Practitioner.identifier</b><a href="#Practitioner.identifier" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.identifier</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>An identifier that applies to this person in this role.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>An identifier for the person as this agent</td></tr>
+  
+
+<tr><td>Note</td>
+
+<td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Often, specific identities are assigned for the agent.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.active"> </a><b>Practitioner.active</b><a href="#Practitioner.active" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.active</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Whether this practitioner's record is in active use.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Whether this practitioner's record is in active use</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#boolean">boolean</a></td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td>
+
+<td>true (Reason: This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid)</td></tr>
+  
+
+<tr><td>Meaning if Missing</td>
+
+<td>This resource is generally assumed to be active if no value is provided for the active element</td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to be able to mark a practitioner record as not to be used because it was created in error.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>If the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.name"> </a><b>Practitioner.name</b><a href="#Practitioner.name" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.name</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The name(s) associated with the practitioner.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>The name(s) associated with the practitioner</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#HumanName">HumanName</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>The name(s) that a Practitioner is known by. Where there are multiple, the name that the practitioner is usually known as should be used in the display.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.</p>
+<p>In general, select the value to be used in the ResourceReference.display based on this:</p>
+
+
+<ol>
+
+
+<li>There is more than 1 name</li>
+
+
+<li>Use = usual</li>
+
+
+<li>Period is current to the date of the usage</li>
+
+
+<li>Use = official</li>
+
+
+<li>Other order as decided by internal business rules.</li>
+</ol>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.telecom"> </a><b>Practitioner.telecom</b><a href="#Practitioner.telecom" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.telecom</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A contact detail for the practitioner, e.g. a telephone number or an email address.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>A contact detail for the practitioner (that apply to all roles)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#ContactPoint">ContactPoint</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to know how to reach a practitioner independent to any roles the practitioner may have.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>Practitioner may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.</p>
+<p>DO NOT use .telecom properties to represent user identities. Refer to the <a href="administration-module.html#secpriv">Security and Privacy</a> section for additional guidance on representing user identities.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.gender"> </a><b>Practitioner.gender</b><a href="#Practitioner.gender" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.gender</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>male | female | other | unknown</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-administrative-gender.html">AdministrativeGender</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#code">code</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Needed to address the person correctly.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.birthDate"> </a><b>Practitioner.birthDate</b><a href="#Practitioner.birthDate" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.birthDate</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The date of birth for the practitioner.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>The date  on which the practitioner was born</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#date">date</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Needed for identification.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.deceased_x_"> </a><b>Practitioner.deceased[x]</b><a href="#Practitioner.deceased_x_" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.deceased[x]</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Indicates if the practitioner is deceased or not.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Indicates if the practitioner is deceased or not</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#boolean">boolean</a>|<a href="datatypes.html#dateTime">dateTime</a></td></tr>
+  
+
+<tr><td>[x] Note</td>
+
+<td>See <a href="formats.html#choice">Choice of Datatypes</a> for further information about how to use [x]</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td>
+
+<td>true (Reason: This element is labeled as a modifier because once a practitioner is marked as deceased, the record should only be used/retained for historical purposes.)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>If there's no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.address"> </a><b>Practitioner.address</b><a href="#Practitioner.address" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.address</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Address(es) of the practitioner that are not role specific (typically home address).
+Work addresses are not typically entered in this property as they are usually role dependent.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Address(es) of the practitioner that are not role specific (typically home address)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Address">Address</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address).</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.photo"> </a><b>Practitioner.photo</b><a href="#Practitioner.photo" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.photo</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Image of the person.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Image of the person</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Attachment">Attachment</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification"> </a><b>Practitioner.qualification</b><a href="#Practitioner.qualification" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.</p>
+<p>For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The PractitionerRole.specialty defines the functional role that they are practicing at a given organization or location.  Those specialties may or might not require a qualification, and are not defined on the practitioner.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification.identifier"> </a><b>Practitioner.qualification.identifier</b><a href="#Practitioner.qualification.identifier" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification.identifier</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>An identifier that applies to this person's qualification.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>An identifier for this qualification for the practitioner</td></tr>
+  
+
+<tr><td>Note</td>
+
+<td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Often, specific identities are assigned for the qualification.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>Systems MAY use identifier for user identities (using the type='USER'). Refer to the <a href="administration-module.html#secpriv">Security and Privacy</a> section for additional guidance on representing user identities.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification.code"> </a><b>Practitioner.qualification.code</b><a href="#Practitioner.qualification.code" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification.code</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Coded representation of the qualification.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Coded representation of the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>1..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="http://terminology.hl7.org/6.3.0/ValueSet-v2-0360.html">hl7VS-degreeLicenseCertificate <img src="external.png" alt="icon" style="vertical-align: baseline"></a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification.status"> </a><b>Practitioner.qualification.status</b><a href="#Practitioner.qualification.status" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification.status</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Qualifications often take time to attain and might be tracked during this time, and completed qualifications might not always be valid. This status concept has some overlap with period and both should be considered together. Refer to the descriptions of the codes for how the period should be interpreted.</p>
+<p>If a qualification is revoked or otherwise cancelled, then the period is likely to be ignored, and m be related to when it was active.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Status/progress  of the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-qualification-status.html">Qualification Status</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification.period"> </a><b>Practitioner.qualification.period</b><a href="#Practitioner.qualification.period" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification.period</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Period during which the qualification is valid.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Period during which the qualification is valid</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Period">Period</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Qualifications are often for a limited period of time, and can be revoked.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.qualification.issuer"> </a><b>Practitioner.qualification.issuer</b><a href="#Practitioner.qualification.issuer" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.qualification.issuer</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Organization that regulates and issues the qualification.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Organization that regulates and issues the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.communication"> </a><b>Practitioner.communication</b><a href="#Practitioner.communication" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.communication</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A language which may be used to communicate with the practitioner, often for correspondence/administrative purposes.</p>
+<p>The <code>PractitionerRole.communication</code> property should be used for publishing the languages that a practitioner is able to communicate with patients (on a per Organization/Role basis).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>A language which may be used to communicate with the practitioner</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>If no language is specified, this <em>implies</em> that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple Practitioner.Communication associations, using the <code>patient-proficiency</code> extension.</p>
+<p>For animals, language is not a relevant field, and should be absent from the instance.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.communication.language"> </a><b>Practitioner.communication.language</b><a href="#Practitioner.communication.language" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.communication.language</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The language which may be used to communicate with the individual.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>The language code used to communicate with the practitioner</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>1..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-all-languages.html">All Languages</a> (<a href="terminologies.html#required">Required</a>)
+
+<table class="grid"><tr><td style="font-size: 11px"><b>Additional Bindings</b></td><td style="font-size: 11px">Purpose</td></tr>
+
+
+<tr><td style="font-size: 11px"><a href="valueset-languages.html">Common Languages</a></td>
+
+
+<td style="font-size: 11px"><a href="valueset-additional-binding-purpose.html#additional-binding-purpose-starter" title="This value set is a good set of codes to start with when designing your system">Starter</a></td></tr></table></td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The language is commonly represented using the ISO-639-1 alpha code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha code for the region in upper case.  For example, "en" for English, or "en-US" for American English versus "en-AU" for Australian English, sgn-US for American Sign Language, sgn-NL for Dutch Sign Language, etc.</p>
+<p>Not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Practitioner.communication.preferred"> </a><b>Practitioner.communication.preferred</b><a href="#Practitioner.communication.preferred" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Practitioner.communication.preferred</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Indicates whether or not the person prefers this language (over other languages he masters up a certain level).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Language preference indicator</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#boolean">boolean</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>This language is specifically identified for communicating directly with the practitioner (typically un-related to patient communications).</p>
+</td></tr>
+</table>
+
+
+
+</div>   
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+</body>
+</html>

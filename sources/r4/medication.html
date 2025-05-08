@@ -1,0 +1,1313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR R4: Medication</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        .content-block { border: 1px solid #eee; margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; }
+        .content-block h2 { margin-top: 0; font-size: 1.2em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 5px;}
+    </style>
+</head>
+<body>
+    <h1>FHIR R4: Medication</h1>
+    <div class="content-block"><h2>Content from https://hl7.org/fhir/R4/medication.html</h2>
+  
+	<div class="container">  
+            <div class="row">
+            	<div class="inner-wrapper">
+  
+
+
+<div class="col-12">  <p id="publish-box-past">This page is part of the FHIR Specification (v4.0.1: R4 - Mixed <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Normative Standard">Normative</a> and <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Standard for Trial-Use">STU</a>) in it's permanent home (it will always be available at this URL). The current version which supercedes this version is <a href="http://hl7.org/fhir/index.html">5.0.0</a>. For a full list of available versions, see the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" style="text-align: baseline"></a>. Page versions: <a href="http://hl7.org/fhir/R5/medication.html">R5</a> <a href="http://hl7.org/fhir/R4B/medication.html">R4B</a> <b>R4</b> <a href="http://hl7.org/fhir/STU3/medication.html">R3</a> <a href="http://hl7.org/fhir/DSTU2/medication.html">R2</a></p>  
+
+<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="medication-examples.html">Examples</a></li><li><a href="medication-definitions.html">Detailed Descriptions</a></li><li><a href="medication-mappings.html">Mappings</a></li><li><a href="medication-profiles.html">Profiles &amp; Extensions</a></li><li><a href="medication-version-maps.html">R3 Conversions</a></li></ul>
+
+<h1 class="self-link-parent"><span class="sectioncount">11.5<a name="11.5"> </a></span> Resource Medication - Content <a href="medication.html#11.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/medication/index.cfm">Pharmacy <img src="external.png" style="text-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 3</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Business</td>  <td><a href="compartmentdefinition.html">Compartments</a>: Not linked to any defined compartments</td></tr></table>
+
+
+<p>
+</p><p>This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</p>
+
+
+
+<div>
+<a name="scope"></a>
+<h2 class="self-link-parent"><span class="sectioncount">11.5.1</span> Scope and Usage <a href="medication.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+Representing medications in the majority of healthcare settings is a matter of identifying an item from a list and then conveying a reference 
+for the item selected either into a patient-related resource or to other applications.  Additional information about the medication is frequently 
+provided for human verification, but a full representation of the details of composition and efficacy of the medicine is conveyed by referring
+to drug dictionaries by means of the codes they define. There are some occasions where it is necessary to identify slightly more detail, such
+as when dispensing a package containing a particular medication requires identification both of the medicine and the package at once.  
+There are also some occasions (e.g. custom formulations) where the composition of a medicine must be represented.  
+In these cases, the ingredients of the medicine have to be specified together with the amount contained, though the Medication resource 
+does not provide full details.
+</p>
+<p>
+The Medication resource allows for medications to be characterized by the form of the drug and the ingredient (or ingredients), as well as how it is packaged. The medication will include the ingredient(s) and their strength(s) and the package can include the amount (for example, number of tablets, volume, etc.) that is contained in a particular container (for example, 100 capsules of Amoxicillin 500mg per bottle).
+</p>
+    <p> The Medication resource can be used to describe a compounded (aka extemporaneous or magistral) product that is manufactured by the pharmacy at the time of dispensing.  In this case there will be multiple ingredients which are typically base chemicals (for example, hydrocortisone powder) and there may be other ingredients that are manufactured products (for example, Glaxal Base).</p>
+<p>
+When a medication includes a package, further details about the composition can be provided. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
+</p>
+</div>
+
+<p>This resource is referenced by <a href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>, <a href="adverseevent.html#AdverseEvent">AdverseEvent</a>, <a href="careplan.html#CarePlan">CarePlan</a>, <a href="catalogentry.html#CatalogEntry">CatalogEntry</a>, <a href="chargeitem.html#ChargeItem">ChargeItem</a>, <a href="chargeitemdefinition.html#ChargeItemDefinition">ChargeItemDefinition</a>, <a href="flag.html#Flag">Flag</a>, <a href="group.html#Group">Group</a>, itself, <a href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a>, <a href="medicationdispense.html#MedicationDispense">MedicationDispense</a>, <a href="medicationknowledge.html#MedicationKnowledge">MedicationKnowledge</a>, <a href="medicationrequest.html#MedicationRequest">MedicationRequest</a>, <a href="medicationstatement.html#MedicationStatement">MedicationStatement</a>, <a href="medicinalproductcontraindication.html#MedicinalProductContraindication">MedicinalProductContraindication</a>, <a href="medicinalproductindication.html#MedicinalProductIndication">MedicinalProductIndication</a>, <a href="medicinalproductinteraction.html#MedicinalProductInteraction">MedicinalProductInteraction</a>, <a href="medicinalproductundesirableeffect.html#MedicinalProductUndesirableEffect">MedicinalProductUndesirableEffect</a>, <a href="procedure.html#Procedure">Procedure</a>, <a href="supplydelivery.html#SupplyDelivery">SupplyDelivery</a> and <a href="supplyrequest.html#SupplyRequest">SupplyRequest</a></p>
+
+
+<a name="resource"></a>
+<h2 class="self-link-parent"><span class="sectioncount">11.5.2</span> 
+Resource Content
+ <a href="medication.html#resource" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<a name="def"></a>
+<a name="medication"></a>
+<a name="Medication"></a>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-uml">UML</a></li>
+    <li><a href="#tabs-xml">XML</a></li>
+    <li><a href="#tabs-json">JSON</a></li>
+    <li><a href="#tabs-ttl">Turtle</a></li>
+    <li><a href="#tabs-diff">R3 Diff</a></li>
+    <li><a href="#tabs-all">All</a></li>
+  </ul>
+  <div id="tabs-struc">
+
+<div id="tbl">
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="medication-definitions.html#Medication" title="Medication : This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.">Medication</a><a name="Medication"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Definition of a Medication<br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.identifier" title="Medication.identifier : Business identifier for this medication.">identifier</a><a name="Medication.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Business identifier for this medication<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.code" title="Medication.code : A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.">code</a><a name="Medication.code"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Codes that identify this medication<br><a href="valueset-medication-codes.html" title="A coded concept that defines the type of a medication.">SNOMED CT Medication Codes</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.status" title="Medication.status : A code to indicate if the medication is in active use.">status</a><a name="Medication.status"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#isModifier" title="This element is a modifier element">?!</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">active | inactive | entered-in-error<br><a href="valueset-medication-status.html" title="A coded concept defining if the medication is in active use.">Medication  status  codes</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="medication-definitions.html#Medication.manufacturer" title="Medication.manufacturer : Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.">manufacturer</a><a name="Medication.manufacturer"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Manufacturer of the item</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.form" title="Medication.form : Describes the form of the item.  Powder; tablets; capsule.">form</a><a name="Medication.form"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">powder | tablets | capsule +<br><a href="valueset-medication-form-codes.html" title="A coded concept defining the form of a medication.">SNOMED CT Form Codes</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.amount" title="Medication.amount : Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).">amount</a><a name="Medication.amount"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Ratio">Ratio</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Amount of drug in package</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient" title="Medication.ingredient : Identifies a particular constituent of interest in the product.">ingredient</a><a name="Medication.ingredient"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Active or inactive ingredient<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_choice.gif" alt="." style="background-color: white; background-color: inherit" title="Choice of Types" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.item_x_" title="Medication.ingredient.item[x] : The actual ingredient - either a substance (simple ingredient) or another medication of a medication.">item[x]</a><a name="Medication.ingredient.item_x_"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The actual ingredient or content</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <span title="A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.">itemCodeableConcept</span></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> itemReference</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="substance.html">Substance</a> | <a href="medication.html">Medication</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.isActive" title="Medication.ingredient.isActive : Indication of whether this ingredient affects the therapeutic action of the drug.">isActive</a><a name="Medication.ingredient.isActive"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Active ingredient indicator</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.strength" title="Medication.ingredient.strength : Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.">strength</a><a name="Medication.ingredient.strength"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Ratio">Ratio</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Quantity of ingredient present</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="medication-definitions.html#Medication.batch" title="Medication.batch : Information that only applies to packages (not products).">batch</a><a name="Medication.batch"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Details about packaged medications</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.batch.lotNumber" title="Medication.batch.lotNumber : The assigned lot number of a batch of the specified product.">lotNumber</a><a name="Medication.batch.lotNumber"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Identifier assigned to batch</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.batch.expirationDate" title="Medication.batch.expirationDate : When this specific batch of product will expire.">expirationDate</a><a name="Medication.batch.expirationDate"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">When batch will expire</td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-uml">
+
+<div id="uml">
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720.8" id="n46" version="1.1" height="312.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowA" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowA)" rx="4" ry="4" x="0.0" width="250.8" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication" height="120.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="250.8" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="125.4" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Medication<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="medication-definitions.html#Medication.identifier"><title>Business identifier for this medication</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="medication-definitions.html#Medication.code"><title>A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems</title>code</a> : <a id="n59" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n60" xlink:href="valueset-medication-codes.html"><title id="n61">A coded concept that defines the type of a medication. (Strength=Example)</title>SNOMEDCTMedicationCodes</a>?? »</text><text x="6.0" y="70.0" id="n67" fill="black" class="diagram-class-detail"><a id="n68" xlink:href="medication-definitions.html#Medication.status"><title>A code to indicate if the medication is in active use (this element modifies the meaning of other elements)</title>status</a> : <a id="n69" xlink:href="datatypes.html#code">code</a> [0..1] « <a id="n70" xlink:href="valueset-medication-status.html"><title id="n71">A coded concept defining if the medication is in active use. (Strength=Required)</title>Medication Status </a>! »</text><text x="6.0" y="84.0" id="n77" fill="black" class="diagram-class-detail"><a id="n78" xlink:href="medication-definitions.html#Medication.manufacturer"><title>Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product</title>manufacturer</a> : <a id="n79" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n80" xlink:href="organization.html#Organization">Organization</a> »</text><text x="6.0" y="98.0" id="n85" fill="black" class="diagram-class-detail"><a id="n86" xlink:href="medication-definitions.html#Medication.form"><title>Describes the form of the item.  Powder; tablets; capsule</title>form</a> : <a id="n87" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n88" xlink:href="valueset-medication-form-codes.html"><title id="n89">A coded concept defining the form of a medication. (Strength=Example)</title>SNOMEDCTFormCodes</a>?? »</text><text x="6.0" y="112.0" id="n95" fill="black" class="diagram-class-detail"><a id="n96" xlink:href="medication-definitions.html#Medication.amount"><title>Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)</title>amount</a> : <a id="n97" xlink:href="datatypes.html#Ratio">Ratio</a> [0..1]</text></g><g id="n101"><rect filter="url(#shadowA)" rx="4" ry="4" x="0.0" width="264.0" y="200.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication.ingredient" height="92.0"></rect><line y1="228.0" x1="0.0" y2="228.0" x2="264.0" style="stroke:dimgrey;stroke-width:1" id="n102"></line><text x="132.0" y="220.0" id="n103" fill="black" class="diagram-class-title">Ingredient</text><text x="6.0" y="242.0" id="n104" fill="black" class="diagram-class-detail"><a id="n105" xlink:href="medication-definitions.html#Medication.ingredient.item_x_"><title>The actual ingredient - either a substance (simple ingredient) or another medication of a medication</title>item[x]</a> : <a id="n106" xlink:href="formats.html#umlchoice">Type</a> [1..1] « <a id="n107" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a id="n108" xlink:href="references.html#Reference">Reference</a>(<a id="n109" xlink:href="substance.html#Substance">Substance</a>|</text><text x="26.0" y="256.0" id="n110" fill="black" class="diagram-class-detail">      <a id="n111" xlink:href="medication.html#Medication">Medication</a>) »</text><text x="6.0" y="270.0" id="n120" fill="black" class="diagram-class-detail"><a id="n121" xlink:href="medication-definitions.html#Medication.ingredient.isActive"><title>Indication of whether this ingredient affects the therapeutic action of the drug</title>isActive</a> : <a id="n122" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="284.0" id="n126" fill="black" class="diagram-class-detail"><a id="n127" xlink:href="medication-definitions.html#Medication.ingredient.strength"><title>Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet</title>strength</a> : <a id="n128" xlink:href="datatypes.html#Ratio">Ratio</a> [0..1]</text></g><g id="n132"><rect filter="url(#shadowA)" rx="4" ry="4" x="380.0" width="140.8" y="40.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication.batch" height="64.0"></rect><line y1="68.0" x1="380.0" y2="68.0" x2="520.8" style="stroke:dimgrey;stroke-width:1" id="n133"></line><text x="450.4" y="60.0" id="n134" fill="black" class="diagram-class-title">Batch</text><text x="386.0" y="82.0" id="n135" fill="black" class="diagram-class-detail"><a id="n136" xlink:href="medication-definitions.html#Medication.batch.lotNumber"><title>The assigned lot number of a batch of the specified product</title>lotNumber</a> : <a id="n137" xlink:href="datatypes.html#string">string</a> [0..1]</text><text x="386.0" y="96.0" id="n141" fill="black" class="diagram-class-detail"><a id="n142" xlink:href="medication-definitions.html#Medication.batch.expirationDate"><title>When this specific batch of product will expire</title>expirationDate</a> : <a id="n143" xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text></g><line y1="120.0" x1="127.52903225806453" y2="200.0" x2="130.36774193548388" style="stroke:navy;stroke-width:1" id="n147"></line><polygon transform="rotate(87.96777659418761 127.52903225806453 120.0)" style="fill:navy;stroke:navy;stroke-width:1" id="n148" points="127.52903225806453,120.0 133.52903225806455,124.0 139.52903225806455,120.0 133.52903225806455,116.0 127.52903225806453,120.0"></polygon><rect x="106.0" width="44.0" y="153.0" style="fill:white;stroke:black;stroke-width:0" id="n149" height="18.0"></rect><text x="128.0" y="163.0" id="n150" fill="black" class="diagram-class-linkage"><a id="n151" xlink:href="medication-definitions.html#Medication.ingredient"><title>Identifies a particular constituent of interest in the product</title>ingredient</a></text><text x="130.36774193548388" y="196.0" id="n152" fill="black" class="diagram-class-linkage">[0..*]</text><line y1="64.63015384615385" x1="250.8" y2="69.40061538461538" x2="380.0" style="stroke:navy;stroke-width:1" id="n153"></line><polygon transform="rotate(2.114575880072658 250.8 64.63015384615385)" style="fill:navy;stroke:navy;stroke-width:1" id="n154" points="250.8,64.63015384615385 256.8,68.63015384615385 262.8,64.63015384615385 256.8,60.630153846153846 250.8,64.63015384615385"></polygon><rect x="304.0" width="22.0" y="60.0" style="fill:white;stroke:black;stroke-width:0" id="n155" height="18.0"></rect><text x="315.0" y="70.0" id="n156" fill="black" class="diagram-class-linkage"><a id="n157" xlink:href="medication-definitions.html#Medication.batch"><title>Information that only applies to packages (not products)</title>batch</a></text><text x="360.0" y="65.40061538461538" id="n158" fill="black" class="diagram-class-linkage">[0..1]</text></svg>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-xml">
+
+<div id="xml">
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Business identifier for this medication</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict"><b>code</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-codes.html">Codes that identify this medication</a></span><span style="color: Gray"> --&gt;</span>&lt;/code&gt;
+ &lt;<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline"><b>status</b></span></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-status.html">active | inactive | entered-in-error</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict"><b>manufacturer</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Manufacturer of the item</a></span><span style="color: Gray"> --&gt;</span>&lt;/manufacturer&gt;
+ &lt;<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict"><b>form</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-form-codes.html">powder | tablets | capsule +</a></span><span style="color: Gray"> --&gt;</span>&lt;/form&gt;
+ &lt;<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict"><b>amount</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Amount of drug in package</a></span><span style="color: Gray"> --&gt;</span>&lt;/amount&gt;
+ &lt;<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict"><b>ingredient</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Active or inactive ingredient --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.ingredient.item[x]" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict"><b>item[x]</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The actual ingredient or content</a></span><span style="color: Gray"> --&gt;</span>&lt;/item[x]&gt;
+  &lt;<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict"><b>isActive</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Active ingredient indicator</a></span><span style="color: Gray"> --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict"><b>strength</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Quantity of ingredient present</a></span><span style="color: Gray"> --&gt;</span>&lt;/strength&gt;
+ &lt;/ingredient&gt;
+ &lt;<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict"><b>batch</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..1</b></span> Details about packaged medications --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict"><b>lotNumber</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Identifier assigned to batch</a></span><span style="color: Gray"> --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict"><b>expirationDate</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#dateTime">dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">When batch will expire</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;/batch&gt;
+&lt;/Medication&gt;
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-json">
+
+<div id="json">
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Business identifier for this medication</a></span>
+  "<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict">code</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-codes.html">Codes that identify this medication</a></span>
+  "<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">status</span></a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-status.html">active | inactive | entered-in-error</a></span>
+  "<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict">manufacturer</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Manufacturer of the item</a></span>
+  "<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict">form</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-form-codes.html">powder | tablets | capsule +</a></span>
+  "<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict">amount</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Amount of drug in package</a></span>
+  "<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict">ingredient</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Active or inactive ingredient</a></span>
+    <span style="color: Gray">// item[x]: <span style="color: navy; opacity: 0.8">The actual ingredient or content</span>. One of these 2:</span>
+    "<a href="medication-definitions.html#Medication.ingredient.itemCodeableConcept" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">itemCodeableConcept</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> },
+    "<a href="medication-definitions.html#Medication.ingredient.itemReference" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">itemReference</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>)</span> },
+    "<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict">isActive</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Active ingredient indicator</a></span>
+    "<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict">strength</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Quantity of ingredient present</a></span>
+  }],
+  "<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict">batch</a>" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Details about packaged medications</a></span>
+    "<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict">lotNumber</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Identifier assigned to batch</a></span>
+    "<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict">expirationDate</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#dateTime">dateTime</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">When batch will expire</a></span>
+  }
+}
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-ttl">
+
+<div id="ttl">
+<p><b>Turtle Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict">Medication.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">Business identifier for this medication</span>
+  fhir:<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict">Medication.code</a><a name="ttl-code"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">Codes that identify this medication</span>
+  fhir:<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">Medication.status</span></a><a name="ttl-status"> </a>[ <a href="datatypes.html#code">code</a> ]; # 0..1 <span style="color: navy">active | inactive | entered-in-error</span>
+  fhir:<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict">Medication.manufacturer</a><a name="ttl-manufacturer"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">Manufacturer of the item</span>
+  fhir:<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict">Medication.form</a><a name="ttl-form"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">powder | tablets | capsule +</span>
+  fhir:<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict">Medication.amount</a><a name="ttl-amount"> </a>[ <a href="datatypes.html#Ratio">Ratio</a> ]; # 0..1 <span style="color: navy">Amount of drug in package</span>
+  fhir:<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict">Medication.ingredient</a><a name="ttl-ingredient"> </a>[ # 0..* <span style="color: navy">Active or inactive ingredient</span>
+    # <a href="medication-definitions.html#Medication.ingredient.item[x]" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.item[x]</a><a name="ttl-item[x]"> </a>: 1..1 <span style="color: navy">The actual ingredient or content</span>. One of these 2
+      fhir:<a href="medication-definitions.html#Medication.ingredient.itemCodeableConcept" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.itemCodeableConcept</a><a name="ttl-itemCodeableConcept"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]
+      fhir:<a href="medication-definitions.html#Medication.ingredient.itemReference" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.itemReference</a><a name="ttl-itemReference"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>) ]
+    fhir:<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict">Medication.ingredient.isActive</a><a name="ttl-isActive"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Active ingredient indicator</span>
+    fhir:<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict">Medication.ingredient.strength</a><a name="ttl-strength"> </a>[ <a href="datatypes.html#Ratio">Ratio</a> ]; # 0..1 <span style="color: navy">Quantity of ingredient present</span>
+  ], ...;
+  fhir:<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict">Medication.batch</a><a name="ttl-batch"> </a>[ # 0..1 <span style="color: navy">Details about packaged medications</span>
+    fhir:<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict">Medication.batch.lotNumber</a><a name="ttl-lotNumber"> </a>[ <a href="datatypes.html#string">string</a> ]; # 0..1 <span style="color: navy">Identifier assigned to batch</span>
+    fhir:<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict">Medication.batch.expirationDate</a><a name="ttl-expirationDate"> </a>[ <a href="datatypes.html#dateTime">dateTime</a> ]; # 0..1 <span style="color: navy">When batch will expire</span>
+  ];
+]
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-diff">
+
+<div id="vdiff">
+<p><b>Changes since R3</b></p>
+ <div id="diff-inner">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="medication.html#Medication">Medication</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.identifier</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Medication.status</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change value set from http://hl7.org/fhir/ValueSet/medication-status to http://hl7.org/fhir/ValueSet/medication-status|4.0.1</li>
+        <li>Now marked as Modifier</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.amount</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.ingredient.strength</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch.lotNumber</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch.expirationDate</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.isBrand</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.isOverTheCounter</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.ingredient.amount</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.package</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.image</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="medication.diff.xml">XML</a> or <a href="medication.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="medication-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 23 tests that all execute ok. <span style="background-color: #ccffcc">22 fail round-trip testing</span> and <span style="background-color: #E0B0FF">22 r3 resources are invalid (0 errors).</span>)</p>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-all">
+
+<div id="tbl">
+<a name="tbl"></a>
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="medication-definitions.html#Medication" title="Medication : This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.">Medication</a><a name="Medication"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Definition of a Medication<br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.identifier" title="Medication.identifier : Business identifier for this medication.">identifier</a><a name="Medication.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Business identifier for this medication<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.code" title="Medication.code : A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.">code</a><a name="Medication.code"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Codes that identify this medication<br><a href="valueset-medication-codes.html" title="A coded concept that defines the type of a medication.">SNOMED CT Medication Codes</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.status" title="Medication.status : A code to indicate if the medication is in active use.">status</a><a name="Medication.status"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#isModifier" title="This element is a modifier element">?!</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">active | inactive | entered-in-error<br><a href="valueset-medication-status.html" title="A coded concept defining if the medication is in active use.">Medication  status  codes</a> (<a href="terminologies.html#required" title="To be conformant, the concept in this element SHALL be from the specified value set.">Required</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="medication-definitions.html#Medication.manufacturer" title="Medication.manufacturer : Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.">manufacturer</a><a name="Medication.manufacturer"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Manufacturer of the item</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.form" title="Medication.form : Describes the form of the item.  Powder; tablets; capsule.">form</a><a name="Medication.form"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">powder | tablets | capsule +<br><a href="valueset-medication-form-codes.html" title="A coded concept defining the form of a medication.">SNOMED CT Form Codes</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.amount" title="Medication.amount : Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).">amount</a><a name="Medication.amount"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Ratio">Ratio</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Amount of drug in package</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient" title="Medication.ingredient : Identifies a particular constituent of interest in the product.">ingredient</a><a name="Medication.ingredient"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Active or inactive ingredient<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck111.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_choice.gif" alt="." style="background-color: white; background-color: inherit" title="Choice of Types" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.item_x_" title="Medication.ingredient.item[x] : The actual ingredient - either a substance (simple ingredient) or another medication of a medication.">item[x]</a><a name="Medication.ingredient.item_x_"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The actual ingredient or content</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <span title="A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.">itemCodeableConcept</span></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> itemReference</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="substance.html">Substance</a> | <a href="medication.html">Medication</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.isActive" title="Medication.ingredient.isActive : Indication of whether this ingredient affects the therapeutic action of the drug.">isActive</a><a name="Medication.ingredient.isActive"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Active ingredient indicator</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.ingredient.strength" title="Medication.ingredient.strength : Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.">strength</a><a name="Medication.ingredient.strength"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Ratio">Ratio</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Quantity of ingredient present</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="medication-definitions.html#Medication.batch" title="Medication.batch : Information that only applies to packages (not products).">batch</a><a name="Medication.batch"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Details about packaged medications</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.batch.lotNumber" title="Medication.batch.lotNumber : The assigned lot number of a batch of the specified product.">lotNumber</a><a name="Medication.batch.lotNumber"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Identifier assigned to batch</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="medication-definitions.html#Medication.batch.expirationDate" title="Medication.batch.expirationDate : When this specific batch of product will expire.">expirationDate</a><a name="Medication.batch.expirationDate"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">When batch will expire</td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+
+<div id="uml">
+<a name="uml"></a>
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720.8" id="n46" version="1.1" height="312.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowB" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowB)" rx="4" ry="4" x="0.0" width="250.8" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication" height="120.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="250.8" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="125.4" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Medication<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="medication-definitions.html#Medication.identifier"><title>Business identifier for this medication</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="medication-definitions.html#Medication.code"><title>A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems</title>code</a> : <a id="n59" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n60" xlink:href="valueset-medication-codes.html"><title id="n61">A coded concept that defines the type of a medication. (Strength=Example)</title>SNOMEDCTMedicationCodes</a>?? »</text><text x="6.0" y="70.0" id="n67" fill="black" class="diagram-class-detail"><a id="n68" xlink:href="medication-definitions.html#Medication.status"><title>A code to indicate if the medication is in active use (this element modifies the meaning of other elements)</title>status</a> : <a id="n69" xlink:href="datatypes.html#code">code</a> [0..1] « <a id="n70" xlink:href="valueset-medication-status.html"><title id="n71">A coded concept defining if the medication is in active use. (Strength=Required)</title>Medication Status </a>! »</text><text x="6.0" y="84.0" id="n77" fill="black" class="diagram-class-detail"><a id="n78" xlink:href="medication-definitions.html#Medication.manufacturer"><title>Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product</title>manufacturer</a> : <a id="n79" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n80" xlink:href="organization.html#Organization">Organization</a> »</text><text x="6.0" y="98.0" id="n85" fill="black" class="diagram-class-detail"><a id="n86" xlink:href="medication-definitions.html#Medication.form"><title>Describes the form of the item.  Powder; tablets; capsule</title>form</a> : <a id="n87" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n88" xlink:href="valueset-medication-form-codes.html"><title id="n89">A coded concept defining the form of a medication. (Strength=Example)</title>SNOMEDCTFormCodes</a>?? »</text><text x="6.0" y="112.0" id="n95" fill="black" class="diagram-class-detail"><a id="n96" xlink:href="medication-definitions.html#Medication.amount"><title>Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)</title>amount</a> : <a id="n97" xlink:href="datatypes.html#Ratio">Ratio</a> [0..1]</text></g><g id="n101"><rect filter="url(#shadowB)" rx="4" ry="4" x="0.0" width="264.0" y="200.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication.ingredient" height="92.0"></rect><line y1="228.0" x1="0.0" y2="228.0" x2="264.0" style="stroke:dimgrey;stroke-width:1" id="n102"></line><text x="132.0" y="220.0" id="n103" fill="black" class="diagram-class-title">Ingredient</text><text x="6.0" y="242.0" id="n104" fill="black" class="diagram-class-detail"><a id="n105" xlink:href="medication-definitions.html#Medication.ingredient.item_x_"><title>The actual ingredient - either a substance (simple ingredient) or another medication of a medication</title>item[x]</a> : <a id="n106" xlink:href="formats.html#umlchoice">Type</a> [1..1] « <a id="n107" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a id="n108" xlink:href="references.html#Reference">Reference</a>(<a id="n109" xlink:href="substance.html#Substance">Substance</a>|</text><text x="26.0" y="256.0" id="n110" fill="black" class="diagram-class-detail">      <a id="n111" xlink:href="medication.html#Medication">Medication</a>) »</text><text x="6.0" y="270.0" id="n120" fill="black" class="diagram-class-detail"><a id="n121" xlink:href="medication-definitions.html#Medication.ingredient.isActive"><title>Indication of whether this ingredient affects the therapeutic action of the drug</title>isActive</a> : <a id="n122" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="284.0" id="n126" fill="black" class="diagram-class-detail"><a id="n127" xlink:href="medication-definitions.html#Medication.ingredient.strength"><title>Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet</title>strength</a> : <a id="n128" xlink:href="datatypes.html#Ratio">Ratio</a> [0..1]</text></g><g id="n132"><rect filter="url(#shadowB)" rx="4" ry="4" x="380.0" width="140.8" y="40.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Medication.batch" height="64.0"></rect><line y1="68.0" x1="380.0" y2="68.0" x2="520.8" style="stroke:dimgrey;stroke-width:1" id="n133"></line><text x="450.4" y="60.0" id="n134" fill="black" class="diagram-class-title">Batch</text><text x="386.0" y="82.0" id="n135" fill="black" class="diagram-class-detail"><a id="n136" xlink:href="medication-definitions.html#Medication.batch.lotNumber"><title>The assigned lot number of a batch of the specified product</title>lotNumber</a> : <a id="n137" xlink:href="datatypes.html#string">string</a> [0..1]</text><text x="386.0" y="96.0" id="n141" fill="black" class="diagram-class-detail"><a id="n142" xlink:href="medication-definitions.html#Medication.batch.expirationDate"><title>When this specific batch of product will expire</title>expirationDate</a> : <a id="n143" xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text></g><line y1="120.0" x1="127.52903225806453" y2="200.0" x2="130.36774193548388" style="stroke:navy;stroke-width:1" id="n147"></line><polygon transform="rotate(87.96777659418761 127.52903225806453 120.0)" style="fill:navy;stroke:navy;stroke-width:1" id="n148" points="127.52903225806453,120.0 133.52903225806455,124.0 139.52903225806455,120.0 133.52903225806455,116.0 127.52903225806453,120.0"></polygon><rect x="106.0" width="44.0" y="153.0" style="fill:white;stroke:black;stroke-width:0" id="n149" height="18.0"></rect><text x="128.0" y="163.0" id="n150" fill="black" class="diagram-class-linkage"><a id="n151" xlink:href="medication-definitions.html#Medication.ingredient"><title>Identifies a particular constituent of interest in the product</title>ingredient</a></text><text x="130.36774193548388" y="196.0" id="n152" fill="black" class="diagram-class-linkage">[0..*]</text><line y1="64.63015384615385" x1="250.8" y2="69.40061538461538" x2="380.0" style="stroke:navy;stroke-width:1" id="n153"></line><polygon transform="rotate(2.114575880072658 250.8 64.63015384615385)" style="fill:navy;stroke:navy;stroke-width:1" id="n154" points="250.8,64.63015384615385 256.8,68.63015384615385 262.8,64.63015384615385 256.8,60.630153846153846 250.8,64.63015384615385"></polygon><rect x="304.0" width="22.0" y="60.0" style="fill:white;stroke:black;stroke-width:0" id="n155" height="18.0"></rect><text x="315.0" y="70.0" id="n156" fill="black" class="diagram-class-linkage"><a id="n157" xlink:href="medication-definitions.html#Medication.batch"><title>Information that only applies to packages (not products)</title>batch</a></text><text x="360.0" y="65.40061538461538" id="n158" fill="black" class="diagram-class-linkage">[0..1]</text></svg>
+ </div>
+</div>
+
+<div id="xml">
+<a name="xml"></a>
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Business identifier for this medication</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict"><b>code</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-codes.html">Codes that identify this medication</a></span><span style="color: Gray"> --&gt;</span>&lt;/code&gt;
+ &lt;<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline"><b>status</b></span></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-status.html">active | inactive | entered-in-error</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict"><b>manufacturer</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Manufacturer of the item</a></span><span style="color: Gray"> --&gt;</span>&lt;/manufacturer&gt;
+ &lt;<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict"><b>form</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-medication-form-codes.html">powder | tablets | capsule +</a></span><span style="color: Gray"> --&gt;</span>&lt;/form&gt;
+ &lt;<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict"><b>amount</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Amount of drug in package</a></span><span style="color: Gray"> --&gt;</span>&lt;/amount&gt;
+ &lt;<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict"><b>ingredient</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Active or inactive ingredient --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.ingredient.item[x]" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict"><b>item[x]</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The actual ingredient or content</a></span><span style="color: Gray"> --&gt;</span>&lt;/item[x]&gt;
+  &lt;<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict"><b>isActive</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Active ingredient indicator</a></span><span style="color: Gray"> --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict"><b>strength</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Quantity of ingredient present</a></span><span style="color: Gray"> --&gt;</span>&lt;/strength&gt;
+ &lt;/ingredient&gt;
+ &lt;<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict"><b>batch</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..1</b></span> Details about packaged medications --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict"><b>lotNumber</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Identifier assigned to batch</a></span><span style="color: Gray"> --&gt;</span>
+  &lt;<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict"><b>expirationDate</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#dateTime">dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">When batch will expire</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;/batch&gt;
+&lt;/Medication&gt;
+</pre>
+
+ </div>
+</div>
+
+<div id="json2">
+<a name="json"></a>
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Business identifier for this medication</a></span>
+  "<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict">code</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-codes.html">Codes that identify this medication</a></span>
+  "<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">status</span></a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-status.html">active | inactive | entered-in-error</a></span>
+  "<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict">manufacturer</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Manufacturer of the item</a></span>
+  "<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict">form</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-medication-form-codes.html">powder | tablets | capsule +</a></span>
+  "<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict">amount</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Amount of drug in package</a></span>
+  "<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict">ingredient</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Active or inactive ingredient</a></span>
+    <span style="color: Gray">// item[x]: <span style="color: navy; opacity: 0.8">The actual ingredient or content</span>. One of these 2:</span>
+    "<a href="medication-definitions.html#Medication.ingredient.itemCodeableConcept" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">itemCodeableConcept</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> },
+    "<a href="medication-definitions.html#Medication.ingredient.itemReference" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">itemReference</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>)</span> },
+    "<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict">isActive</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Active ingredient indicator</a></span>
+    "<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict">strength</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Ratio">Ratio</a></span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Quantity of ingredient present</a></span>
+  }],
+  "<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict">batch</a>" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Details about packaged medications</a></span>
+    "<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict">lotNumber</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Identifier assigned to batch</a></span>
+    "<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict">expirationDate</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#dateTime">dateTime</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">When batch will expire</a></span>
+  }
+}
+</pre>
+
+ </div>
+</div>
+
+<div id="ttl2">
+<a name="ttl"></a>
+<p><b>Turtle Template</b></p>
+ <div id="ttl-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="medication-definitions.html#Medication" title="This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use." class="dict"><b>Medication</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="medication-definitions.html#Medication.identifier" title="Business identifier for this medication." class="dict">Medication.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">Business identifier for this medication</span>
+  fhir:<a href="medication-definitions.html#Medication.code" title="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems." class="dict">Medication.code</a><a name="ttl-code"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">Codes that identify this medication</span>
+  fhir:<a href="medication-definitions.html#Medication.status" title="A code to indicate if the medication is in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">Medication.status</span></a><a name="ttl-status"> </a>[ <a href="datatypes.html#code">code</a> ]; # 0..1 <span style="color: navy">active | inactive | entered-in-error</span>
+  fhir:<a href="medication-definitions.html#Medication.manufacturer" title="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." class="dict">Medication.manufacturer</a><a name="ttl-manufacturer"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">Manufacturer of the item</span>
+  fhir:<a href="medication-definitions.html#Medication.form" title="Describes the form of the item.  Powder; tablets; capsule." class="dict">Medication.form</a><a name="ttl-form"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">powder | tablets | capsule +</span>
+  fhir:<a href="medication-definitions.html#Medication.amount" title="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." class="dict">Medication.amount</a><a name="ttl-amount"> </a>[ <a href="datatypes.html#Ratio">Ratio</a> ]; # 0..1 <span style="color: navy">Amount of drug in package</span>
+  fhir:<a href="medication-definitions.html#Medication.ingredient" title="Identifies a particular constituent of interest in the product." class="dict">Medication.ingredient</a><a name="ttl-ingredient"> </a>[ # 0..* <span style="color: navy">Active or inactive ingredient</span>
+    # <a href="medication-definitions.html#Medication.ingredient.item[x]" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.item[x]</a><a name="ttl-item[x]"> </a>: 1..1 <span style="color: navy">The actual ingredient or content</span>. One of these 2
+      fhir:<a href="medication-definitions.html#Medication.ingredient.itemCodeableConcept" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.itemCodeableConcept</a><a name="ttl-itemCodeableConcept"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]
+      fhir:<a href="medication-definitions.html#Medication.ingredient.itemReference" title="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." class="dict">Medication.ingredient.itemReference</a><a name="ttl-itemReference"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="substance.html#Substance">Substance</a>|<a href="medication.html#Medication">Medication</a>) ]
+    fhir:<a href="medication-definitions.html#Medication.ingredient.isActive" title="Indication of whether this ingredient affects the therapeutic action of the drug." class="dict">Medication.ingredient.isActive</a><a name="ttl-isActive"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Active ingredient indicator</span>
+    fhir:<a href="medication-definitions.html#Medication.ingredient.strength" title="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." class="dict">Medication.ingredient.strength</a><a name="ttl-strength"> </a>[ <a href="datatypes.html#Ratio">Ratio</a> ]; # 0..1 <span style="color: navy">Quantity of ingredient present</span>
+  ], ...;
+  fhir:<a href="medication-definitions.html#Medication.batch" title="Information that only applies to packages (not products)." class="dict">Medication.batch</a><a name="ttl-batch"> </a>[ # 0..1 <span style="color: navy">Details about packaged medications</span>
+    fhir:<a href="medication-definitions.html#Medication.batch.lotNumber" title="The assigned lot number of a batch of the specified product." class="dict">Medication.batch.lotNumber</a><a name="ttl-lotNumber"> </a>[ <a href="datatypes.html#string">string</a> ]; # 0..1 <span style="color: navy">Identifier assigned to batch</span>
+    fhir:<a href="medication-definitions.html#Medication.batch.expirationDate" title="When this specific batch of product will expire." class="dict">Medication.batch.expirationDate</a><a name="ttl-expirationDate"> </a>[ <a href="datatypes.html#dateTime">dateTime</a> ]; # 0..1 <span style="color: navy">When batch will expire</span>
+  ];
+]
+</pre>
+
+ </div>
+</div>
+
+<div id="vdiff2">
+<p><b>Changes since Release 3</b></p>
+ <div id="diff-inner2">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="medication.html#Medication">Medication</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.identifier</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Medication.status</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change value set from http://hl7.org/fhir/ValueSet/medication-status to http://hl7.org/fhir/ValueSet/medication-status|4.0.1</li>
+        <li>Now marked as Modifier</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.amount</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.ingredient.strength</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch.lotNumber</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-new">
+    <td class="diff-left">Medication.batch.expirationDate</td>
+    <td class="diff-right">
+      <ul>
+        <li>Added Element</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.isBrand</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.isOverTheCounter</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.ingredient.amount</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.package</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-del">
+    <td class="diff-left">Medication.image</td>
+    <td class="diff-right">
+      <ul>
+        <li>deleted</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="medication.diff.xml">XML</a> or <a href="medication.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="medication-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 23 tests that all execute ok. <span style="background-color: #ccffcc">22 fail round-trip testing</span> and <span style="background-color: #E0B0FF">22 r3 resources are invalid (0 errors).</span>)</p>
+
+ </div>
+</div>
+
+  </div>
+</div>
+
+<p>&nbsp;</p>
+<p>See the <a href="medication-profiles.html">Profiles &amp; Extensions</a> and the alternate definitions:
+Master Definition <a href="medication.profile.xml.html">XML</a> + <a href="medication.profile.json.html">JSON</a>,
+<a href="xml.html">XML</a> <a href="medication.xsd">Schema</a>/<a href="medication.sch">Schematron</a> + <a href="json.html">JSON</a> 
+<a href="medication.schema.json.html">Schema</a>, <a href="medication.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>)  + <a href="medication-profiles.html">see the extensions</a> &amp; the <a href="medication-dependencies.html">dependency analysis</a></p>
+
+<a name="tx"></a>
+<h3 class="self-link-parent"><span class="sectioncount">11.5.2.1</span> 
+Terminology Bindings
+ <a href="medication.html#tx" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<table class="grid">
+ <tr><th>Path</th><th>Definition</th><th>Type</th><th>Reference</th></tr>
+ <tr><td valign="top" title="SNOMED CT Medication Codes">Medication.code </td><td valign="top">A coded concept that defines the type of a medication.</td><td><a href="terminologies.html#example">Example</a></td><td valign="top"><a href="valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>  </td> </tr>
+ <tr><td valign="top" title="Medication  status  codes">Medication.status </td><td valign="top">A coded concept defining if the medication is in active use.</td><td><a href="terminologies.html#required">Required</a></td><td valign="top"><a href="valueset-medication-status.html">Medication Status Codes</a>  </td> </tr>
+ <tr><td valign="top" title="SNOMED CT Form Codes">Medication.form </td><td valign="top">A coded concept defining the form of a medication.</td><td><a href="terminologies.html#example">Example</a></td><td valign="top"><a href="valueset-medication-form-codes.html">SNOMEDCTFormCodes</a>  </td> </tr>
+</table>
+<p> </p>
+
+
+
+
+<a name="bp"></a>
+<h2 class="self-link-parent"><span class="sectioncount">11.5.3</span> Best practices for using 'Medication' <a href="medication.html#bp" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+    Medication does not have a status.  If Medication was used to support a formulary use case, then an extension can be used to convey formulary statuses, such as active (e.g. the medication can be ordered) or inactive (e.g. the medication can be documented, but not ordered). Pharmacy is evaluating formulary use cases. Feedback is encouraged to the Pharmacy working group. 
+</p>
+
+<a name="search"></a>
+<h2 class="self-link-parent"><span class="sectioncount">11.5.4</span> Search Parameters <a href="medication.html#search" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>Search parameters for this resource. The <a href="search.html#all">common parameters</a> also apply. See <a href="search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
+<table class="list">
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Expression</b></td><td><b>In Common</b></td></tr>
+<tr><td><a name="sp-code"> </a>code</td><td><a href="search.html#token">token</a></td><td>Returns medications for a specific code</td><td>Medication.code</td><td><a href="searchparameter-registry.html#clinical-code">13 Resources</a></td></tr>
+<tr><td><a name="sp-expiration-date"> </a>expiration-date</td><td><a href="search.html#date">date</a></td><td>Returns medications in a batch with this expiration date</td><td>Medication.batch.expirationDate</td><td></td></tr>
+<tr><td><a name="sp-form"> </a>form</td><td><a href="search.html#token">token</a></td><td>Returns medications for a specific dose form</td><td>Medication.form</td><td></td></tr>
+<tr><td><a name="sp-identifier"> </a>identifier</td><td><a href="search.html#token">token</a></td><td>Returns medications with this external identifier</td><td>Medication.identifier</td><td></td></tr>
+<tr><td><a name="sp-ingredient"> </a>ingredient</td><td><a href="search.html#reference">reference</a></td><td>Returns medications for this ingredient reference</td><td>(Medication.ingredient.item as Reference)<br>(<a href="medication.html">Medication</a>, <a href="substance.html">Substance</a>)</td><td></td></tr>
+<tr><td><a name="sp-ingredient-code"> </a>ingredient-code</td><td><a href="search.html#token">token</a></td><td>Returns medications for this ingredient code</td><td>(Medication.ingredient.item as CodeableConcept)</td><td></td></tr>
+<tr><td><a name="sp-lot-number"> </a>lot-number</td><td><a href="search.html#token">token</a></td><td>Returns medications in a batch with this lot number</td><td>Medication.batch.lotNumber</td><td></td></tr>
+<tr><td><a name="sp-manufacturer"> </a>manufacturer</td><td><a href="search.html#reference">reference</a></td><td>Returns medications made or sold for this manufacturer</td><td>Medication.manufacturer<br>(<a href="organization.html">Organization</a>)</td><td></td></tr>
+<tr><td><a name="sp-status"> </a>status</td><td><a href="search.html#token">token</a></td><td>Returns medications for this status</td><td>Medication.status</td><td></td></tr>
+</table>
+
+
+
+</div>
+
+
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+<div class="content-block"><h2>Content from https://build.fhir.org/medication-definitions.html</h2>
+  
+	
+
+<div class="container">  
+            
+
+<div class="row">
+            	
+
+<div class="inner-wrapper">
+  
+
+
+
+<div class="col-12">
+
+<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" alt="icon" style="vertical-align: baseline"></a></p>
+
+
+
+
+
+<ul class="nav nav-tabs"><li><a href="medication.html">Content</a></li>
+
+<li><a href="medication-examples.html">Examples</a></li>
+
+<li class="active"><a href="#">Detailed Descriptions</a></li>
+
+<li><a href="medication-mappings.html">Mappings</a></li>
+
+<li><a href="medication-operations.html">Operations</a></li>
+
+<li><a href="medication-search.html">Search Params</a></li>
+
+<li><a href="medication-profiles.html">Profiles</a></li>
+
+<li><a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Medication.html">Extensions</a></li></ul>
+
+<h2 class="self-link-parent"><span class="sectioncount">11.5.6<a name="11.5.6"> </a></span> Resource Medication - Detailed Descriptions <a href="medication-definitions.html#11.5.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/medication/index.cfm">Pharmacy <img src="external.png" alt="icon" style="vertical-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 4</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Business</td>  <td><a href="compartmentdefinition.html">Compartments</a>: No defined compartments</td></tr></table>
+
+
+
+<p>Detailed Descriptions for the elements in the Medication resource.</p>
+
+
+
+<table class="dict">
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication"> </a><b>Medication</b><a href="#Medication" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Definition of a Medication</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="domainresource.html">DomainResource</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.identifier"> </a><b>Medication.identifier</b><a href="#Medication.identifier" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.identifier</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Business identifier for this medication.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Business identifier for this medication</td></tr>
+  
+
+<tr><td>Note</td>
+
+<td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The serial number could be included as an identifier.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.code"> </a><b>Medication.code</b><a href="#Medication.code" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.code</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A code (or set of codes) that specify this medication, or a textual description. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems. The name of the medication can be conveyed in the code.text even if it is different from any of the coding displayName values.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Codes that identify this medication</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-medication-codes.html">SNOMED CT Medication Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: "A coding may be marked as a "userSelected" if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.status"> </a><b>Medication.status</b><a href="#Medication.status" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.status</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A code to indicate if the medication is in active use.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>active | inactive | entered-in-error</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-medication-status.html">Medication Status Codes</a> (<a href="terminologies.html#required">Required</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#code">code</a></td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td>
+
+<td>true (Reason: This element changes the interpretation of all descriptive attributes.)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product "ABC Hospital Special Cream" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to "entered in error".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.marketingAuthorizationHolder"> </a><b>Medication.marketingAuthorizationHolder</b><a href="#Medication.marketingAuthorizationHolder" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.marketingAuthorizationHolder</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The company or other legal entity that has authorization, from the appropriate drug regulatory authority,  to market a medicine in one or more jurisdictions.  Typically abbreviated MAH.Note:  The MAH may manufacture the product and may also contract the manufacturing of the product to one or more companies (organizations).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Organization that has authorization to market medication</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.doseForm"> </a><b>Medication.doseForm</b><a href="#Medication.doseForm" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.doseForm</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Describes the form of the item.  Powder; tablets; capsule.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>powder | tablets | capsule +</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-medication-form-codes.html">SNOMED CT Form Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>When Medication is referenced from MedicationRequest, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.totalVolume"> </a><b>Medication.totalVolume</b><a href="#Medication.totalVolume" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.totalVolume</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>When the specified product code does not infer a package size, this is the specific amount of drug in the product</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Quantity">Quantity</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.ingredient"> </a><b>Medication.ingredient</b><a href="#Medication.ingredient" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.ingredient</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Identifies a particular constituent of interest in the product.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Active or inactive ingredient</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.  If Medication.code represents a fully specified product (the product + the strength + the dosage form) then including ingredients is duplicative.  However, there may be implementation considerations which dictate including ingredients when Medication.code is a fully specified product.  For compounded products, active and inactive ingredients should be included.  However, even with all ingredients specified, a Medication resource should not be considered a "recipe" as the sequence and techniques for preparing the final product cannot be included.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.ingredient.item"> </a><b>Medication.ingredient.item</b><a href="#Medication.ingredient.item" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.ingredient.item</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>The ingredient (substance or medication) that the ingredient.strength relates to</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>1..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-medication-codes.html">SNOMED CT Medication Codes</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#CodeableReference">CodeableReference</a>(<a href="substance.html">Substance</a> | <a href="medication.html">Medication</a>)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base).</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.ingredient.isActive"> </a><b>Medication.ingredient.isActive</b><a href="#Medication.ingredient.isActive" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.ingredient.isActive</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Indication of whether this ingredient affects the therapeutic action of the drug.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Active ingredient indicator</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#boolean">boolean</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>True indicates that the ingredient affects the therapeutic action of the drug (i.e. active).
+False indicates that the ingredient does not affect the therapeutic action of the drug (i.e. inactive).</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.ingredient.strength_x_"> </a><b>Medication.ingredient.strength[x]</b><a href="#Medication.ingredient.strength_x_" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.ingredient.strength[x]</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet but can also be expressed a quantity when the denominator is assumed to be 1 tablet.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Quantity of ingredient present</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-medication-ingredientstrength.html">Medication Ingredient Strength Codes</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Ratio">Ratio</a>|<a href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a href="datatypes.html#Quantity">Quantity</a></td></tr>
+  
+
+<tr><td>[x] Note</td>
+
+<td>See <a href="formats.html#choice">Choice of Datatypes</a> for further information about how to use [x]</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.batch"> </a><b>Medication.batch</b><a href="#Medication.batch" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.batch</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Information that only applies to packages (not products).</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Details about packaged medications</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.batch.lotNumber"> </a><b>Medication.batch.lotNumber</b><a href="#Medication.batch.lotNumber" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.batch.lotNumber</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The assigned lot number of a batch of the specified product.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Identifier assigned to batch</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#string">string</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.batch.expirationDate"> </a><b>Medication.batch.expirationDate</b><a href="#Medication.batch.expirationDate" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.batch.expirationDate</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>When this specific batch of product will expire.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>When batch will expire</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#dateTime">dateTime</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Medication.definition"> </a><b>Medication.definition</b><a href="#Medication.definition" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Medication.definition</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A reference to a knowledge resource that provides more information about this medication. This element can be used to help with Cross Border use cases and separately it may also be useful if someone needs to drill into more medication specific information.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Knowledge about this medication</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="medicationknowledge.html">MedicationKnowledge</a>)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+</table>
+
+
+
+</div>   
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@ import { parse } from 'node-html-parser';
 import fs from 'fs';
 import path from 'path';
 
-const R4_BASE_URL_SPEC = "https://hl7.org/fhir/";
+const R4_BASE_URL_SPEC = "https://hl7.org/fhir/R4/";
 const BUILD_BASE_URL = "https://build.fhir.org/"; // R5/R6 typically
 
 async function fetchAndExtractSegment(url: string): Promise<string> {
@@ -56,8 +56,8 @@ export async function ensureFhirDocHtml(
     resourceName: string,
     projectRootDir: string
 ): Promise<{ r4HtmlPath: string; r6HtmlPath: string } | null> {
-    const r4Dir = path.join(projectRootDir, 'r4');
-    const r6Dir = path.join(projectRootDir, 'r6');
+    const r4Dir = path.join(projectRootDir, 'sources', 'r4');
+    const r6Dir = path.join(projectRootDir, 'sources', 'r6');
     const r4OutputPath = path.join(r4Dir, `${resourceName.toLowerCase()}.html`);
     const r6OutputPath = path.join(r6Dir, `${resourceName.toLowerCase()}.html`);
 

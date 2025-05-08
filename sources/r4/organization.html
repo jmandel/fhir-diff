@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR R4: Organization</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        .content-block { border: 1px solid #eee; margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; }
+        .content-block h2 { margin-top: 0; font-size: 1.2em; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 5px;}
+    </style>
+</head>
+<body>
+    <h1>FHIR R4: Organization</h1>
+    <div class="content-block"><h2>Content from https://hl7.org/fhir/R4/organization.html</h2>
+  
+	<div class="container">  
+            <div class="row">
+            	<div class="inner-wrapper">
+  
+
+
+<div class="col-12">  <p id="publish-box-past">This page is part of the FHIR Specification (v4.0.1: R4 - Mixed <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Normative Standard">Normative</a> and <a href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Standard for Trial-Use">STU</a>) in it's permanent home (it will always be available at this URL). The current version which supercedes this version is <a href="http://hl7.org/fhir/index.html">5.0.0</a>. For a full list of available versions, see the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" style="text-align: baseline"></a>. Page versions: <a href="http://hl7.org/fhir/R5/organization.html">R5</a> <a href="http://hl7.org/fhir/R4B/organization.html">R4B</a> <b>R4</b> <a href="http://hl7.org/fhir/STU3/organization.html">R3</a> <a href="http://hl7.org/fhir/DSTU2/organization.html">R2</a></p>  
+
+<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="organization-examples.html">Examples</a></li><li><a href="organization-definitions.html">Detailed Descriptions</a></li><li><a href="organization-mappings.html">Mappings</a></li><li><a href="organization-profiles.html">Profiles &amp; Extensions</a></li><li><a href="organization-version-maps.html">R3 Conversions</a></li></ul>
+
+<h1 class="self-link-parent"><span class="sectioncount">8.6<a name="8.6"> </a></span> Resource Organization - Content <a href="organization.html#8.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/pafm/index.cfm">Patient Administration <img src="external.png" style="text-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 3</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Business</td>  <td><a href="compartmentdefinition.html">Compartments</a>: Not linked to any defined compartments</td></tr></table>
+
+
+<p>
+</p><p>A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.</p>
+
+
+
+<div>
+<a name="scope"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.6.1</span> Scope and Usage <a href="organization.html#scope" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+This resource may be used in a shared registry of contact and other information for various organizations or it can be used merely as a support
+for other resources that need to reference organizations, perhaps as a <a href="documents.html">document</a>, <a href="messaging.html">message</a> or 
+as a <a href="references.html#contained">contained</a> resource.  If using a registry approach, it's entirely possible for multiple registries to exist, each dealing
+with different types or levels of organization.
+</p>
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.6.2</span> Boundaries and Relationships <a href="organization.html#bnr" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>
+The Organization resource is used for collections of people that have come together to achieve an objective.  
+The <a href="group.html">Group</a> resource is used to identify a collection of people (or animals, devices, etc.) 
+that are gathered for the purpose of analysis or acting upon, but are not expected to act themselves.
+</p>
+	<p>
+		The Organization resource often exists as a hierarchy of organization resources, using the <i>part-of</i> property to provide
+		the association of the child to its parent organization.<br>
+		This organizational hierarchy helps communicate the conceptual structure, whereas the Location resource provides the physical
+		representation of the hierarchy.<br>
+		The linkage between Organization and Location is from each point in the location hierarchy to the appropriate level in the 
+		Organization hierarchy. These links don't all have to be to the top level Organization.<br>
+		When populating the organization and location hierarchies there is often not a clear distinction between these 2, however
+		to assist in making the decision, Locations are always used for recording where a service occurs, and hence where encounters
+		and observations are associated. The Organization property on these resources might not be the location where the service took place.
+	</p>
+</div>
+
+<p>This resource is referenced by <a href="datatypes.html#Annotation">Annotation</a>, <a href="datatypes.html#Identifier">Identifier</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="metadatatypes.html#UsageContext">UsageContext</a>, <a href="account.html#Account">Account</a>, <a href="auditevent.html#AuditEvent">AuditEvent</a>, <a href="basic.html#Basic">Basic</a>, <a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>, <a href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a>, <a href="careplan.html#CarePlan">CarePlan</a>, <a href="careteam.html#CareTeam">CareTeam</a>, <a href="catalogentry.html#CatalogEntry">CatalogEntry</a>, <a href="chargeitem.html#ChargeItem">ChargeItem</a>, <a href="claim.html#Claim">Claim</a>, <a href="claimresponse.html#ClaimResponse">ClaimResponse</a>, <a href="communication.html#Communication">Communication</a>, <a href="communicationrequest.html#CommunicationRequest">CommunicationRequest</a>, <a href="composition.html#Composition">Composition</a>, <a href="consent.html#Consent">Consent</a>, <a href="contract.html#Contract">Contract</a>, <a href="coverage.html#Coverage">Coverage</a>, <a href="coverageeligibilityrequest.html#CoverageEligibilityRequest">CoverageEligibilityRequest</a>, <a href="coverageeligibilityresponse.html#CoverageEligibilityResponse">CoverageEligibilityResponse</a>, <a href="device.html#Device">Device</a>, <a href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>, <a href="devicerequest.html#DeviceRequest">DeviceRequest</a>, <a href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>, <a href="documentmanifest.html#DocumentManifest">DocumentManifest</a>, <a href="documentreference.html#DocumentReference">DocumentReference</a>, <a href="encounter.html#Encounter">Encounter</a>, <a href="endpoint.html#Endpoint">Endpoint</a>, <a href="enrollmentrequest.html#EnrollmentRequest">EnrollmentRequest</a>, <a href="enrollmentresponse.html#EnrollmentResponse">EnrollmentResponse</a>, <a href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a>, <a href="explanationofbenefit.html#ExplanationOfBenefit">ExplanationOfBenefit</a>, <a href="flag.html#Flag">Flag</a>, <a href="goal.html#Goal">Goal</a>, <a href="group.html#Group">Group</a>, <a href="healthcareservice.html#HealthcareService">HealthcareService</a>, <a href="imagingstudy.html#ImagingStudy">ImagingStudy</a>, <a href="immunization.html#Immunization">Immunization</a>, <a href="immunizationevaluation.html#ImmunizationEvaluation">ImmunizationEvaluation</a>, <a href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>, <a href="insuranceplan.html#InsurancePlan">InsurancePlan</a>, <a href="invoice.html#Invoice">Invoice</a>, <a href="linkage.html#Linkage">Linkage</a>, <a href="location.html#Location">Location</a>, <a href="measurereport.html#MeasureReport">MeasureReport</a>, <a href="media.html#Media">Media</a>, <a href="medication.html#Medication">Medication</a>, <a href="medicationdispense.html#MedicationDispense">MedicationDispense</a>, <a href="medicationknowledge.html#MedicationKnowledge">MedicationKnowledge</a>, <a href="medicationrequest.html#MedicationRequest">MedicationRequest</a>, <a href="medicationstatement.html#MedicationStatement">MedicationStatement</a>, <a href="medicinalproduct.html#MedicinalProduct">MedicinalProduct</a>, <a href="medicinalproductauthorization.html#MedicinalProductAuthorization">MedicinalProductAuthorization</a>, <a href="medicinalproductingredient.html#MedicinalProductIngredient">MedicinalProductIngredient</a>, <a href="medicinalproductmanufactured.html#MedicinalProductManufactured">MedicinalProductManufactured</a>, <a href="medicinalproductpackaged.html#MedicinalProductPackaged">MedicinalProductPackaged</a>, <a href="messageheader.html#MessageHeader">MessageHeader</a>, <a href="molecularsequence.html#MolecularSequence">MolecularSequence</a>, <a href="observation.html#Observation">Observation</a>, itself, <a href="organizationaffiliation.html#OrganizationAffiliation">OrganizationAffiliation</a>, <a href="patient.html#Patient">Patient</a>, <a href="paymentnotice.html#PaymentNotice">PaymentNotice</a>, <a href="paymentreconciliation.html#PaymentReconciliation">PaymentReconciliation</a>, <a href="person.html#Person">Person</a>, <a href="practitioner.html#Practitioner">Practitioner</a>, <a href="practitionerrole.html#PractitionerRole">PractitionerRole</a>, <a href="procedure.html#Procedure">Procedure</a>, <a href="provenance.html#Provenance">Provenance</a>, <a href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>, <a href="researchstudy.html#ResearchStudy">ResearchStudy</a>, <a href="servicerequest.html#ServiceRequest">ServiceRequest</a>, <a href="supplydelivery.html#SupplyDelivery">SupplyDelivery</a>, <a href="supplyrequest.html#SupplyRequest">SupplyRequest</a>, <a href="task.html#Task">Task</a> and <a href="verificationresult.html#VerificationResult">VerificationResult</a></p>
+
+
+<a name="resource"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.6.3</span> 
+Resource Content
+ <a href="organization.html#resource" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<a name="def"></a>
+<a name="organization"></a>
+<a name="Organization"></a>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-struc">Structure</a></li>
+    <li><a href="#tabs-uml">UML</a></li>
+    <li><a href="#tabs-xml">XML</a></li>
+    <li><a href="#tabs-json">JSON</a></li>
+    <li><a href="#tabs-ttl">Turtle</a></li>
+    <li><a href="#tabs-diff">R3 Diff</a></li>
+    <li><a href="#tabs-all">All</a></li>
+  </ul>
+  <div id="tabs-struc">
+
+<div id="tbl">
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="organization-definitions.html#Organization" title="Organization : A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.">Organization</a><a name="Organization"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A grouping of people or organizations with a common purpose<br><span style="font-style: italic" title="org-1">+ Rule: The organization SHALL at least have a name or an identifier, and possibly more than one</span><br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.identifier" title="Organization.identifier : Identifier for the organization that is used to identify the organization across multiple disparate systems.">identifier</a><a name="Organization.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Identifies this organization  across multiple systems<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.active" title="Organization.active : Whether the organization's record is still in active use.">active</a><a name="Organization.active"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#isModifier" title="This element is a modifier element">?!</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Whether the organization's record is still in active use</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.type" title="Organization.type : The kind(s) of organization that this is.">type</a><a name="Organization.type"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kind of organization<br><a href="valueset-organization-type.html" title="Used to categorize the organization.">Organization type</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.name" title="Organization.name : A name associated with the organization.">name</a><a name="Organization.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Name used for the organization</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.alias" title="Organization.alias : A list of alternate names that the organization is known as, or was known as in the past.">alias</a><a name="Organization.alias"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A list of alternate names that the organization is known as, or was known as in the past<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.telecom" title="Organization.telecom : A contact detail for the organization.">telecom</a><a name="Organization.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A contact detail for the organization<br><span style="font-style: italic" title="org-3">+ Rule: The telecom of an organization can never be of use 'home'</span><br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.address" title="Organization.address : An address for the organization.">address</a><a name="Organization.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An address for the organization<br><span style="font-style: italic" title="org-2">+ Rule: An address of an organization can never be of use 'home'</span><br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="organization-definitions.html#Organization.partOf" title="Organization.partOf : The organization of which this organization forms a part.">partOf</a><a name="Organization.partOf"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The organization of which this organization forms a part</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="organization-definitions.html#Organization.contact" title="Organization.contact : Contact for the organization for a certain purpose.">contact</a><a name="Organization.contact"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Contact for the organization for a certain purpose<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.purpose" title="Organization.contact.purpose : Indicates a purpose for which the contact can be reached.">purpose</a><a name="Organization.contact.purpose"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The type of contact<br><a href="valueset-contactentity-type.html" title="The purpose for which you would contact a contact party.">Contact entity type</a> (<a href="terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">Extensible</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.name" title="Organization.contact.name : A name associated with the contact.">name</a><a name="Organization.contact.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#HumanName">HumanName</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A name associated with the contact</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.telecom" title="Organization.contact.telecom : A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.">telecom</a><a name="Organization.contact.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Contact details (telephone, email, etc.)  for a contact<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.address" title="Organization.contact.address : Visiting or postal addresses for the contact.">address</a><a name="Organization.contact.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Visiting or postal addresses for the contact</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="organization-definitions.html#Organization.endpoint" title="Organization.endpoint : Technical endpoints providing access to services operated for the organization.">endpoint</a><a name="Organization.endpoint"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html">Endpoint</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Technical endpoints providing access to services operated for the organization<br></td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-uml">
+
+<div id="uml">
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6" id="n46" version="1.1" height="172.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowA" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowA)" rx="4" ry="4" x="0.0" width="220.00000000000003" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Organization" height="162.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="220.00000000000003" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="110.00000000000001" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Organization<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="organization-definitions.html#Organization.identifier"><title>Identifier for the organization that is used to identify the organization across multiple disparate systems</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="organization-definitions.html#Organization.active"><title>Whether the organization's record is still in active use (this element modifies the meaning of other elements)</title>active</a> : <a id="n59" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="70.0" id="n63" fill="black" class="diagram-class-detail"><a id="n64" xlink:href="organization-definitions.html#Organization.type"><title>The kind(s) of organization that this is</title>type</a> : <a id="n65" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a id="n66" xlink:href="valueset-organization-type.html"><title id="n67">Used to categorize the organization. (Strength=Example)</title>OrganizationType</a>?? »</text><text x="6.0" y="84.0" id="n73" fill="black" class="diagram-class-detail"><a id="n74" xlink:href="organization-definitions.html#Organization.name"><title>A name associated with the organization</title>name</a> : <a id="n75" xlink:href="datatypes.html#string">string</a> [0..1]</text><text x="6.0" y="98.0" id="n79" fill="black" class="diagram-class-detail"><a id="n80" xlink:href="organization-definitions.html#Organization.alias"><title>A list of alternate names that the organization is known as, or was known as in the past</title>alias</a> : <a id="n81" xlink:href="datatypes.html#string">string</a> [0..*]</text><text x="6.0" y="112.0" id="n85" fill="black" class="diagram-class-detail"><a id="n86" xlink:href="organization-definitions.html#Organization.telecom"><title>A contact detail for the organization</title>telecom</a> : <a id="n87" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="6.0" y="126.0" id="n91" fill="black" class="diagram-class-detail"><a id="n92" xlink:href="organization-definitions.html#Organization.address"><title>An address for the organization</title>address</a> : <a id="n93" xlink:href="datatypes.html#Address">Address</a> [0..*]</text><text x="6.0" y="140.0" id="n97" fill="black" class="diagram-class-detail"><a id="n98" xlink:href="organization-definitions.html#Organization.partOf"><title>The organization of which this organization forms a part</title>partOf</a> : <a id="n99" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n100" xlink:href="organization.html#Organization">Organization</a> »</text><text x="6.0" y="154.0" id="n105" fill="black" class="diagram-class-detail"><a id="n106" xlink:href="organization-definitions.html#Organization.endpoint"><title>Technical endpoints providing access to services operated for the organization</title>endpoint</a> : <a id="n107" xlink:href="references.html#Reference">Reference</a> [0..*] « <a id="n108" xlink:href="endpoint.html#Endpoint">Endpoint</a> »</text></g><g id="n113"><rect filter="url(#shadowA)" rx="4" ry="4" x="340.0" width="237.60000000000002" y="35.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Organization.contact" height="92.0"></rect><line y1="63.0" x1="340.0" y2="63.0" x2="577.6" style="stroke:dimgrey;stroke-width:1" id="n114"></line><text x="458.8" y="55.0" id="n115" fill="black" class="diagram-class-title">Contact</text><text x="346.0" y="77.0" id="n116" fill="black" class="diagram-class-detail"><a id="n117" xlink:href="organization-definitions.html#Organization.contact.purpose"><title>Indicates a purpose for which the contact can be reached</title>purpose</a> : <a id="n118" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n119" xlink:href="valueset-contactentity-type.html"><title id="n120">The purpose for which you would contact a contact party. (Strength=Extensible)</title>ContactEntityType</a>+ »</text><text x="346.0" y="91.0" id="n126" fill="black" class="diagram-class-detail"><a id="n127" xlink:href="organization-definitions.html#Organization.contact.name"><title>A name associated with the contact</title>name</a> : <a id="n128" xlink:href="datatypes.html#HumanName">HumanName</a> [0..1]</text><text x="346.0" y="105.0" id="n132" fill="black" class="diagram-class-detail"><a id="n133" xlink:href="organization-definitions.html#Organization.contact.telecom"><title>A contact detail (e.g. a telephone number or an email address) by which the party may be contacted</title>telecom</a> : <a id="n134" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="346.0" y="119.0" id="n138" fill="black" class="diagram-class-detail"><a id="n139" xlink:href="organization-definitions.html#Organization.contact.address"><title>Visiting or postal addresses for the contact</title>address</a> : <a id="n140" xlink:href="datatypes.html#Address">Address</a> [0..1]</text></g><line y1="81.0" x1="220.00000000000003" y2="81.0" x2="340.0" style="stroke:navy;stroke-width:1" id="n144"></line><polygon transform="rotate(0.0 220.00000000000003 81.0)" style="fill:navy;stroke:navy;stroke-width:1" id="n145" points="220.00000000000003,81.0 226.00000000000003,85.0 232.00000000000003,81.0 226.00000000000003,77.0 220.00000000000003,81.0"></polygon><rect x="265.0" width="30.0" y="74.0" style="fill:white;stroke:black;stroke-width:0" id="n146" height="18.0"></rect><text x="280.0" y="84.0" id="n147" fill="black" class="diagram-class-linkage"><a id="n148" xlink:href="organization-definitions.html#Organization.contact"><title>Contact for the organization for a certain purpose</title>contact</a></text><text x="320.0" y="77.0" id="n149" fill="black" class="diagram-class-linkage">[0..*]</text></svg>
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-xml">
+
+<div id="xml">
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Identifies this organization  across multiple systems</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline"><b>active</b></span></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Whether the organization's record is still in active use</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict"><b>type</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-organization-type.html">Kind of organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/type&gt;
+ &lt;<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict"><b>name</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b><img src="lock.png" alt="??"/> 0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Name used for the organization</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict"><b>alias</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A list of alternate names that the organization is known as, or was known as in the past</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-3: The telecom of an organization can never be of use 'home'"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A contact detail for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+ &lt;<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-2: An address of an organization can never be of use 'home'"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An address for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict"><b>partOf</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The organization of which this organization forms a part</a></span><span style="color: Gray"> --&gt;</span>&lt;/partOf&gt;
+ &lt;<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict"><b>contact</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Contact for the organization for a certain purpose --&gt;</span>
+  &lt;<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict"><b>purpose</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-contactentity-type.html">The type of contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/purpose&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict"><b>name</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A name associated with the contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Contact details (telephone, email, etc.)  for a contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Visiting or postal addresses for the contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;/contact&gt;
+ &lt;<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict"><b>endpoint</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Technical endpoints providing access to services operated for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/endpoint&gt;
+&lt;/Organization&gt;
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-json">
+
+<div id="json">
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Identifies this organization  across multiple systems</a></span>
+  "<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">active</span></a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Whether the organization's record is still in active use</a></span>
+  "<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict">type</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-organization-type.html">Kind of organization</a></span>
+  "<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict">name</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Name used for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict">alias</a>" : ["&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;"], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A list of alternate names that the organization is known as, or was known as in the past</a></span>
+  "<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-3: The telecom of an organization can never be of use 'home'"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A contact detail for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict">address</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-2: An address of an organization can never be of use 'home'"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An address for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict">partOf</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The organization of which this organization forms a part</a></span>
+  "<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict">contact</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Contact for the organization for a certain purpose</a></span>
+    "<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict">purpose</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-contactentity-type.html">The type of contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict">name</a>" : { <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A name associated with the contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Contact details (telephone, email, etc.)  for a contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict">address</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Visiting or postal addresses for the contact</a></span>
+  }],
+  "<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict">endpoint</a>" : [{ <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>)</span> }] <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Technical endpoints providing access to services operated for the organization</a></span>
+}
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-ttl">
+
+<div id="ttl">
+<p><b>Turtle Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict">Organization.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">Identifies this organization  across multiple systems</span>
+  fhir:<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">Organization.active</span></a><a name="ttl-active"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Whether the organization's record is still in active use</span>
+  fhir:<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict">Organization.type</a><a name="ttl-type"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ], ... ; # 0..* <span style="color: navy">Kind of organization</span>
+  fhir:<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict">Organization.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#string">string</a> ]; # 0..1 <span style="color: navy">Name used for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict">Organization.alias</a><a name="ttl-alias"> </a>[ <a href="datatypes.html#string">string</a> ], ... ; # 0..* <span style="color: navy">A list of alternate names that the organization is known as, or was known as in the past</span>
+  fhir:<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict">Organization.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">A contact detail for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict">Organization.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ], ... ; # 0..* <span style="color: navy">An address for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict">Organization.partOf</a><a name="ttl-partOf"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">The organization of which this organization forms a part</span>
+  fhir:<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict">Organization.contact</a><a name="ttl-contact"> </a>[ # 0..* <span style="color: navy">Contact for the organization for a certain purpose</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict">Organization.contact.purpose</a><a name="ttl-purpose"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">The type of contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict">Organization.contact.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#HumanName">HumanName</a> ]; # 0..1 <span style="color: navy">A name associated with the contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict">Organization.contact.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">Contact details (telephone, email, etc.)  for a contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict">Organization.contact.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ]; # 0..1 <span style="color: navy">Visiting or postal addresses for the contact</span>
+  ], ...;
+  fhir:<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict">Organization.endpoint</a><a name="ttl-endpoint"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>) ], ... ; # 0..* <span style="color: navy">Technical endpoints providing access to services operated for the organization</span>
+]
+</pre>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-diff">
+
+<div id="vdiff">
+<p><b>Changes since R3</b></p>
+ <div id="diff-inner">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="organization.html#Organization">Organization</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Organization.active</td>
+    <td class="diff-right">
+      <ul>
+        <li>Default Value "true" removed</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Organization.contact.purpose</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change code system for extensibly bound codes from "http://hl7.org/fhir/contactentity-type" to "http://terminology.hl7.org/CodeSystem/contactentity-type"</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="organization.diff.xml">XML</a> or <a href="organization.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="organization-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 11 tests that all execute ok. All tests pass round-trip testing  and <span style="background-color: #E0B0FF">1 r3 resources are invalid (0 errors).</span>)</p>
+
+ </div>
+</div>
+
+  </div>
+  <div id="tabs-all">
+
+<div id="tbl">
+<a name="tbl"></a>
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Minimum and Maximum # of times the the element can appear in the instance">Card.</a></th><th style="width: 100px" class="hierarchy"><a href="formats.html#table" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="formats.html#table" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_resource.png" alt="." style="background-color: white; background-color: inherit" title="Resource" class="hierarchy"> <a href="organization-definitions.html#Organization" title="Organization : A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.">Organization</a><a name="Organization"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a><a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">TU</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A grouping of people or organizations with a common purpose<br><span style="font-style: italic" title="org-1">+ Rule: The organization SHALL at least have a name or an identifier, and possibly more than one</span><br>Elements defined in Ancestors: <a href="resource.html#Resource" title="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.">id</a>, <a href="resource.html#Resource" title="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.">meta</a>, <a href="resource.html#Resource" title="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.">implicitRules</a>, <a href="resource.html#Resource" title="The base language in which the resource is written.">language</a>, <a href="domainresource.html#DomainResource" title="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.">text</a>, <a href="domainresource.html#DomainResource" title="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.">contained</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.">extension</a>, <a href="domainresource.html#DomainResource" title="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).">modifierExtension</a></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.identifier" title="Organization.identifier : Identifier for the organization that is used to identify the organization across multiple disparate systems.">identifier</a><a name="Organization.identifier"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Identifies this organization  across multiple systems<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.active" title="Organization.active : Whether the organization's record is still in active use.">active</a><a name="Organization.active"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#isModifier" title="This element is a modifier element">?!</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Whether the organization's record is still in active use</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.type" title="Organization.type : The kind(s) of organization that this is.">type</a><a name="Organization.type"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kind of organization<br><a href="valueset-organization-type.html" title="Used to categorize the organization.">Organization type</a> (<a href="terminologies.html#example" title="Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.">Example</a>)<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.name" title="Organization.name : A name associated with the organization.">name</a><a name="Organization.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Name used for the organization</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.alias" title="Organization.alias : A list of alternate names that the organization is known as, or was known as in the past.">alias</a><a name="Organization.alias"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A list of alternate names that the organization is known as, or was known as in the past<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.telecom" title="Organization.telecom : A contact detail for the organization.">telecom</a><a name="Organization.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A contact detail for the organization<br><span style="font-style: italic" title="org-3">+ Rule: The telecom of an organization can never be of use 'home'</span><br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.address" title="Organization.address : An address for the organization.">address</a><a name="Organization.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="conformance-rules.html#constraints" title="This element has or is affected by some invariants">I</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">An address for the organization<br><span style="font-style: italic" title="org-2">+ Rule: An address of an organization can never be of use 'home'</span><br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="organization-definitions.html#Organization.partOf" title="Organization.partOf : The organization of which this organization forms a part.">partOf</a><a name="Organization.partOf"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a style="padding-left: 3px; padding-right: 3px; color: black; null" href="elementdefinition-definitions.html#ElementDefinition.isSummary" title="This element is included in summaries">Σ</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The organization of which this organization forms a part</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck11.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_element.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Element" class="hierarchy"> <a href="organization-definitions.html#Organization.contact" title="Organization.contact : Contact for the organization for a certain purpose.">contact</a><a name="Organization.contact"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="backboneelement.html">BackboneElement</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Contact for the organization for a certain purpose<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.purpose" title="Organization.contact.purpose : Indicates a purpose for which the contact can be reached.">purpose</a><a name="Organization.contact.purpose"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">The type of contact<br><a href="valueset-contactentity-type.html" title="The purpose for which you would contact a contact party.">Contact entity type</a> (<a href="terminologies.html#extensible" title="To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.">Extensible</a>)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.name" title="Organization.contact.name : A name associated with the contact.">name</a><a name="Organization.contact.name"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#HumanName">HumanName</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">A name associated with the contact</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: white; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.telecom" title="Organization.contact.telecom : A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.">telecom</a><a name="Organization.contact.telecom"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#ContactPoint">ContactPoint</a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Contact details (telephone, email, etc.)  for a contact<br></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7;"><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck100.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vline.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"> <a href="organization-definitions.html#Organization.contact.address" title="Organization.contact.address : Visiting or postal addresses for the contact.">address</a><a name="Organization.contact.address"> </a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="datatypes.html#Address">Address</a></td><td style="vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Visiting or postal addresses for the contact</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Reference to another Resource" class="hierarchy"> <a href="organization-definitions.html#Organization.endpoint" title="Organization.endpoint : Technical endpoints providing access to services operated for the organization.">endpoint</a><a name="Organization.endpoint"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..*</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html">Endpoint</a>)</td><td style="vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Technical endpoints providing access to services operated for the organization<br></td></tr>
+<tr><td colspan="5" class="hierarchy"><br><a href="formats.html#table" title="Legend for this format"><img src="help16.png" alt="doco" style="background-color: inherit"> Documentation for this format</a></td></tr></table>
+ </div>
+</div>
+
+
+<div id="uml">
+<a name="uml"></a>
+<p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
+ <div id="uml-inner">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6" id="n46" version="1.1" height="172.0">  <defs>
+    <filter x="0" width="200%" y="0" id="shadowB" height="200%">
+      <feOffset result="offOut" dx="3" in="SourceGraphic" dy="3"></feOffset>
+      <feColorMatrix result="matrixOut" in="offOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix"></feColorMatrix>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"></feGaussianBlur>
+      <feBlend mode="normal" in="SourceGraphic" in2="blurOut"></feBlend>
+    </filter>
+  </defs><g id="n47"><rect filter="url(#shadowB)" rx="4" ry="4" x="0.0" width="220.00000000000003" y="0.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Organization" height="162.0"></rect><line y1="28.0" x1="0.0" y2="28.0" x2="220.00000000000003" style="stroke:dimgrey;stroke-width:1" id="n48"></line><text x="110.00000000000001" y="20.0" id="n49" fill="black" class="diagram-class-title  diagram-class-resource">Organization<tspan class="diagram-class-title-link"> (<a id="n50" class="diagram-class-reference" xlink:href="domainresource.html">DomainResource</a>)</tspan></text><text x="6.0" y="42.0" id="n51" fill="black" class="diagram-class-detail"><a id="n52" xlink:href="organization-definitions.html#Organization.identifier"><title>Identifier for the organization that is used to identify the organization across multiple disparate systems</title>identifier</a> : <a id="n53" xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text><text x="6.0" y="56.0" id="n57" fill="black" class="diagram-class-detail"><a id="n58" xlink:href="organization-definitions.html#Organization.active"><title>Whether the organization's record is still in active use (this element modifies the meaning of other elements)</title>active</a> : <a id="n59" xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text><text x="6.0" y="70.0" id="n63" fill="black" class="diagram-class-detail"><a id="n64" xlink:href="organization-definitions.html#Organization.type"><title>The kind(s) of organization that this is</title>type</a> : <a id="n65" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a id="n66" xlink:href="valueset-organization-type.html"><title id="n67">Used to categorize the organization. (Strength=Example)</title>OrganizationType</a>?? »</text><text x="6.0" y="84.0" id="n73" fill="black" class="diagram-class-detail"><a id="n74" xlink:href="organization-definitions.html#Organization.name"><title>A name associated with the organization</title>name</a> : <a id="n75" xlink:href="datatypes.html#string">string</a> [0..1]</text><text x="6.0" y="98.0" id="n79" fill="black" class="diagram-class-detail"><a id="n80" xlink:href="organization-definitions.html#Organization.alias"><title>A list of alternate names that the organization is known as, or was known as in the past</title>alias</a> : <a id="n81" xlink:href="datatypes.html#string">string</a> [0..*]</text><text x="6.0" y="112.0" id="n85" fill="black" class="diagram-class-detail"><a id="n86" xlink:href="organization-definitions.html#Organization.telecom"><title>A contact detail for the organization</title>telecom</a> : <a id="n87" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="6.0" y="126.0" id="n91" fill="black" class="diagram-class-detail"><a id="n92" xlink:href="organization-definitions.html#Organization.address"><title>An address for the organization</title>address</a> : <a id="n93" xlink:href="datatypes.html#Address">Address</a> [0..*]</text><text x="6.0" y="140.0" id="n97" fill="black" class="diagram-class-detail"><a id="n98" xlink:href="organization-definitions.html#Organization.partOf"><title>The organization of which this organization forms a part</title>partOf</a> : <a id="n99" xlink:href="references.html#Reference">Reference</a> [0..1] « <a id="n100" xlink:href="organization.html#Organization">Organization</a> »</text><text x="6.0" y="154.0" id="n105" fill="black" class="diagram-class-detail"><a id="n106" xlink:href="organization-definitions.html#Organization.endpoint"><title>Technical endpoints providing access to services operated for the organization</title>endpoint</a> : <a id="n107" xlink:href="references.html#Reference">Reference</a> [0..*] « <a id="n108" xlink:href="endpoint.html#Endpoint">Endpoint</a> »</text></g><g id="n113"><rect filter="url(#shadowB)" rx="4" ry="4" x="340.0" width="237.60000000000002" y="35.0" style="fill:#fff9ec;stroke:black;stroke-width:1" id="Organization.contact" height="92.0"></rect><line y1="63.0" x1="340.0" y2="63.0" x2="577.6" style="stroke:dimgrey;stroke-width:1" id="n114"></line><text x="458.8" y="55.0" id="n115" fill="black" class="diagram-class-title">Contact</text><text x="346.0" y="77.0" id="n116" fill="black" class="diagram-class-detail"><a id="n117" xlink:href="organization-definitions.html#Organization.contact.purpose"><title>Indicates a purpose for which the contact can be reached</title>purpose</a> : <a id="n118" xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a id="n119" xlink:href="valueset-contactentity-type.html"><title id="n120">The purpose for which you would contact a contact party. (Strength=Extensible)</title>ContactEntityType</a>+ »</text><text x="346.0" y="91.0" id="n126" fill="black" class="diagram-class-detail"><a id="n127" xlink:href="organization-definitions.html#Organization.contact.name"><title>A name associated with the contact</title>name</a> : <a id="n128" xlink:href="datatypes.html#HumanName">HumanName</a> [0..1]</text><text x="346.0" y="105.0" id="n132" fill="black" class="diagram-class-detail"><a id="n133" xlink:href="organization-definitions.html#Organization.contact.telecom"><title>A contact detail (e.g. a telephone number or an email address) by which the party may be contacted</title>telecom</a> : <a id="n134" xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text><text x="346.0" y="119.0" id="n138" fill="black" class="diagram-class-detail"><a id="n139" xlink:href="organization-definitions.html#Organization.contact.address"><title>Visiting or postal addresses for the contact</title>address</a> : <a id="n140" xlink:href="datatypes.html#Address">Address</a> [0..1]</text></g><line y1="81.0" x1="220.00000000000003" y2="81.0" x2="340.0" style="stroke:navy;stroke-width:1" id="n144"></line><polygon transform="rotate(0.0 220.00000000000003 81.0)" style="fill:navy;stroke:navy;stroke-width:1" id="n145" points="220.00000000000003,81.0 226.00000000000003,85.0 232.00000000000003,81.0 226.00000000000003,77.0 220.00000000000003,81.0"></polygon><rect x="265.0" width="30.0" y="74.0" style="fill:white;stroke:black;stroke-width:0" id="n146" height="18.0"></rect><text x="280.0" y="84.0" id="n147" fill="black" class="diagram-class-linkage"><a id="n148" xlink:href="organization-definitions.html#Organization.contact"><title>Contact for the organization for a certain purpose</title>contact</a></text><text x="320.0" y="77.0" id="n149" fill="black" class="diagram-class-linkage">[0..*]</text></svg>
+ </div>
+</div>
+
+<div id="xml">
+<a name="xml"></a>
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <pre class="spec">
+&lt;<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a> xmlns="http://hl7.org/fhir"&gt; <span style="float: right"><a href="xml.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+ &lt;!-- from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a> --&gt;
+ &lt;!-- from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a> --&gt;
+ &lt;<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict"><b>identifier</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Identifies this organization  across multiple systems</a></span><span style="color: Gray"> --&gt;</span>&lt;/identifier&gt;
+ &lt;<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline"><b>active</b></span></a> value="[<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Whether the organization's record is still in active use</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict"><b>type</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-organization-type.html">Kind of organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/type&gt;
+ &lt;<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict"><b>name</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b><img src="lock.png" alt="??"/> 0..1</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Name used for the organization</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict"><b>alias</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A list of alternate names that the organization is known as, or was known as in the past</a></span><span style="color: Gray"> --&gt;</span>
+ &lt;<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-3: The telecom of an organization can never be of use 'home'"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A contact detail for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+ &lt;<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown" title="org-2: An address of an organization can never be of use 'home'"><b><img src="lock.png" alt="??"/> 0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">An address for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict"><b>partOf</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">The organization of which this organization forms a part</a></span><span style="color: Gray"> --&gt;</span>&lt;/partOf&gt;
+ &lt;<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict"><b>contact</b></a>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>0..*</b></span> Contact for the organization for a certain purpose --&gt;</span>
+  &lt;<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict"><b>purpose</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-contactentity-type.html">The type of contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/purpose&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict"><b>name</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">A name associated with the contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/name&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict"><b>telecom</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Contact details (telephone, email, etc.)  for a contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/telecom&gt;
+  &lt;<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict"><b>address</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Visiting or postal addresses for the contact</a></span><span style="color: Gray"> --&gt;</span>&lt;/address&gt;
+ &lt;/contact&gt;
+ &lt;<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict"><b>endpoint</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..*</b></span> <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>)</span> <span style="color: navy"><a style="color: navy" href="terminologies.html#unbound">Technical endpoints providing access to services operated for the organization</a></span><span style="color: Gray"> --&gt;</span>&lt;/endpoint&gt;
+&lt;/Organization&gt;
+</pre>
+
+ </div>
+</div>
+
+<div id="json2">
+<a name="json"></a>
+<p><b>JSON Template</b></p>
+ <div id="json-inner">
+  <pre class="spec">
+{<span style="float: right"><a href="json.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+  "resourceType" : "<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a>",
+  // from <a href="resource.html">Resource</a>: <a href="resource.html#id">id</a>, <a href="resource.html#meta">meta</a>, <a href="resource.html#implicitRules">implicitRules</a>, and <a href="resource.html#language">language</a>
+  // from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">text</a>, <a href="references.html#contained">contained</a>, <a href="extensibility.html">extension</a>, and <a href="extensibility.html#modifierExtension">modifierExtension</a>
+  "<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict">identifier</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Identifier">Identifier</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Identifies this organization  across multiple systems</a></span>
+  "<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">active</span></a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#boolean">boolean</a></span>&gt;, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Whether the organization's record is still in active use</a></span>
+  "<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict">type</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-organization-type.html">Kind of organization</a></span>
+  "<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict">name</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: brown" title="org-1: The organization SHALL at least have a name or an identifier, and possibly more than one"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Name used for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict">alias</a>" : ["&lt;<span style="color: darkgreen"><a href="datatypes.html#string">string</a></span>&gt;"], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A list of alternate names that the organization is known as, or was known as in the past</a></span>
+  "<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-3: The telecom of an organization can never be of use 'home'"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A contact detail for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict">address</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> }], <span style="color: Gray">//</span> <span style="color: brown" title="org-2: An address of an organization can never be of use 'home'"><b>C?</b></span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">An address for the organization</a></span>
+  "<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict">partOf</a>" : { <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>)</span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">The organization of which this organization forms a part</a></span>
+  "<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict">contact</a>" : [{ <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Contact for the organization for a certain purpose</a></span>
+    "<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict">purpose</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="valueset-contactentity-type.html">The type of contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict">name</a>" : { <span style="color: darkgreen"><a href="datatypes.html#HumanName">HumanName</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">A name associated with the contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict">telecom</a>" : [{ <span style="color: darkgreen"><a href="datatypes.html#ContactPoint">ContactPoint</a></span> }], <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Contact details (telephone, email, etc.)  for a contact</a></span>
+    "<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict">address</a>" : { <span style="color: darkgreen"><a href="datatypes.html#Address">Address</a></span> } <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Visiting or postal addresses for the contact</a></span>
+  }],
+  "<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict">endpoint</a>" : [{ <span style="color: darkgreen"><a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>)</span> }] <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="terminologies.html#unbound">Technical endpoints providing access to services operated for the organization</a></span>
+}
+</pre>
+
+ </div>
+</div>
+
+<div id="ttl2">
+<a name="ttl"></a>
+<p><b>Turtle Template</b></p>
+ <div id="ttl-inner">
+  <pre class="spec">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .<span style="float: right"><a href="rdf.html" title="Documentation for this format"><img src="help.png" alt="doco"/></a></span>
+
+
+[ a fhir:<a href="organization-definitions.html#Organization" title="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc." class="dict"><b>Organization</b></a>;
+  fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+  # from <a href="resource.html">Resource</a>: <a href="resource.html#id">.id</a>, <a href="resource.html#meta">.meta</a>, <a href="resource.html#implicitRules">.implicitRules</a>, and <a href="resource.html#language">.language</a>
+  # from <a href="domainresource.html">DomainResource</a>: <a href="narrative.html#Narrative">.text</a>, <a href="references.html#contained">.contained</a>, <a href="extensibility.html">.extension</a>, and <a href="extensibility.html#modifierExtension">.modifierExtension</a>
+  fhir:<a href="organization-definitions.html#Organization.identifier" title="Identifier for the organization that is used to identify the organization across multiple disparate systems." class="dict">Organization.identifier</a><a name="ttl-identifier"> </a>[ <a href="datatypes.html#Identifier">Identifier</a> ], ... ; # 0..* <span style="color: navy">Identifies this organization  across multiple systems</span>
+  fhir:<a href="organization-definitions.html#Organization.active" title="Whether the organization's record is still in active use (this element modifies the meaning of other elements)" class="dict"><span style="text-decoration: underline">Organization.active</span></a><a name="ttl-active"> </a>[ <a href="datatypes.html#boolean">boolean</a> ]; # 0..1 <span style="color: navy">Whether the organization's record is still in active use</span>
+  fhir:<a href="organization-definitions.html#Organization.type" title="The kind(s) of organization that this is." class="dict">Organization.type</a><a name="ttl-type"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ], ... ; # 0..* <span style="color: navy">Kind of organization</span>
+  fhir:<a href="organization-definitions.html#Organization.name" title="A name associated with the organization." class="dict">Organization.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#string">string</a> ]; # 0..1 <span style="color: navy">Name used for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.alias" title="A list of alternate names that the organization is known as, or was known as in the past." class="dict">Organization.alias</a><a name="ttl-alias"> </a>[ <a href="datatypes.html#string">string</a> ], ... ; # 0..* <span style="color: navy">A list of alternate names that the organization is known as, or was known as in the past</span>
+  fhir:<a href="organization-definitions.html#Organization.telecom" title="A contact detail for the organization." class="dict">Organization.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">A contact detail for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.address" title="An address for the organization." class="dict">Organization.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ], ... ; # 0..* <span style="color: navy">An address for the organization</span>
+  fhir:<a href="organization-definitions.html#Organization.partOf" title="The organization of which this organization forms a part." class="dict">Organization.partOf</a><a name="ttl-partOf"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="organization.html#Organization">Organization</a>) ]; # 0..1 <span style="color: navy">The organization of which this organization forms a part</span>
+  fhir:<a href="organization-definitions.html#Organization.contact" title="Contact for the organization for a certain purpose." class="dict">Organization.contact</a><a name="ttl-contact"> </a>[ # 0..* <span style="color: navy">Contact for the organization for a certain purpose</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.purpose" title="Indicates a purpose for which the contact can be reached." class="dict">Organization.contact.purpose</a><a name="ttl-purpose"> </a>[ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ]; # 0..1 <span style="color: navy">The type of contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.name" title="A name associated with the contact." class="dict">Organization.contact.name</a><a name="ttl-name"> </a>[ <a href="datatypes.html#HumanName">HumanName</a> ]; # 0..1 <span style="color: navy">A name associated with the contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.telecom" title="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." class="dict">Organization.contact.telecom</a><a name="ttl-telecom"> </a>[ <a href="datatypes.html#ContactPoint">ContactPoint</a> ], ... ; # 0..* <span style="color: navy">Contact details (telephone, email, etc.)  for a contact</span>
+    fhir:<a href="organization-definitions.html#Organization.contact.address" title="Visiting or postal addresses for the contact." class="dict">Organization.contact.address</a><a name="ttl-address"> </a>[ <a href="datatypes.html#Address">Address</a> ]; # 0..1 <span style="color: navy">Visiting or postal addresses for the contact</span>
+  ], ...;
+  fhir:<a href="organization-definitions.html#Organization.endpoint" title="Technical endpoints providing access to services operated for the organization." class="dict">Organization.endpoint</a><a name="ttl-endpoint"> </a>[ <a href="references.html#Reference">Reference</a>(<a href="endpoint.html#Endpoint">Endpoint</a>) ], ... ; # 0..* <span style="color: navy">Technical endpoints providing access to services operated for the organization</span>
+]
+</pre>
+
+ </div>
+</div>
+
+<div id="vdiff2">
+<p><b>Changes since Release 3</b></p>
+ <div id="diff-inner2">
+  <table class="grid">
+  <tr class="diff-item">
+    <td class="diff-left">
+      <a href="organization.html#Organization">Organization</a>
+    </td>
+    <td class="diff-right"></td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Organization.active</td>
+    <td class="diff-right">
+      <ul>
+        <li>Default Value "true" removed</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="diff-entry">
+    <td class="diff-left">Organization.contact.purpose</td>
+    <td class="diff-right">
+      <ul>
+        <li>Change code system for extensibly bound codes from "http://hl7.org/fhir/contactentity-type" to "http://terminology.hl7.org/CodeSystem/contactentity-type"</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p>See the <a href="diff.html">Full Difference</a> for further information</p>
+
+  <p>
+  This analysis is available as <a href="organization.diff.xml">XML</a> or <a href="organization.diff.json">JSON</a>.
+  </p>
+  <p>See <a href="organization-version-maps.html">R3 &lt;--&gt; R4 Conversion Maps</a> (status = 11 tests that all execute ok. All tests pass round-trip testing  and <span style="background-color: #E0B0FF">1 r3 resources are invalid (0 errors).</span>)</p>
+
+ </div>
+</div>
+
+  </div>
+</div>
+
+<p>&nbsp;</p>
+<p>See the <a href="organization-profiles.html">Profiles &amp; Extensions</a> and the alternate definitions:
+Master Definition <a href="organization.profile.xml.html">XML</a> + <a href="organization.profile.json.html">JSON</a>,
+<a href="xml.html">XML</a> <a href="organization.xsd">Schema</a>/<a href="organization.sch">Schematron</a> + <a href="json.html">JSON</a> 
+<a href="organization.schema.json.html">Schema</a>, <a href="organization.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>)  + <a href="organization-profiles.html">see the extensions</a> &amp; the <a href="organization-dependencies.html">dependency analysis</a></p>
+
+<a name="tx"></a>
+<h3 class="self-link-parent"><span class="sectioncount">8.6.3.1</span> 
+Terminology Bindings
+ <a href="organization.html#tx" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<table class="grid">
+ <tr><th>Path</th><th>Definition</th><th>Type</th><th>Reference</th></tr>
+ <tr><td valign="top" title="Organization type">Organization.type </td><td valign="top">Used to categorize the organization.</td><td><a href="terminologies.html#example">Example</a></td><td valign="top"><a href="valueset-organization-type.html">OrganizationType</a>  </td> </tr>
+ <tr><td valign="top" title="Contact entity type">Organization.contact.purpose </td><td valign="top">The purpose for which you would contact a contact party.</td><td><a href="terminologies.html#extensible">Extensible</a></td><td valign="top"><a href="valueset-contactentity-type.html">ContactEntityType</a>  </td> </tr>
+</table>
+<p> </p>
+
+
+<a name="invs"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">8.6.3.2</span> Constraints <a href="organization.html#invs" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3><table class="grid"><tr><td width="60"><b>id</b></td><td><b>Level</b></td><td><b>Location</b></td><td><b>Description</b></td><td><b><a href="fhirpath.html">Expression</a></b></td></tr><tr><td><b title="Formal Invariant Identifier">org-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>(base)</td><td>The organization SHALL at least have a name or an identifier, and possibly more than one</td><td><span style="font-family: Courier New, monospace">(identifier.count() + name.count()) &gt; 0</span></td></tr><tr><td><b title="Formal Invariant Identifier">org-2</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>Organization.address</td><td>An address of an organization can never be of use 'home'</td><td><span style="font-family: Courier New, monospace">where(use = 'home').empty()</span></td></tr><tr><td><b title="Formal Invariant Identifier">org-3</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>Organization.telecom</td><td>The telecom of an organization can never be of use 'home'</td><td><span style="font-family: Courier New, monospace">where(use = 'home').empty()</span></td></tr></table>
+
+<div>
+<a name="notes"></a>
+	<h2 class="self-link-parent"><span class="sectioncount">8.6.4</span> 
+		Notes:
+	 <a href="organization.html#notes" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+	<ul>
+		<li>
+			There are two places for contact information: one on Organization itself and zero or more using the ContactEntity construct.
+			The first one is to be used for the generic, public organization point of contact. The ContactEntity is to be used for
+			reaching a person or party that has been designated by the organization to be contacted for a specific purpose or goal.
+		</li>
+	</ul>
+</div>
+
+	<div>
+<a name="example"></a>
+		<h2 class="self-link-parent"><span class="sectioncount">8.6.5</span> 
+			Example Organization Hierarchy:
+		 <a href="organization.html#example" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+	<p>
+		An example organization hierarchy should help give some guidance as to one example
+		of how a location hierarchy could look within a fictitious Medical Organization.<br>
+		<i>(The nesting here would be the "part-of" structure of the Organization resource)</i>
+	</p>
+	<pre>
+Burgers University Medical Center
+    Eastern Services (prov)
+        Emergency Dept
+        Oncology Dept
+            Nuclear Medicine Research Trials (edu)
+        Maternity Ward
+        Childrens Ward
+        Day Procedures Unit
+    Mobile Services (Ambulance)
+    Research Center (edu)
+        Nuclear Medicine  (edu)
+    Burgers University (edu)
+        Nuclear Medicine Faculty (edu)
+        Undergraduate Medicine (edu)
+        ...
+	</pre>
+	<p>
+		<i>Note that physical structures of this hierarchy are not present - these are defined by a Location hierarchy.</i>
+	</p>
+	</div>
+
+<a name="search"></a>
+<h2 class="self-link-parent"><span class="sectioncount">8.6.6</span> Search Parameters <a href="organization.html#search" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p>Search parameters for this resource. The <a href="search.html#all">common parameters</a> also apply. See <a href="search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
+<table class="list">
+<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Expression</b></td><td><b>In Common</b></td></tr>
+<tr><td><a name="sp-active"> </a>active</td><td><a href="search.html#token">token</a></td><td>Is the Organization record active</td><td>Organization.active</td><td></td></tr>
+<tr><td><a name="sp-address"> </a>address</td><td><a href="search.html#string">string</a></td><td>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</td><td>Organization.address</td><td></td></tr>
+<tr><td><a name="sp-address-city"> </a>address-city</td><td><a href="search.html#string">string</a></td><td>A city specified in an address</td><td>Organization.address.city</td><td></td></tr>
+<tr><td><a name="sp-address-country"> </a>address-country</td><td><a href="search.html#string">string</a></td><td>A country specified in an address</td><td>Organization.address.country</td><td></td></tr>
+<tr><td><a name="sp-address-postalcode"> </a>address-postalcode</td><td><a href="search.html#string">string</a></td><td>A postal code specified in an address</td><td>Organization.address.postalCode</td><td></td></tr>
+<tr><td><a name="sp-address-state"> </a>address-state</td><td><a href="search.html#string">string</a></td><td>A state specified in an address</td><td>Organization.address.state</td><td></td></tr>
+<tr><td><a name="sp-address-use"> </a>address-use</td><td><a href="search.html#token">token</a></td><td>A use code specified in an address</td><td>Organization.address.use</td><td></td></tr>
+<tr><td><a name="sp-endpoint"> </a>endpoint</td><td><a href="search.html#reference">reference</a></td><td>Technical endpoints providing access to services operated for the organization</td><td>Organization.endpoint<br>(<a href="endpoint.html">Endpoint</a>)</td><td></td></tr>
+<tr><td><a name="sp-identifier"> </a>identifier</td><td><a href="search.html#token">token</a></td><td>Any identifier for the organization (not the accreditation issuer's identifier)</td><td>Organization.identifier</td><td></td></tr>
+<tr><td><a name="sp-name"> </a>name</td><td><a href="search.html#string">string</a></td><td>A portion of the organization's name or alias</td><td>Organization.name | Organization.alias</td><td></td></tr>
+<tr><td><a name="sp-partof"> </a>partof</td><td><a href="search.html#reference">reference</a></td><td>An organization of which this organization forms a part</td><td>Organization.partOf<br>(<a href="organization.html">Organization</a>)</td><td></td></tr>
+<tr><td><a name="sp-phonetic"> </a>phonetic</td><td><a href="search.html#string">string</a></td><td>A portion of the organization's name using some kind of phonetic matching algorithm</td><td>Organization.name</td><td></td></tr>
+<tr><td><a name="sp-type"> </a>type</td><td><a href="search.html#token">token</a></td><td>A code for the type of organization</td><td>Organization.type</td><td></td></tr>
+</table>
+
+
+
+</div>
+
+
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+<div class="content-block"><h2>Content from https://build.fhir.org/organization-definitions.html</h2>
+  
+	
+
+<div class="container">  
+            
+
+<div class="row">
+            	
+
+<div class="inner-wrapper">
+  
+
+
+
+<div class="col-12">
+
+<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions <img src="external.png" alt="icon" style="vertical-align: baseline"></a></p>
+
+
+
+
+
+<ul class="nav nav-tabs"><li><a href="organization.html">Content</a></li>
+
+<li><a href="organization-examples.html">Examples</a></li>
+
+<li class="active"><a href="#">Detailed Descriptions</a></li>
+
+<li><a href="organization-mappings.html">Mappings</a></li>
+
+<li><a href="organization-operations.html">Operations</a></li>
+
+<li><a href="organization-search.html">Search Params</a></li>
+
+<li><a href="organization-profiles.html">Profiles</a></li>
+
+<li><a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Organization.html">Extensions</a></li></ul>
+
+<h2 class="self-link-parent"><span class="sectioncount">8.6.9<a name="8.6.9"> </a></span> Resource Organization - Detailed Descriptions <a href="organization-definitions.html#8.6.9" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+
+<table class="colstu"><tr><td><a href="http://www.hl7.org/Special/committees/pafm/index.cfm">Patient Administration <img src="external.png" alt="icon" style="vertical-align: baseline"></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: 5</td><td>&nbsp;<a href="versions.html#std-process" title="Standard Status">Trial Use</a></td><td><a href="security.html#SecPrivConsiderations">Security Category</a>: Business</td>  <td><a href="compartmentdefinition.html">Compartments</a>: No defined compartments</td></tr></table>
+
+
+
+<p>Detailed Descriptions for the elements in the Organization resource.</p>
+
+
+
+<table class="dict">
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization"> </a><b>Organization</b><a href="#Organization" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>A grouping of people or organizations with a common purpose</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="domainresource.html">DomainResource</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Constraints</td>
+
+<td><table class="dict">
+<tr><td colspan="4"><b>Defined on this element</b></td></tr>
+<tr><td width="60px"><b title="Formal Invariant Identifier">org-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>The organization SHALL at least have a name or an identifier, and possibly more than one</td><td><span style="font-family: Courier New, monospace">(identifier.count() + name.count()) &gt; 0</span></td></tr></table>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.identifier"> </a><b>Organization.identifier</b><a href="#Organization.identifier" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.identifier</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Identifier for the organization that is used to identify the organization across multiple disparate systems.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Identifies this organization  across multiple systems</td></tr>
+  
+
+<tr><td>Note</td>
+
+<td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Constraints</td>
+
+<td><table class="dict">
+<tr><td colspan="4"><b>Affect this element</b></td></tr>
+<tr><td width="60px"><b title="Formal Invariant Identifier">org-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>The organization SHALL at least have a name or an identifier, and possibly more than one</td><td><span style="font-family: Courier New, monospace">(identifier.count() + name.count()) &gt; 0</span></td></tr></table>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.active"> </a><b>Organization.active</b><a href="#Organization.active" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.active</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Whether the organization's record is still in active use.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Whether the organization's record is still in active use</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#boolean">boolean</a></td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#ismodifier">Is Modifier</a></td>
+
+<td>true (Reason: This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid)</td></tr>
+  
+
+<tr><td>Meaning if Missing</td>
+
+<td>This resource is generally assumed to be active if no value is provided for the active element</td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>This active flag is not intended to be used to mark an organization as temporarily closed or under construction. Instead the Location(s) within the Organization should have the suspended status. If further details of the reason for the suspension are required, then an extension on this element should be used.</p>
+<p>This element is labeled as a modifier because it may be used to mark that the resource was created in error.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.type"> </a><b>Organization.type</b><a href="#Organization.type" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.type</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The kind(s) of organization that this is.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Kind of organization</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-organization-type.html">Organization Type</a> (<a href="terminologies.html#example">Example</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to be able to track the kind of organization that this is - different organization types have different uses.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes</p>
+<p>When considering if multiple types are appropriate, you should evaluate if child organizations would be a more appropriate use of the concept, as different types likely are in different sub-areas of the organization. This is most likely to be used where type values have orthogonal values, such as a religious, academic and medical center.</p>
+<p>We expect that some jurisdictions will profile this optionality to be a single cardinality.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.name"> </a><b>Organization.name</b><a href="#Organization.name" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.name</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A name associated with the organization.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Name used for the organization</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#string">string</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to use the name as the label of the organization.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>If the name of an organization changes, consider putting the old name in the alias column so that it can still be located through searches.</p>
+</td></tr>
+  
+
+<tr><td>Constraints</td>
+
+<td><table class="dict">
+<tr><td colspan="4"><b>Affect this element</b></td></tr>
+<tr><td width="60px"><b title="Formal Invariant Identifier">org-1</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>The organization SHALL at least have a name or an identifier, and possibly more than one</td><td><span style="font-family: Courier New, monospace">(identifier.count() + name.count()) &gt; 0</span></td></tr></table>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.alias"> </a><b>Organization.alias</b><a href="#Organization.alias" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.alias</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>A list of alternate names that the organization is known as, or was known as in the past.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>A list of alternate names that the organization is known as, or was known as in the past</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#string">string</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Over time locations and organizations go through many changes and can be known by different names.</p>
+<p>For searching knowing previous names that the organization was known by can be very useful.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.description"> </a><b>Organization.description</b><a href="#Organization.description" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.description</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#markdown">markdown</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Humans need additional information to verify a correct Organization has been selected.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.contact"> </a><b>Organization.contact</b><a href="#Organization.contact" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.contact</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Official contact details for the Organization</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to keep track of assigned contact points within bigger organization.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.</p>
+</td></tr>
+  
+
+<tr><td>Constraints</td>
+
+<td><table class="dict">
+<tr><td colspan="4"><b>Defined on this element</b></td></tr>
+<tr><td width="60px"><b title="Formal Invariant Identifier">org-3</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>The telecom of an organization can never be of use 'home'</td><td><span style="font-family: Courier New, monospace">telecom.where(use = 'home').empty()</span></td></tr><tr><td width="60px"><b title="Formal Invariant Identifier">org-4</b></td><td><a style="color: Maroon" href="conformance-rules.html#rule">Rule</a> </td><td>The address of an organization can never be of use 'home'</td><td><span style="font-family: Courier New, monospace">address.where(use = 'home').empty()</span></td></tr></table>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.partOf"> </a><b>Organization.partOf</b><a href="#Organization.partOf" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.partOf</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The organization of which this organization forms a part.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>The organization of which this organization forms a part</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
+  
+
+<tr><td><a href="references.html#circular">Hierarchy</a></td>
+
+<td>This reference is part of a strict Hierarchy</td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Need to be able to track the hierarchy of organizations within an organization.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>true</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.endpoint"> </a><b>Organization.endpoint</b><a href="#Organization.endpoint" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.endpoint</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Technical endpoints providing access to services operated for the organization.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Technical endpoints providing access to services operated for the organization</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="endpoint.html">Endpoint</a>)</td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td>Comments</td>
+
+<td><p>Note that an organization might have endpoints listed in any of the referenced directory resources, not just at the top Organization level (i.e. sub Organizations, Locations, HealthcareServices, PractitionerRoles)</p>
+<p>The Endpoint.managingOrganization property indicates the organization that is supporting/managing the technical endpoint.</p>
+</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification"> </a><b>Organization.qualification</b><a href="#Organization.qualification" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.</p>
+<p>For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Qualifications, certifications, accreditations, licenses, training, etc. pertaining to the provision of care</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification.identifier"> </a><b>Organization.qualification.identifier</b><a href="#Organization.qualification.identifier" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification.identifier</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>An identifier allocated to this qualification for this organization.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>An identifier for this qualification for the organization</td></tr>
+  
+
+<tr><td>Note</td>
+
+<td>This is a business identifier, not a resource identifier (see <a href="resource.html#identifiers">discussion</a>)</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..*</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Identifier">Identifier</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Often, specific identities are assigned for the qualification by the assigning organization.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification.code"> </a><b>Organization.qualification.code</b><a href="#Organization.qualification.code" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification.code</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Coded representation of the qualification.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Coded representation of the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>1..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="terminologies.html#unbound">Qualification</a>: </td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification.status"> </a><b>Organization.qualification.status</b><a href="#Organization.qualification.status" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification.status</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Qualifications often take time to attain and might be tracked during this time, and completed qualifications might not always be valid. This status concept has some overlap with period and both should be considered together. Refer to the descriptions of the codes for how the period should be interpreted.</p>
+<p>If a qualification is revoked or otherwise cancelled, then the period is likely to be ignored, and might be related to when it was active.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Status/progress of the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="terminologies.html">Terminology Binding</a></td>
+
+<td><a href="valueset-qualification-status.html">Qualification Status</a> (<a href="terminologies.html#preferred">Preferred</a>)</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification.period"> </a><b>Organization.qualification.period</b><a href="#Organization.qualification.period" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification.period</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Period during which the qualification is valid.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Period during which the qualification is valid</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="datatypes.html#Period">Period</a></td></tr>
+  
+
+<tr><td>Requirements</td>
+
+<td><p>Qualifications are often for a limited period of time, and can be revoked.</p>
+</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+  
+
+<tr><td colspan="2" class="structure self-link-parent"><a name="Organization.qualification.issuer"> </a><b>Organization.qualification.issuer</b><a href="#Organization.qualification.issuer" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="16" class="self-link" height="16"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></td></tr>
+  
+
+<tr><td>Element Id</td>
+
+<td>Organization.qualification.issuer</td></tr>
+  
+
+<tr><td>Definition</td>
+
+<td><p>Organization that regulates and issues the qualification.</p>
+</td></tr>
+  
+
+<tr><td>Short Display</td>
+
+<td>Organization that regulates and issues the qualification</td></tr>
+  
+
+<tr><td><a href="conformance-rules.html#cardinality">Cardinality</a></td>
+
+<td>0..1</td></tr>
+  
+
+<tr><td><a href="datatypes.html">Type</a></td>
+
+<td><a href="references.html#Reference">Reference</a>(<a href="organization.html">Organization</a>)</td></tr>
+  
+
+<tr><td><a href="search.html#summary">Summary</a></td>
+
+<td>false</td></tr>
+</table>
+
+
+
+</div>   
+				</div>  
+            </div>  
+        </div>  
+        
+    </div>
+</body>
+</html>

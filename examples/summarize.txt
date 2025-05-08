@@ -1,7 +1,3 @@
-Here is an example resource definition presented in Markdown with embedded YAML blocks for structured data:
-
----
-
 # FHIR Resource: Encounter
 
 ```yaml
