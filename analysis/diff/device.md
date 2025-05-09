@@ -1,5 +1,3 @@
-Okay, here is the R4 to R6 migration guide for the FHIR Device resource.
-
 # FHIR Device Resource: R4 to R6 Migration Guide
 
 This document details significant changes to the FHIR Device resource between versions R4 and R6, focusing on aspects critical for implementers. It aims to be clear, actionable, dense, and precise to aid in migration and system adaptation when moving from R4 or when supporting both R4 and R6 versions of the Device resource.
